@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Neticware - Home</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+/* === nw-logo.css === */
+.logo {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.logo__iconContainer {
+  display: flex;
+  align-items: left;
+}
+
+.logo__icon {
+  display: inline-block;
+  height: clamp(30px, 30vw, 90px);
+  width: auto;
+  transition: transform 1s ease-out;
+}
+
+.logo__icon:hover {
+  animation: spin-fast 1s ease-out 1 forwards;
+}
+
+@keyframes spin-fast {
+  0%   { transform: rotate(0deg); }
+  90%  { transform: rotate(1440deg); }
+  100% { transform: rotate(1440deg); }
+}
+
+.logo__icon--footer-spin {
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.logo__name {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+}
+
+.logo__description {
+  color: #ffd700;
+  font-size: 0.6rem;
+  font-weight: 300;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+}
+
+.logo__text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.footer .logo__description {
+  display: none !important;
+}
+
+.logo__link {
+  display: flex;
+  align-items: center;
+}
+
+.logo--3d-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+  position: relative;
+}
+
+.logo--3d-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.logo__info {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  .logo {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.logo__icon {
+  transform: scale(0.85);
+}
+
+@media (max-width: 768px) {
+  .logo__name {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+  }
+  .logo__description {
+    display: none;
+  }
+  .logo--3d-container {
+    width: 120px !important;
+    height: 80px !important;
+  }
+}
+
+/* === hamburger-menu.css === */
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: #0A1C3D;
+  padding: 2em 1em;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.4);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  flex-direction: column;
+  display: flex;
+  gap: 1em;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hamburger-menu.show {
+  transform: translateX(0%);
+  visibility: visible;
+  opacity: 1;
+}
+
+.hamburger-button {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.hamburger-menu a {
+  color: white;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .hamburger-button {
+    display: block;
+    font-size: 1.2rem;
+    padding: 0.2em;
+  }
+  .hamburger-menu {
+    width: 180px;
+    padding: 1em 0.5em;
+  }
+}
+
+/* === test-button.css === */
+.test-button {
+  background-color: #8B5CF6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.2em 0.8em;
+  font-size: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.test-button:hover {
+  background-color: #7C3AED;
+  transform: scale(1.05);
+}
+
+/* === hero-styles.css === */
+.hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 2em;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 1rem 0 2rem 0;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  align-self: center;
+  background-color: rgba(10, 10, 25, 0.4);
+  border-radius: 4px;
+}
+
+.hero h1:hover {
+  background-color: rgba(10, 10, 25, 0.7);
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+}
+
+.hero .hero-content {
+  width: 100%;
+  max-width: 30em;
+  min-width: 0;
+  box-sizing: border-box;
+  height: 20em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 4.5rem;
+  color: white;
+  border-radius: 12px;
+  background-color: rgba(10, 10, 25, 0.4);
+  padding: 1.5em;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.hero p:hover {
+  background-color: rgba(10, 10, 25, 0.7);
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.hero .hero-cta {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(31, 107, 255, 0.2);
+  color: white;
+  border: 2px solid #1F6BFF;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(31, 107, 255, 0.3);
+  max-width: fit-content;
+  margin-top: 1rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+.hero .hero-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1F6BFF, #8B5CF6);
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero .hero-cta::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 8px;
+  background: conic-gradient(from 0deg, #1F6BFF, #8B5CF6, #1F6BFF);
+  z-index: -2;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.hero .hero-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(31, 107, 255, 0.4);
+  background-color: transparent;
+}
+
+.hero .hero-cta:hover::before {
+  transform: scale(1);
+}
+
+.hero .hero-cta:hover::after {
+  animation: rotate-border 2s linear infinite;
+  transform: scale(1);
+  opacity: 1;
+}
+
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .hero .hero-content {
+    width: 90%;
+    height: auto;
+    padding: 1em;
+    margin: 0 auto;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero button {
+    font-size: 0.9rem;
+    padding: 0.6em 1em;
+  }
+}
+
+.hero .hero-cta {
+  position: relative;
+  box-shadow: 0 0 5px #1F6BFF, 0 0 10px #1F6BFF, 0 0 20px #8B5CF6, 0 0 40px #8B5CF6;
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px #1F6BFF, 0 0 10px #1F6BFF, 0 0 20px #8B5CF6, 0 0 40px #8B5CF6;
+  }
+  50% {
+    box-shadow: 0 0 2px #1F6BFF, 0 0 5px #1F6BFF, 0 0 10px #8B5CF6, 0 0 20px #8B5CF6;
+  }
+}
+
+/* === contactForm5.css === */
+#contact {
+  background-image: url('src/main/frontend/themes/nw-base/images/panel-metal.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 960px;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  width: 100%;
+  background: rgba(8, 12, 28, 0.75);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  border: 1px solid rgba(120, 146, 255, 0.22);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(120,146,255,0.08);
+  padding: 28px;
+  color: #EAF0FF;
+}
+
+.form-wrapper h2 {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  color: #fff;
+}
+
+.form-wrapper p {
+  margin: 0 0 20px 0;
+  color: rgba(234, 240, 255, 0.85);
+}
+
+.recaptcha-wrapper {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recaptcha-wrapper iframe {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: scale(1.05);
+  transform-origin: center;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #1F6BFF, #8B5CF6);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(31, 107, 255, 0.35);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(31, 107, 255, 0.45);
+  filter: brightness(1.05);
+}
+
+@media (max-width: 768px) {
+  .form-wrapper { padding: 18px; border-radius: 12px; }
+}
+
+/* === styles.css (global) === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0A1C3D;
+  color: white;
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  margin: 0.5em 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --navbar-height: 80px;
+}
+
+vaadin-app-layout::part(navbar) {
+  height: var(--navbar-height) !important;
+  min-height: var(--navbar-height) !important;
+  padding: 0 !important;
+}
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #0A1C3D;
+  height: var(--navbar-height) !important;
+  padding-top: 1 !important;
+  padding-bottom: 0 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top-bar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-right: 1rem;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 50px;
+  }
+}
+@media (max-width: 370px) {
+  :root {
+    --navbar-height: 40px;
+  }
+}
+
+#hero {
+  background-color: #EBE0F7;
+}
+.hero{
+  background-image: url('src/main/frontend/themes/nw-base/images/Gemini_tablet.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/gpt-teclado-icono-mano.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-3.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-admin.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-fondo.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-colores.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-violeta.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-hello-november.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-hello-user.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/Laboratorio-Diseño-Futurista.png');
+}
+
+.footer {
+  background-color: #23272f;
+  color: white;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 0.1em 1em;
+  }
+  .logo__text {
+    font-size: 1rem;
+  }
+  .hamburger-button {
+    font-size: 1.5rem;
+  }
+  .navbar {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo">
+        <div class="logo__iconContainer">
+          <a href="/" class="logo__link">
+            <img src="src/main/frontend/themes/nw-base/images/Icono-sinFondo-ChatGPT.png" alt="Neticware Logo" class="logo__icon logo__icon--animated" />
+          </a>
+        </div>
+        <div class="logo__text-group">
+          <span class="logo__name">neticware</span>
+          <span class="logo__description">SOFTWARE DEVELOPMENT</span>
+        </div>
+      </div>
+      <button class="test-button" onclick="location.href='pru'">Ir a /pru</button>
+      <nav class="navbar">
+        <a href="#hero">Inicio</a>
+        <a href="#services">Servicios</a>
+        <a href="#products">Productos</a>
+        <a href="#about">Sobre Nosotros</a>
+        <a href="#community">Comunidad</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <button class="hamburger-button">☰</button>
+    </div>
+    <div class="hamburger-menu">
+      <button class="close-button">✖</button>
+      <a href="/#services">Servicios</a>
+      <a href="/#products">Productos</a>
+      <a href="/#community">Comunidad</a>
+      <a href="/#contact">Contacto</a>
+      <a href="/#about">Nosotros</a>
+    </div>
+  </header>
+
+  <section id="hero" class="hero" style="background-image: url('src/main/frontend/themes/nw-base/images/Laboratorio-Diseño-Futurista.png');">
+    <h1>Transformá tus ideas en soluciones digitales</h1>
+    <div class="hero-content">
+      <p>Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones móviles y plataformas en la nube para impulsar el crecimiento de tu negocio</p>
+      <a href="#contact"><button class="hero-cta">Hablemos de tu idea →</button></a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Nuestros Servicios</h2>
+    <p>• Desarrollo de aplicaciones web con Vaadin y Spring Boot.</p>
+    <p>• Aplicaciones móviles.</p>
+    <p>• Soluciones SaaS a medida.</p>
+    <p>• Investigación en Machine Learning con Java (JSR-381, DeepNetts).</p>
+  </section>
+
+  <section id="products" class="products">
+    <h2>Prototypes and Current Products</h2>
+    <p>• Online dataset analyzer (Pandas-style SaaS).</p>
+    <p>• Initial ecommerce platform (clothing).</p>
+    <p>• Technical forums (Java + ML).</p>
+    <p>• Professional websites.</p>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>Neticware is a software development startup focused on Java, Vaadin, and Machine Learning.</p>
+    <p>We aim to create innovative tech solutions and a Spanish-speaking tech community.</p>
+  </section>
+
+  <section id="community" class="community">
+    <h2>Community</h2>
+    <p>Join the Spanish-speaking community of Java Machine Learning.</p>
+    <p>Participate in forums, blog, and collaborative activities.</p>
+  </section>
+
+  <section id="contact">
+    <div class="contact-card">
+      <div class="form-wrapper">
+        <h2>Formulario</h2>
+        <p>Complete los campos a continuación para que podamos ponernos en contacto con usted.</p>
+        <form>
+          <label>Nombre</label>
+          <input type="text" required />
+          <label>Correo electrónico</label>
+          <input type="email" required />
+          <label>Teléfono</label>
+          <input type="text" />
+          <label>Mensaje</label>
+          <textarea placeholder="Escriba su consulta..." style="height:120px;"></textarea>
+          <div class="recaptcha-wrapper">
+            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+          </div>
+          <button type="button" class="cta-button">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="footer">
+    <div class="logo">
+      <div class="logo__iconContainer">
+        <a href="/" class="logo__link">
+          <img src="src/main/frontend/themes/nw-base/images/Icono-sinFondo-ChatGPT.png" alt="Neticware Logo" class="logo__icon logo__icon--footer-spin" />
+        </a>
+      </div>
+      <div class="logo__text-group">
+        <span class="logo__name">neticware</span>
+        <span class="logo__description">SOFTWARE DEVELOPMENT</span>
+      </div>
+    </div>
+    <p>Website | Mobile | SaaS </p>
+    <p>© 2025 NETICWARE | Desarrollo de Software | Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburgerButton = document.querySelector('.hamburger-button');
+      const hamburgerMenu = document.querySelector('.hamburger-menu');
+      const closeBtn = document.querySelector('.close-button');
+      hamburgerButton.addEventListener('click', () => hamburgerMenu.classList.add('show'));
+      closeBtn.addEventListener('click', () => hamburgerMenu.classList.remove('show'));
+      hamburgerMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => hamburgerMenu.classList.remove('show'));
+      });
+    });
+  </script>
+</body>
+</html>

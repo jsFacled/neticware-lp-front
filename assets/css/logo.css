@@ -1,0 +1,16 @@
+/* Bloque principal del logo (del proyecto) */
+.logo{ display:flex; align-items:center; flex-wrap:wrap; gap:.5rem; margin:1rem 0; }
+.logo__icon{ height:40px; } /* tamaño base */
+.logo__text{ color:white; font-size:1.5rem; font-weight:bold; font-family:'Poppins',sans-serif; }
+.logo__description{ color:white; font-size:.8rem; font-family:'Poppins',sans-serif; font-weight:normal; }
+.logo__link{ display:flex; align-items:center; }
+
+/* Animación giro continua (se usa en footer) */
+.logo__icon--animated{ animation:spin 6s linear infinite; }
+@keyframes spin{ 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+
+/* Responsive texto logo */
+@media (max-width:768px){
+  .logo{ flex-direction:column; }
+  .logo__text{ font-size:1.2rem; text-align:center; width:100%; }
+}

@@ -1,0 +1,77 @@
+/* HERO base del proyecto */
+#hero{ background-color:#EBE0F7; } /* id presente en el CSS original */
+
+.hero{
+  /* Fondo: degradado + imagen (usa tu carpeta /images) */
+  background:
+    linear-gradient(to right, rgba(0,0,0,.7) 0%, rgba(10,28,61,.3) 40%, rgba(10,28,61,0) 80%),
+    url('assets/images/Laboratorio-Diseño-Futurista.png');
+  background-size:cover; background-repeat:no-repeat; background-position:center;
+  width:100%; min-height:100vh;
+
+  display:flex; flex-direction:column; position:relative; padding:2em;
+}
+
+/* Título */
+.hero h1{
+  font-size:3rem; margin:1rem 0 2rem; color:white;
+  text-shadow:1px 1px 2px black; align-self:center;
+  background-color:rgba(10,10,25,.4); border-radius:4px;
+}
+.hero h1:hover{
+  background-color:rgba(10,10,25,.7); transition:background-color .3s ease; border-radius:10px;
+}
+
+/* Contenido (subtítulo + botón) */
+.hero .hero-content{
+  width:100%; max-width:30em; min-width:0; box-sizing:border-box; height:20em;
+  display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start;
+  margin-top:4.5rem; color:white; border-radius:12px;
+  background-color:rgba(10,10,25,.4);
+  padding:1.5em; box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+.hero p{ font-size:1.2rem; margin:0 0 1.5rem; max-width:600px; text-align:left; }
+.hero p:hover{ background-color:rgba(10,10,25,.7); transition:background-color .3s ease; border-radius:5px; }
+
+/* Botón “neón” con borde conic-gradient */
+.hero .hero-cta{
+  position:relative; overflow:hidden; color:white;
+  background-color:rgba(31,107,255,.2);
+  border:2px solid #1F6BFF; border-radius:8px; padding:.6em 1.2em; font-weight:600; cursor:pointer; z-index:1;
+  box-shadow:0 4px 12px rgba(31,107,255,.3);
+  max-width:fit-content; margin-top:1rem;
+  transition:transform .2s ease-in-out, box-shadow .2s ease-in-out, background-color .3s ease;
+}
+.hero .hero-cta::before{
+  content:""; position:absolute; inset:0; border-radius:8px;
+  background:linear-gradient(135deg,#1F6BFF,#8B5CF6); z-index:-1; transform:scale(0);
+  transition:transform .3s ease-in-out;
+}
+.hero .hero-cta::after{
+  content:""; position:absolute; inset:0; border-radius:8px; z-index:-2;
+  background:conic-gradient(from 0deg,#1F6BFF,#8B5CF6,#1F6BFF);
+  transform:scale(0); opacity:0; transition:transform .2s ease-in-out, opacity .2s ease-in-out;
+}
+.hero .hero-cta:hover{
+  transform:scale(1.05); box-shadow:0 6px 20px rgba(31,107,255,.4); background-color:transparent;
+}
+.hero .hero-cta:hover::before{ transform:scale(1); }
+.hero .hero-cta:hover::after{ animation:rotate-border 2s linear infinite; transform:scale(1); opacity:1; }
+@keyframes rotate-border{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+/* Glow tipo “neón” continuo */
+.hero .hero-cta{
+  box-shadow:0 0 5px #1F6BFF, 0 0 10px #1F6BFF, 0 0 20px #8B5CF6, 0 0 40px #8B5CF6;
+  animation:neonPulse 2s ease-in-out infinite;
+}
+@keyframes neonPulse{
+  0%,100%{ box-shadow:0 0 5px #1F6BFF,0 0 10px #1F6BFF,0 0 20px #8B5CF6,0 0 40px #8B5CF6; }
+  50%{ box-shadow:0 0 2px #1F6BFF,0 0 5px #1F6BFF,0 0 10px #8B5CF6,0 0 20px #8B5CF6; }
+}
+
+/* Responsive */
+@media (max-width:768px){
+  .hero .hero-content{ width:90%; height:auto; padding:1em; margin:0 auto; }
+  .hero p{ font-size:1rem; }
+  .hero button{ font-size:.9rem; padding:.6em 1em; }
+}

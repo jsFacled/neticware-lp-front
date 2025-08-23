@@ -2,91 +2,93 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neticware — Soluciones digitales</title>
-  <meta name="description" content="Transformá tus ideas en soluciones digitales: sitios web, apps y nube." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neticware — Landing</title>
+  <meta name="description" content="Transformá tus ideas en soluciones digitales." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/logo.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/hero.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <a href="#inicio" class="brand">neticware</a>
 
-    <button class="hamburger" aria-label="Abrir menú" aria-controls="nav" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-row">
+      <a href="#hero" class="logo logo__link">
+        <img class="logo__icon" src="images/Neticware_logo_Apto_INPI.jpg" alt="Neticware logo">
+        <span class="logo__text">neticware</span>
+      </a>
 
-    <nav id="nav" class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+      <nav class="navbar-links">
+        <a href="#hero">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button id="hamburgerBtn" class="hamburger-button" aria-label="Abrir menú">☰</button>
+    </div>
   </header>
 
+  <!-- Menú hamburguesa lateral -->
+  <aside id="hamburgerMenu" class="hamburger-menu" aria-hidden="true">
+    <button id="closeMenu" class="close-button" aria-label="Cerrar">✕</button>
+    <a href="#hero">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </aside>
+
   <!-- Hero -->
-  <section id="inicio" class="hero">
-    <div class="hero__content container">
-      <h1>Transformá tus ideas en <span class="grad">soluciones digitales</span></h1>
+  <section id="hero" class="hero">
+    <h1>Transformá tus ideas en soluciones digitales</h1>
+
+    <div class="hero-content">
       <p>Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones y plataformas en la nube para impulsar tu negocio.</p>
-      <div class="cta-row">
-        <a class="btn btn--primary" href="#contacto">Hablemos de tu idea →</a>
-        <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
-      </div>
+      <button class="hero-cta" onclick="document.querySelector('#contacto').scrollIntoView({behavior:'smooth'})">
+        Hablemos de tu idea →
+      </button>
     </div>
-    <!-- Si querés imagen de fondo, ponela en CSS en .hero::before -->
   </section>
 
   <!-- Servicios -->
   <section id="servicios" class="section container">
-    <h2 class="section__title">Servicios</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Landingpages</h3>
-        <p>Rápidas, responsive y pensadas para convertir visitantes en clientes.</p>
-      </article>
-      <article class="card">
-        <h3>Aplicaciones Web</h3>
-        <p>Frontends modernos y escalables integrados a tus APIs.</p>
-      </article>
-      <article class="card">
-        <h3>Nube & DevOps</h3>
-        <p>Deploy en AWS, CI/CD y performance para crecer sin fricción.</p>
-      </article>
+    <h2>Servicios</h2>
+    <div class="cards">
+      <article class="card"><h3>Landingpages</h3><p>Rápidas, responsive y enfocadas en conversión.</p></article>
+      <article class="card"><h3>Aplicaciones Web</h3><p>Frontends modernos integrados a tus APIs.</p></article>
+      <article class="card"><h3>Nube & DevOps</h3><p>Deploy en AWS, CI/CD y performance.</p></article>
     </div>
   </section>
 
   <!-- Contacto -->
   <section id="contacto" class="section container">
-    <h2 class="section__title">Contacto</h2>
+    <h2>Contacto</h2>
     <form id="contactForm" class="form" autocomplete="on">
-      <div class="field">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="tu@mail.com" required />
-      </div>
-      <div class="field">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Contame sobre tu proyecto" required></textarea>
-      </div>
-      <button class="btn btn--primary" type="submit">Enviar</button>
-      <p class="form__note">Este formulario usa <code>mailto:</code> para GitHub Pages (solo frontend).</p>
+      <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+      <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="5" required></textarea></div>
+      <button class="btn" type="submit">Enviar</button>
+      <p class="form__note">En GitHub Pages se usa <code>mailto:</code> (solo frontend).</p>
     </form>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer__content">
+      <div class="logo">
+        <img class="logo__icon logo__icon--animated" src="images/Neticware_logo_Apto_INPI.jpg" alt="Neticware logo girando">
+        <span class="logo__description">innovación & soluciones</span>
+      </div>
       <span>© <span id="year"></span> Neticware</span>
-      <a href="#inicio" class="up">Subir ↑</a>
+      <a class="up" href="#hero">Subir ↑</a>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
