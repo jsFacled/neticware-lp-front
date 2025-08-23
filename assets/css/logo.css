@@ -1,16 +1,22 @@
-/* Bloque principal del logo (del proyecto) */
-.logo{ display:flex; align-items:center; flex-wrap:wrap; gap:.5rem; margin:1rem 0; }
-.logo__icon{ height:40px; } /* tamaño base */
-.logo__text{ color:white; font-size:1.5rem; font-weight:bold; font-family:'Poppins',sans-serif; }
-.logo__description{ color:white; font-size:.8rem; font-family:'Poppins',sans-serif; font-weight:normal; }
-.logo__link{ display:flex; align-items:center; }
+/* ===== Logo / Marca ===== */
+.logo {
+  box-sizing: border-box; display: flex; flex-direction: row; align-items: center;
+  flex-wrap: nowrap; gap: .5rem; margin: 1rem 0;
+}
+.logo__iconContainer { display: flex; align-items: left; }
+.logo__icon { display: inline-block; height: clamp(30px, 30vw, 90px); width: auto; transition: transform 1s ease-out; transform: scale(.85); }
+.logo__icon:hover { animation: spin-fast 1s ease-out 1 forwards; }
+@keyframes spin-fast { 0%{transform:rotate(0)} 90%{transform:rotate(1440deg)} 100%{transform:rotate(1440deg)} }
+.logo__icon--footer-spin { animation: spin 6s linear infinite; }
+@keyframes spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
 
-/* Animación giro continua (se usa en footer) */
-.logo__icon--animated{ animation:spin 6s linear infinite; }
-@keyframes spin{ 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+.logo__name { color: #fff; font-size: 2rem; font-weight: 700; font-family: 'Poppins', sans-serif; line-height: 1.2; }
+.logo__description { color: #ffd700; font-size: .6rem; font-weight: 300; font-family: 'Poppins', sans-serif; letter-spacing: .05em; text-transform: uppercase; margin-top: .1rem; }
+.logo__text-group { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.footer .logo__description { display: none !important; }
+.logo__link { display: flex; align-items: center; }
 
-/* Responsive texto logo */
-@media (max-width:768px){
-  .logo{ flex-direction:column; }
-  .logo__text{ font-size:1.2rem; text-align:center; width:100%; }
+@media (max-width: 768px) {
+  .logo__name { font-size: 1.2rem; text-align: center; width: 100%; }
+  .logo__description { display: none; }
 }

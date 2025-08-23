@@ -1,0 +1,30 @@
+/* ===== Contacto / Formulario ===== */
+#contact {
+  background-image: url('../assets/images/panel-metal.png');
+  background-size: cover; background-position: center;
+  display: flex; justify-content: center; align-items: center;
+  padding: 40px 16px;
+}
+
+.contact-card { width: 100%; max-width: 960px; padding: 24px; display: flex; justify-content: center; }
+
+.form-wrapper {
+  width: 100%; background: rgba(8,12,28,.75); backdrop-filter: blur(6px);
+  border-radius: 16px; border: 1px solid rgba(120,146,255,.22);
+  box-shadow: 0 10px 40px rgba(0,0,0,.45), inset 0 0 0 1px rgba(120,146,255,.08);
+  padding: 28px; color: #EAF0FF;
+}
+.form-wrapper h2 { margin: 0 0 8px 0; font-weight: 700; color: #fff; }
+.form-wrapper p { margin: 0 0 20px 0; color: rgba(234,240,255,.85); }
+
+.recaptcha-wrapper { margin: 20px 0; display: flex; justify-content: center; align-items: center; }
+.recaptcha-wrapper iframe { filter: none !important; opacity: 1 !important; transform: scale(1.05); transform-origin: center; }
+
+.cta-button {
+  background: linear-gradient(135deg, #1F6BFF, #8B5CF6); color: #fff; border: none; border-radius: 10px;
+  padding: 10px 18px; font-weight: 600; box-shadow: 0 6px 20px rgba(31,107,255,.35);
+  transition: transform .15s, box-shadow .15s, filter .15s;
+}
+.cta-button:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(31,107,255,.45); filter: brightness(1.05); }
+
+@media (max-width: 768px) { .form-wrapper { padding: 18px; border-radius: 12px; } }

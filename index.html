@@ -1,94 +1,154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Neticware — Landing</title>
-  <meta name="description" content="Transformá tus ideas en soluciones digitales." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/logo.css">
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/hero.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Neticware - Home</title>
+
+  <!-- CSS externos -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/logo.css" />
+<link rel="stylesheet" href="assets/css/menu.css" />
+<link rel="stylesheet" href="assets/css/hero.css" />
+<link rel="stylesheet" href="assets/css/contact.css" />
+<link rel="stylesheet" href="assets/css/sections.css" />
+<link rel="stylesheet" href="assets/css/footer.css" />
+
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-
-  <!-- Header -->
   <header class="main-header">
-    <div class="container header-row">
-      <a href="#hero" class="logo logo__link">
-        <img class="logo__icon" src="images/Neticware_logo_Apto_INPI.jpg" alt="Neticware logo">
-        <span class="logo__text">neticware</span>
-      </a>
+    <div class="top-bar">
+      <div class="logo">
+        <div class="logo__iconContainer">
+          <a href="/" class="logo__link">
+            <img
+              src="assets/images/neticware-logo.png"
+              alt="Neticware Logo"
+              class="logo__icon logo__icon--animated"
+            />
+          </a>
+        </div>
+        <div class="logo__text-group">
+          <span class="logo__name">neticware</span>
+          <span class="logo__description">SOFTWARE DEVELOPMENT</span>
+        </div>
+      </div>
 
-      <nav class="navbar-links">
+      <button class="test-button" onclick="location.href='pru'">Ir a /pru</button>
+
+      <nav class="navbar" aria-label="Menú principal">
         <a href="#hero">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#services">Servicios</a>
+        <a href="#products">Productos</a>
+        <a href="#about">Sobre Nosotros</a>
+        <a href="#community">Comunidad</a>
+        <a href="#contact">Contacto</a>
       </nav>
 
-      <button id="hamburgerBtn" class="hamburger-button" aria-label="Abrir menú">☰</button>
+      <button class="hamburger-button" aria-label="Abrir menú">☰</button>
+    </div>
+
+    <div class="hamburger-menu" aria-hidden="true">
+      <button class="close-button" aria-label="Cerrar menú">✖</button>
+      <a href="/#services">Servicios</a>
+      <a href="/#products">Productos</a>
+      <a href="/#community">Comunidad</a>
+      <a href="/#contact">Contacto</a>
+      <a href="/#about">Nosotros</a>
     </div>
   </header>
 
-  <!-- Menú hamburguesa lateral -->
-  <aside id="hamburgerMenu" class="hamburger-menu" aria-hidden="true">
-    <button id="closeMenu" class="close-button" aria-label="Cerrar">✕</button>
-    <a href="#hero">Inicio</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-  </aside>
-
-  <!-- Hero -->
-  <section id="hero" class="hero">
+  <section
+    id="hero"
+    class="hero"
+    style="background-image: url('assets/images/Laboratorio-Diseño-Futurista.png');"
+  >
     <h1>Transformá tus ideas en soluciones digitales</h1>
-
     <div class="hero-content">
-      <p>Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones y plataformas en la nube para impulsar tu negocio.</p>
-      <button class="hero-cta" onclick="document.querySelector('#contacto').scrollIntoView({behavior:'smooth'})">
-        Hablemos de tu idea →
-      </button>
+      <p>
+        Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones móviles y plataformas en la nube
+        para impulsar el crecimiento de tu negocio
+      </p>
+      <a href="#contact"><button class="hero-cta">Hablemos de tu idea →</button></a>
     </div>
   </section>
 
-  <!-- Servicios -->
-  <section id="servicios" class="section container">
-    <h2>Servicios</h2>
-    <div class="cards">
-      <article class="card"><h3>Landingpages</h3><p>Rápidas, responsive y enfocadas en conversión.</p></article>
-      <article class="card"><h3>Aplicaciones Web</h3><p>Frontends modernos integrados a tus APIs.</p></article>
-      <article class="card"><h3>Nube & DevOps</h3><p>Deploy en AWS, CI/CD y performance.</p></article>
-    </div>
+  <section id="services" class="services">
+    <h2>Nuestros Servicios</h2>
+    <p>• Desarrollo de aplicaciones web con Vaadin y Spring Boot.</p>
+    <p>• Aplicaciones móviles.</p>
+    <p>• Soluciones SaaS a medida.</p>
+    <p>• Investigación en Machine Learning con Java (JSR-381, DeepNetts).</p>
   </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="section container">
-    <h2>Contacto</h2>
-    <form id="contactForm" class="form" autocomplete="on">
-      <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" required></div>
-      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
-      <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="5" required></textarea></div>
-      <button class="btn" type="submit">Enviar</button>
-      <p class="form__note">En GitHub Pages se usa <code>mailto:</code> (solo frontend).</p>
-    </form>
+  <section id="products" class="products">
+    <h2>Prototypes and Current Products</h2>
+    <p>• Online dataset analyzer (Pandas-style SaaS).</p>
+    <p>• Initial ecommerce platform (clothing).</p>
+    <p>• Technical forums (Java + ML).</p>
+    <p>• Professional websites.</p>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__content">
-      <div class="logo">
-        <img class="logo__icon logo__icon--animated" src="images/Neticware_logo_Apto_INPI.jpg" alt="Neticware logo girando">
-        <span class="logo__description">innovación & soluciones</span>
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>Neticware is a software development startup focused on Java, Vaadin, and Machine Learning.</p>
+    <p>We aim to create innovative tech solutions and a Spanish-speaking tech community.</p>
+  </section>
+
+  <section id="community" class="community">
+    <h2>Community</h2>
+    <p>Join the Spanish-speaking community of Java Machine Learning.</p>
+    <p>Participate in forums, blog, and collaborative activities.</p>
+  </section>
+
+  <section id="contact">
+    <div class="contact-card">
+      <div class="form-wrapper">
+        <h2>Formulario</h2>
+        <p>Complete los campos a continuación para que podamos ponernos en contacto con usted.</p>
+        <form>
+          <label>Nombre</label>
+          <input type="text" required />
+          <label>Correo electrónico</label>
+          <input type="email" required />
+          <label>Teléfono</label>
+          <input type="text" />
+          <label>Mensaje</label>
+          <textarea placeholder="Escriba su consulta..." style="height:120px;"></textarea>
+
+          <div class="recaptcha-wrapper">
+            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+          </div>
+
+          <button type="button" class="cta-button">Enviar</button>
+        </form>
       </div>
-      <span>© <span id="year"></span> Neticware</span>
-      <a class="up" href="#hero">Subir ↑</a>
     </div>
+  </section>
+
+  <footer id="footer" class="footer">
+    <div class="logo">
+      <div class="logo__iconContainer">
+        <a href="/" class="logo__link">
+          <img
+            src="assets/images/Icono-sinFondo-ChatGPT.png"
+            alt="Neticware Logo"
+            class="logo__icon logo__icon--footer-spin"
+          />
+        </a>
+      </div>
+      <div class="logo__text-group">
+        <span class="logo__name">neticware</span>
+        <span class="logo__description">SOFTWARE DEVELOPMENT</span>
+      </div>
+    </div>
+    <p>Website | Mobile | SaaS</p>
+    <p>© 2025 NETICWARE | Desarrollo de Software | Todos los derechos reservados</p>
   </footer>
 
-  <!-- JS -->
-  <script src="js/main.js"></script>
+  <!-- JS principal -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
