@@ -1,178 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Neticware</title>
-<style>
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  text-align: center;
-}
-#logo3d {
-  width: 300px;
-  height: 200px;
-  margin-bottom: 1rem;
-}
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* === CSS del proyecto === */
-
-
-/*****************   Estilos generales   *******************/
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/*****************   Estilos por Elementos html   *******************/
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #0A1C3D;
-  color: white;
-  margin: 0;
-}
-
-h1, h2 {
-  font-family: 'Poppins', sans-serif;
-  margin: 0.5em 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* ###############  HEADER SECTION   ############### */
-
-/* Valor por defecto para escritorio y tablets verticales */
-:root {
-  --navbar-height: 80px;
-}
-
-
-
-
-/* Aplicación global de la variable a Vaadin */
-vaadin-app-layout::part(navbar) {
-  height: var(--navbar-height) !important;
-  min-height: var(--navbar-height) !important;
-  padding: 0 !important;
-}
-
-/* Header interno personalizado */
-.main-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: #0A1C3D;
-  height: var(--navbar-height) !important;
-  padding-top: 1 !important;
-  padding-bottom: 0 !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding-right: 1rem;
-}
-
-@media (max-width: 768px) {
-  :root {
-    --navbar-height: 50px;
-  }
-}
-@media (max-width: 370px) {
-  :root {
-    --navbar-height: 40px;
-  }
-}
-
-/* ###############   HERO SECTION   ############### */
-#hero {
-  background-color: #EBE0F7;
-}
-.hero{
-
-
- background-image: url('src/main/frontend/themes/nw-base/images/Gemini_tablet.png');
- background-image: url('src/main/frontend/themes/nw-base/images/gpt-teclado-icono-mano.png');
- background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-3.png');
- background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-admin.png');
- background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-fondo.png');
- background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-colores.png');
- background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-violeta.png');
-  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-hello-november.png');
-  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-hello-user.png');
-   background-image: url('src/main/frontend/themes/nw-base/images/Laboratorio-Diseño-Futurista.png');
-   /*
- background:
-    linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(10, 28, 61, 0.3) 40%, rgba(10, 28, 61, 0) 80%),
-    url('VAADIN/themes/nw-base/images/Laboratorio-Diseño-Futurista.png');
-*/
-
-}
-/* ################################################ */
-
-
-/* ###############   CONTACT SECTION   ############### */
-#contact {
-
-}
-
-
-/* ################################################ */
-
-
-/* ###############   FOOTER SECTION   ############### */
-.footer {
-  background-color: #23272f;
-  color: white;
-  font-size: 1rem;
-}
-
-/*  ##################################################################### */
-/*  ##########################     @ MEDIA     ########################## */
-/*  ##################################################################### */
-
-/* 🔽 Ajustes compartidos para móviles */
-@media (max-width: 768px) {
-  .main-header {
-    padding: 0.1em 1em;
-  }
-
-  .logo__text {
-    font-size: 1rem;
-  }
-
-  .hamburger-button {
-    font-size: 1.5rem;
-  }
-
-  .navbar {
-    display: none;
-  }
-}
-/* Bloque principal del logo */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Neticware - Home</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+/* === nw-logo.css === */
 .logo {
   box-sizing: border-box;
   display: flex;
@@ -195,9 +29,6 @@ vaadin-app-layout::part(navbar) {
   transition: transform 1s ease-out;
 }
 
-/* ============================================
-   🔁 Animación al hacer hover (gira rápido 4 vueltas y se detiene)
-   ============================================ */
 .logo__icon:hover {
   animation: spin-fast 1s ease-out 1 forwards;
 }
@@ -211,15 +42,6 @@ vaadin-app-layout::part(navbar) {
 .logo__icon--footer-spin {
   animation: spin 6s linear infinite;
 }
-
-/* ============================================
-   🔒 Animación original al cargar (comentada)
-   ============================================ */
-/*
-.logo__icon--animated {
-  animation: spin 6s linear infinite;
-}
-*/
 
 @keyframes spin {
   0%   { transform: rotate(0deg); }
@@ -260,13 +82,14 @@ vaadin-app-layout::part(navbar) {
   align-items: center;
 }
 
-/* Logo 3D (contenedor visual) */
 .logo--3d-container {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
   position: relative;
+  width: 120px;
+  height: 80px;
 }
 
 .logo--3d-container canvas {
@@ -290,100 +113,32 @@ vaadin-app-layout::part(navbar) {
   pointer-events: none;
 }
 
-/*  ##################################################################### */
-/*  ##########################     @ MEDIA     ########################## */
-/*  ##################################################################### */
-
-/* Responsive Desktop */
 @media (min-width: 769px) {
   .logo {
     flex-direction: row;
     align-items: center;
   }
 }
-  .logo__icon {
-    transform: scale(0.85);
-  }
+.logo__icon {
+  transform: scale(0.85);
+}
 
-/* Responsive Mobile */
 @media (max-width: 768px) {
   .logo__name {
     font-size: 1.2rem;
     text-align: center;
     width: 100%;
   }
-
   .logo__description {
     display: none;
   }
-
   .logo--3d-container {
     width: 120px !important;
     height: 80px !important;
   }
-}.hamburger-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 220px;
-  background-color: #0A1C3D;
-  padding: 2em 1em;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.4);
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 1000;
-  flex-direction: column;
-  display: flex;
-  gap: 1em;
-  visibility: hidden;
-  opacity: 0;
 }
 
-.hamburger-menu.show {
-  transform: translateX(0%);
-  visibility: visible;
-  opacity: 1;
-}
-
-.hamburger-button {
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: none;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  align-self: flex-end;
-  cursor: pointer;
-}
-
-.hamburger-menu a {
-  color: white;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-}
-
-/*  #######################     @ MEDIA     ####################### */
-@media (max-width: 768px) {
-  .hamburger-button {
-    display: block;
-  }
-    font-size: 1.2rem;
-      padding: 0.2em;
-
-  .hamburger-menu {
-    width: 180px;
-    padding: 1em 0.5em;
-  }
-}
-
+/* === hamburger-menu.css === */
 .hamburger-menu {
   position: fixed;
   top: 0;
@@ -433,219 +188,19 @@ vaadin-app-layout::part(navbar) {
   font-family: 'Poppins', sans-serif;
 }
 
-/*  ##################################################################### */
-/*  ##########################     @ MEDIA     ########################## */
-/*  ##################################################################### */
-
 @media (max-width: 768px) {
   .hamburger-button {
     display: block;
-     font-size: 1.2rem;
-        padding: 0.2em;
+    font-size: 1.2rem;
+    padding: 0.2em;
   }
   .hamburger-menu {
-      width: 180px;
-      padding: 1em 0.5em;
-    }
-}
-
-/*
- src/main/frontend/themes/hero-pruebas.css
-*/
-
-/*  *  *  *  *  *  *  * Atributos generales de herosection *  *  *  *  *  *  *  */
-.hs-pru{
-padding:10px;
- border: 3px solid #f0f0f0; /* Tu borde */
-  border-radius: 10px; /* Redondea las 4 esquinas con un radio de 10 píxeles */
-   margin-bottom: 20px;
-   margin-top: 20px;
-
-}
-
-/*  *  *  * ###########   HS 2  ############### *  *  *  */
-
-/* ---- ---- ---- General para Hero ---- ---- ---- */
-.hs2 {
-  background-image: url("src/main/frontend/themes/nw-base/images/escritorio-bottom-colores.png");
-   background-image: url("src/main/frontend/themes/nw-base/images/Futurista-Azul-oscuro.png");
-   background-image: url("src/main/frontend/themes/nw-base/images/Laboratorio-Diseño-Futurista.png");
-
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 2em;
-}
-
-/* ---- ---- ---- Título principal ---- ---- ---- */
-
-.hs2 h1 {
-  font-size: 3rem;
-  margin: 1rem 0 2rem 0;
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  align-self: center;
-  background-color: rgba(10, 10, 25, 0.4); /* violeta azulado semitransparente */
-  border-radius: 4px;
-  }
-
-.hs2 h1:hover {
-  background-color: rgba(10, 10, 25, 0.7); /* más oscuro al pasar el mouse */
-  transition: background-color 0.3s ease;
-  border-radius: 10px;
-}
-
-
-/* ---- ---- ----  Contenedor para subtítulo + botón ---- ---- ---- */
-
-.hs2 .hs2-content {
-  width: 100%;
-  max-width: 30em;         /* ✅ límite máximo en desktop */
-  min-width: 0;            /* ✅ asegura que no haya desbordes */
-  box-sizing: border-box;  /* ✅ asegura que padding no sume al ancho */
-  height: 20em;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 4.5rem;
-
-  color: white;
-  border-radius: 12px;
-  background-color: rgba(10, 10, 25, 0.4);
-  padding: 1.5em;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-
-}
-
-/* ---- ---- ----  /* Subtítulo */ ---- ---- ---- */
-
-.hs2 p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  max-width: 600px;
-  text-align: left;
-}
-
-.hs2 p:hover {
-  background-color: rgba(10, 10, 25, 0.7);
-  transition: background-color 0.3s ease;
-   border-radius: 5px;
-}
-
-
-/* ---- Botón - Contenedor principal ---- */
-.hs2 .hs2-cta {
-  position: relative;
-  overflow: hidden;
-
-  /* El fondo principal es un color sólido o semitransparente para que sea visible sin hover */
-  background-color: rgba(31, 107, 255, 0.2);
-
-  color: white;
-  /* El borde es visible en el estado normal */
-  border: 2px solid #1F6BFF;
-  border-radius: 8px;
-  padding: 0.6em 1.2em;
-  font-size: 0.9em;
-  font-weight: 600;
-  cursor: pointer;
-  z-index: 1;
-  box-shadow: 0 4px 12px rgba(31, 107, 255, 0.3);
-  max-width: fit-content;
-  margin-top: 1rem;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
-}
-
-/* ---- Pseudo-elemento con el fondo de degradado (ahora en el hover) ---- */
-.hs2 .hs2-cta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #1F6BFF, #8B5CF6);
-  z-index: -1;
-  /* El degradado se oculta por defecto y aparece al hacer hover */
-  transform: scale(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* ---- Pseudo-elemento con el borde animado (conic-gradient) ---- */
-.hs2 .hs2-cta::after {
-  content: "";
-  position: absolute;
-  /* Ajuste a 0px para que el borde se vea más sutil */
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  border-radius: 8px; /* Mismo radio que el botón para un ajuste perfecto */
-  background: conic-gradient(from 0deg, #1F6BFF, #8B5CF6, #1F6BFF);
-  z-index: -2;
-  /* Oculto por defecto, aparece con hover */
-  transform: scale(0);
-  opacity: 0;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
-
-/* ---- ESTADO HOVER: se activan los efectos ---- */
-.hs2 .hs2-cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(31, 107, 255, 0.4);
-  /* El fondo principal se vuelve transparente al hacer hover */
-  background-color: transparent;
-}
-
-/* ---- ESTADO HOVER: se muestra el fondo de degradado ---- */
-.hs2 .hs2-cta:hover::before {
-  transform: scale(1);
-}
-
-/* ---- ESTADO HOVER: se muestra y anima el borde ---- */
-.hs2 .hs2-cta:hover::after {
-  animation: rotate-border 2s linear infinite;
-  transform: scale(1);
-  opacity: 1;
-}
-
-@keyframes rotate-border {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    width: 180px;
+    padding: 1em 0.5em;
   }
 }
-/**** @ @ @ @ @ @ @ ******* RESPONSIVE **** @ @ @ @ @ @ @ @ *******/
-@media (max-width: 768px) {
-  .hs2 .hs2-content {
-    width: 90%;
-       height: auto;
 
-       padding: 1em;
-       margin: 0 auto; /* opcional: para centrar */
-  }
-
-  .hs2 p {
-    font-size: 1rem;
-  }
-
-  .hs2 button {
-    font-size: 0.9rem;
-    padding: 0.6em 1em;
-  }
-}
+/* === test-button.css === */
 .test-button {
   background-color: #8B5CF6;
   color: white;
@@ -663,24 +218,19 @@ padding:10px;
   background-color: #7C3AED;
   transform: scale(1.05);
 }
-/* ############### HERO SECTION ############### */
 
-/* ---- ---- ---- General para Hero ---- ---- ---- */
+/* === hero-styles.css === */
 .hero {
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
-
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 2em;
 }
-
-/* ---- ---- ---- Título principal ---- ---- ---- */
 
 .hero h1 {
   font-size: 3rem;
@@ -688,41 +238,33 @@ background-position: center;
   color: white;
   text-shadow: 1px 1px 2px black;
   align-self: center;
-  background-color: rgba(10, 10, 25, 0.4); /* violeta azulado semitransparente */
+  background-color: rgba(10, 10, 25, 0.4);
   border-radius: 4px;
-  }
+}
 
 .hero h1:hover {
-  background-color: rgba(10, 10, 25, 0.7); /* más oscuro al pasar el mouse */
+  background-color: rgba(10, 10, 25, 0.7);
   transition: background-color 0.3s ease;
   border-radius: 10px;
 }
 
-
-/* ---- ---- ----  Contenedor para subtítulo + botón ---- ---- ---- */
-
 .hero .hero-content {
   width: 100%;
-  max-width: 30em;         /* ✅ límite máximo en desktop */
-  min-width: 0;            /* ✅ asegura que no haya desbordes */
-  box-sizing: border-box;  /* ✅ asegura que padding no sume al ancho */
+  max-width: 30em;
+  min-width: 0;
+  box-sizing: border-box;
   height: 20em;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 4.5rem;
-
   color: white;
   border-radius: 12px;
   background-color: rgba(10, 10, 25, 0.4);
   padding: 1.5em;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-
 }
-
-/* ---- ---- ----  /* Subtítulo */ ---- ---- ---- */
 
 .hero p {
   font-size: 1.2rem;
@@ -734,20 +276,14 @@ background-position: center;
 .hero p:hover {
   background-color: rgba(10, 10, 25, 0.7);
   transition: background-color 0.3s ease;
-   border-radius: 5px;
+  border-radius: 5px;
 }
 
-
-/* ---- Botón - Contenedor principal ---- */
 .hero .hero-cta {
   position: relative;
   overflow: hidden;
-
-  /* El fondo principal es un color sólido o semitransparente para que sea visible sin hover */
   background-color: rgba(31, 107, 255, 0.2);
-
   color: white;
-  /* El borde es visible en el estado normal */
   border: 2px solid #1F6BFF;
   border-radius: 8px;
   padding: 0.6em 1.2em;
@@ -758,10 +294,8 @@ background-position: center;
   max-width: fit-content;
   margin-top: 1rem;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
-
 }
 
-/* ---- Pseudo-elemento con el fondo de degradado (ahora en el hover) ---- */
 .hero .hero-cta::before {
   content: "";
   position: absolute;
@@ -772,43 +306,35 @@ background-position: center;
   border-radius: 8px;
   background: linear-gradient(135deg, #1F6BFF, #8B5CF6);
   z-index: -1;
-  /* El degradado se oculta por defecto y aparece al hacer hover */
   transform: scale(0);
   transition: transform 0.3s ease-in-out;
 }
 
-/* ---- Pseudo-elemento con el borde animado (conic-gradient) ---- */
 .hero .hero-cta::after {
   content: "";
   position: absolute;
-  /* Ajuste a 0px para que el borde se vea más sutil */
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  border-radius: 8px; /* Mismo radio que el botón para un ajuste perfecto */
+  border-radius: 8px;
   background: conic-gradient(from 0deg, #1F6BFF, #8B5CF6, #1F6BFF);
   z-index: -2;
-  /* Oculto por defecto, aparece con hover */
   transform: scale(0);
   opacity: 0;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
-/* ---- ESTADO HOVER: se activan los efectos ---- */
 .hero .hero-cta:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(31, 107, 255, 0.4);
-  /* El fondo principal se vuelve transparente al hacer hover */
   background-color: transparent;
 }
 
-/* ---- ESTADO HOVER: se muestra el fondo de degradado ---- */
 .hero .hero-cta:hover::before {
   transform: scale(1);
 }
 
-/* ---- ESTADO HOVER: se muestra y anima el borde ---- */
 .hero .hero-cta:hover::after {
   animation: rotate-border 2s linear infinite;
   transform: scale(1);
@@ -816,37 +342,26 @@ background-position: center;
 }
 
 @keyframes rotate-border {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
-/**** @ @ @ @ @ @ @ ******* RESPONSIVE **** @ @ @ @ @ @ @ @ *******/
+
 @media (max-width: 768px) {
   .hero .hero-content {
     width: 90%;
-       height: auto;
-
-       padding: 1em;
-       margin: 0 auto; /* opcional: para centrar */
+    height: auto;
+    padding: 1em;
+    margin: 0 auto;
   }
-
   .hero p {
     font-size: 1rem;
   }
-
   .hero button {
     font-size: 0.9rem;
     padding: 0.6em 1em;
   }
 }
 
-
-
-
-/* Luz de neón continua en el contorno */
 .hero .hero-cta {
   position: relative;
   box-shadow: 0 0 5px #1F6BFF, 0 0 10px #1F6BFF, 0 0 20px #8B5CF6, 0 0 40px #8B5CF6;
@@ -861,7 +376,8 @@ background-position: center;
     box-shadow: 0 0 2px #1F6BFF, 0 0 5px #1F6BFF, 0 0 10px #8B5CF6, 0 0 20px #8B5CF6;
   }
 }
-/* ###############   CONTACT SECTION   ############### */
+
+/* === contactForm5.css === */
 #contact {
   background-image: url('src/main/frontend/themes/nw-base/images/panel-metal.png');
   background-size: cover;
@@ -886,8 +402,7 @@ background-position: center;
   backdrop-filter: blur(6px);
   border-radius: 16px;
   border: 1px solid rgba(120, 146, 255, 0.22);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45),
-              inset 0 0 0 1px rgba(120,146,255,0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(120,146,255,0.08);
   padding: 28px;
   color: #EAF0FF;
 }
@@ -903,20 +418,6 @@ background-position: center;
   color: rgba(234, 240, 255, 0.85);
 }
 
-/* 🔹 Fuerza texto blanco en campos Vaadin */
-.form-wrapper vaadin-text-field,
-.form-wrapper vaadin-email-field,
-.form-wrapper vaadin-text-area {
-  --vaadin-input-field-background: rgba(255,255,255,0.05);
-  --vaadin-input-field-hover-background: rgba(255,255,255,0.08);
-  --vaadin-input-field-focus-background: rgba(255,255,255,0.1);
-
-  --vaadin-input-field-value-color: #fff;
-  --vaadin-input-field-placeholder-color: rgba(255,255,255,0.7);
-  --vaadin-input-field-label-color: rgba(255,255,255,0.85);
-}
-
-/* 🔹 reCAPTCHA Wrapper */
 .recaptcha-wrapper {
   margin: 20px 0;
   display: flex;
@@ -924,15 +425,13 @@ background-position: center;
   align-items: center;
 }
 
-/* 🔹 Ajustes para que el reCAPTCHA se vea bien en fondo oscuro */
 .recaptcha-wrapper iframe {
-  filter: none !important;  /* Sin alteraciones de color */
-  opacity: 1 !important;    /* Máxima visibilidad */
-  transform: scale(1.05);   /* Ligeramente más grande */
+  filter: none !important;
+  opacity: 1 !important;
+  transform: scale(1.05);
   transform-origin: center;
 }
 
-/* Botón CTA */
 .cta-button {
   background: linear-gradient(135deg, #1F6BFF, #8B5CF6);
   color: #fff;
@@ -953,292 +452,508 @@ background-position: center;
 @media (max-width: 768px) {
   .form-wrapper { padding: 18px; border-radius: 12px; }
 }
-</style>
-</head>
-<body>
-<header class="logo fade-in">
-  <div id="logo3d" class="logo--3d-container"></div>
-  <div class="logo__text-group">
-    <span class="logo__name">Neticware</span>
-    <span class="logo__description">Innovación Digital</span>
-  </div>
-</header>
 
-<main class="fade-in" style="animation-delay:0.5s">
-  <h1>Bienvenido a Neticware</h1>
-  <p>Explora nuestras soluciones modernas para la web.</p>
-</main>
-
-<footer class="footer fade-in" style="animation-delay:1s">
-  <p>&copy; 2024 Neticware</p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script>
-class NWLogo3D {
-    constructor(containerId) {
-        this.containerId = containerId;
-        this.container = document.getElementById(containerId);
-        if (!this.container) {
-            console.error('Container not found:', containerId);
-            return;
-        }
-        this.init();
-    }
-
-    init() {
-        // Scene setup
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(45,
-            this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
-        this.camera.position.set(0, 0, 12);
-
-        // Renderer
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-        this.renderer.setClearColor(0x000000, 0);
-        this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-        this.container.appendChild(this.renderer.domElement);
-
-        // Logo group
-        this.logoGroup = new THREE.Group();
-        this.scene.add(this.logoGroup);
-
-        // Create logo
-        this.createNWLogo();
-        this.setupLights();
-        this.setupEventListeners();
-        this.animate();
-
-        // Handle resize
-        this.handleResize();
-    }
-
-    createNWLogo() {
-        const extrudeSettings = {
-            depth: 1.5,
-            bevelEnabled: true,
-            bevelSegments: 8,
-            bevelSize: 0.1,
-            bevelThickness: 0.1
-        };
-
-        // N Shape
-        const nShape = new THREE.Shape();
-        nShape.moveTo(-2, -3);
-        nShape.lineTo(-1, -3);
-        nShape.lineTo(-1, 1);
-        nShape.lineTo(0.5, -1.5);
-        nShape.lineTo(0.5, -3);
-        nShape.lineTo(1.5, -3);
-        nShape.lineTo(1.5, 3);
-        nShape.lineTo(0.5, 3);
-        nShape.lineTo(0.5, 1);
-        nShape.lineTo(-1, 2.5);
-        nShape.lineTo(-1, 3);
-        nShape.lineTo(-2, 3);
-        nShape.lineTo(-2, -3);
-
-        // W Shape (corregida)
-        const wShape = new THREE.Shape();
-        wShape.moveTo(0.5, 3);
-        wShape.lineTo(1.2, 3);
-        wShape.lineTo(1.9, -1);
-        wShape.lineTo(2.5, 1);
-        wShape.lineTo(3.1, -1);
-        wShape.lineTo(3.8, 3);
-        wShape.lineTo(4.5, 3);
-        wShape.lineTo(4.5, -3);
-        wShape.lineTo(3.6, -3);
-        wShape.lineTo(2.8, 0);
-        wShape.lineTo(2.5, -1.5);
-        wShape.lineTo(2.2, 0);
-        wShape.lineTo(1.4, -3);
-        wShape.lineTo(0.5, -3);
-        wShape.lineTo(0.5, 3);
-
-        // Create geometries
-        const nGeometry = new THREE.ExtrudeGeometry(nShape, extrudeSettings);
-        const wGeometry = new THREE.ExtrudeGeometry(wShape, extrudeSettings);
-
-        // Materials
-        const nMaterial = new THREE.MeshPhongMaterial({
-            color: 0x00ffff,
-            shininess: 100,
-            transparent: true,
-            opacity: 0.9
-        });
-
-        const wMaterial = new THREE.MeshPhongMaterial({
-            color: 0x8a2be2,
-            shininess: 100,
-            transparent: true,
-            opacity: 0.9
-        });
-
-        // Create meshes
-        const nMesh = new THREE.Mesh(nGeometry, nMaterial);
-        const wMesh = new THREE.Mesh(wGeometry, wMaterial);
-
-        nMesh.position.set(-1.5, 0, 0);
-        wMesh.position.set(1, 0, 0);
-
-        nMesh.castShadow = true;
-        nMesh.receiveShadow = true;
-        wMesh.castShadow = true;
-        wMesh.receiveShadow = true;
-
-        this.logoGroup.add(nMesh);
-        this.logoGroup.add(wMesh);
-
-        this.createParticles();
-    }
-
-    createParticles() {
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 50; // Reducido para mejor performance en Vaadin
-        const positions = new Float32Array(particlesCount * 3);
-        const colors = new Float32Array(particlesCount * 3);
-
-        for (let i = 0; i < particlesCount; i++) {
-            const i3 = i * 3;
-            positions[i3] = (Math.random() - 0.5) * 15;
-            positions[i3 + 1] = (Math.random() - 0.5) * 15;
-            positions[i3 + 2] = (Math.random() - 0.5) * 8;
-
-            const t = Math.random();
-            if (t < 0.33) {
-                colors[i3] = 0; colors[i3 + 1] = 1; colors[i3 + 2] = 1;
-            } else if (t < 0.66) {
-                colors[i3] = 1; colors[i3 + 1] = 0; colors[i3 + 2] = 1;
-            } else {
-                colors[i3] = 0.5; colors[i3 + 1] = 0.2; colors[i3 + 2] = 0.9;
-            }
-        }
-
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.05,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.6
-        });
-
-        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-        this.scene.add(particles);
-    }
-
-    setupLights() {
-        const ambientLight = new THREE.AmbientLight(0x404040, 0.3);
-        this.scene.add(ambientLight);
-
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight.position.set(5, 5, 5);
-        directionalLight.castShadow = true;
-        this.scene.add(directionalLight);
-
-        const cyanLight = new THREE.PointLight(0x00ffff, 0.6, 20);
-        cyanLight.position.set(-5, 2, 3);
-        this.scene.add(cyanLight);
-
-        const magentaLight = new THREE.PointLight(0xff00ff, 0.6, 20);
-        magentaLight.position.set(5, -2, 3);
-        this.scene.add(magentaLight);
-    }
-
-    setupEventListeners() {
-        this.mouseX = 0;
-        this.mouseY = 0;
-        this.targetRotationX = 0;
-        this.targetRotationY = 0;
-        this.isMouseDown = false;
-
-        this.container.addEventListener('mousedown', (e) => this.onMouseDown(e));
-        this.container.addEventListener('mousemove', (e) => this.onMouseMove(e));
-        this.container.addEventListener('mouseup', () => this.onMouseUp());
-        this.container.addEventListener('wheel', (e) => this.onMouseWheel(e));
-    }
-
-    onMouseDown(event) {
-        this.isMouseDown = true;
-        this.mouseX = event.clientX;
-        this.mouseY = event.clientY;
-    }
-
-    onMouseMove(event) {
-        if (!this.isMouseDown) return;
-
-        const deltaX = event.clientX - this.mouseX;
-        const deltaY = event.clientY - this.mouseY;
-
-        this.targetRotationY += deltaX * 0.01;
-        this.targetRotationX += deltaY * 0.01;
-
-        this.mouseX = event.clientX;
-        this.mouseY = event.clientY;
-    }
-
-    onMouseUp() {
-        this.isMouseDown = false;
-    }
-
-    onMouseWheel(event) {
-        this.camera.position.z += event.deltaY * 0.01;
-        this.camera.position.z = Math.max(5, Math.min(20, this.camera.position.z));
-    }
-
-    handleResize() {
-        window.addEventListener('resize', () => {
-            if (this.container && this.camera && this.renderer) {
-                this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
-                this.camera.updateProjectionMatrix();
-                this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-            }
-        });
-    }
-
-    animate() {
-        requestAnimationFrame(() => this.animate());
-
-        if (this.logoGroup) {
-            this.logoGroup.rotation.x += (this.targetRotationX - this.logoGroup.rotation.x) * 0.05;
-            this.logoGroup.rotation.y += (this.targetRotationY - this.logoGroup.rotation.y) * 0.05;
-
-            if (!this.isMouseDown) {
-                this.targetRotationY += 0.005;
-            }
-
-            this.logoGroup.position.y = Math.sin(Date.now() * 0.001) * 0.2;
-        }
-
-        if (this.renderer && this.scene && this.camera) {
-            this.renderer.render(this.scene, this.camera);
-        }
-    }
-
-    destroy() {
-        if (this.renderer) {
-            this.container.removeChild(this.renderer.domElement);
-            this.renderer.dispose();
-        }
-    }
+/* === styles.css (global) === */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-// Global function para Vaadin
-// Versión alternativa: NWLogo3D_2
-window.NWLogo3D_2 = NWLogo3D;
-window.initNWLogo2 = function(containerId) {
-    return new NWLogo3D(containerId);
-};</script>
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  if (window.initNWLogo2) {
-    initNWLogo2('logo3d');
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0A1C3D;
+  color: white;
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  margin: 0.5em 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --navbar-height: 80px;
+}
+
+vaadin-app-layout::part(navbar) {
+  height: var(--navbar-height) !important;
+  min-height: var(--navbar-height) !important;
+  padding: 0 !important;
+}
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #0A1C3D;
+  height: var(--navbar-height) !important;
+  padding-top: 1 !important;
+  padding-bottom: 0 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top-bar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-right: 1rem;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 50px;
   }
-});
-</script>
+}
+@media (max-width: 370px) {
+  :root {
+    --navbar-height: 40px;
+  }
+}
+
+#hero {
+  background-color: #EBE0F7;
+}
+.hero{
+  background-image: url('src/main/frontend/themes/nw-base/images/Gemini_tablet.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/gpt-teclado-icono-mano.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-3.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-admin.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-fondo.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-colores.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-bottom-violeta.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-hello-november.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/escritorio-hello-user.png');
+  background-image: url('src/main/frontend/themes/nw-base/images/Laboratorio-Diseño-Futurista.png');
+}
+
+.footer {
+  background-color: #23272f;
+  color: white;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 0.1em 1em;
+  }
+  .logo__text {
+    font-size: 1rem;
+  }
+  .hamburger-button {
+    font-size: 1.5rem;
+  }
+  .navbar {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo">
+        <div class="logo__iconContainer">
+          <a href="/" class="logo__link">
+            <div id="logo3d" class="logo--3d-container"></div>
+          </a>
+        </div>
+        <div class="logo__text-group">
+          <span class="logo__name">neticware</span>
+          <span class="logo__description">SOFTWARE DEVELOPMENT</span>
+        </div>
+      </div>
+      <button class="test-button" onclick="location.href='pru'">Ir a /pru</button>
+      <nav class="navbar">
+        <a href="#hero">Inicio</a>
+        <a href="#services">Servicios</a>
+        <a href="#products">Productos</a>
+        <a href="#about">Sobre Nosotros</a>
+        <a href="#community">Comunidad</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <button class="hamburger-button">☰</button>
+    </div>
+    <div class="hamburger-menu">
+      <button class="close-button">✖</button>
+      <a href="/#services">Servicios</a>
+      <a href="/#products">Productos</a>
+      <a href="/#community">Comunidad</a>
+      <a href="/#contact">Contacto</a>
+      <a href="/#about">Nosotros</a>
+    </div>
+  </header>
+
+  <section id="hero" class="hero" style="background-image: url('src/main/frontend/themes/nw-base/images/Laboratorio-Diseño-Futurista.png');">
+    <h1>Transformá tus ideas en soluciones digitales</h1>
+    <div class="hero-content">
+      <p>Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones móviles y plataformas en la nube para impulsar el crecimiento de tu negocio</p>
+      <a href="#contact"><button class="hero-cta">Hablemos de tu idea →</button></a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Nuestros Servicios</h2>
+    <p>• Desarrollo de aplicaciones web con Vaadin y Spring Boot.</p>
+    <p>• Aplicaciones móviles.</p>
+    <p>• Soluciones SaaS a medida.</p>
+    <p>• Investigación en Machine Learning con Java (JSR-381, DeepNetts).</p>
+  </section>
+
+  <section id="products" class="products">
+    <h2>Prototypes and Current Products</h2>
+    <p>• Online dataset analyzer (Pandas-style SaaS).</p>
+    <p>• Initial ecommerce platform (clothing).</p>
+    <p>• Technical forums (Java + ML).</p>
+    <p>• Professional websites.</p>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>Neticware is a software development startup focused on Java, Vaadin, and Machine Learning.</p>
+    <p>We aim to create innovative tech solutions and a Spanish-speaking tech community.</p>
+  </section>
+
+  <section id="community" class="community">
+    <h2>Community</h2>
+    <p>Join the Spanish-speaking community of Java Machine Learning.</p>
+    <p>Participate in forums, blog, and collaborative activities.</p>
+  </section>
+
+  <section id="contact">
+    <div class="contact-card">
+      <div class="form-wrapper">
+        <h2>Formulario</h2>
+        <p>Complete los campos a continuación para que podamos ponernos en contacto con usted.</p>
+        <form>
+          <label>Nombre</label>
+          <input type="text" required />
+          <label>Correo electrónico</label>
+          <input type="email" required />
+          <label>Teléfono</label>
+          <input type="text" />
+          <label>Mensaje</label>
+          <textarea placeholder="Escriba su consulta..." style="height:120px;"></textarea>
+          <div class="recaptcha-wrapper">
+            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+          </div>
+          <button type="button" class="cta-button">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="footer">
+    <div class="logo">
+      <div class="logo__iconContainer">
+        <a href="/" class="logo__link">
+          <img src="src/main/frontend/themes/nw-base/images/Icono-sinFondo-ChatGPT.png" alt="Neticware Logo" class="logo__icon logo__icon--footer-spin" />
+        </a>
+      </div>
+      <div class="logo__text-group">
+        <span class="logo__name">neticware</span>
+        <span class="logo__description">SOFTWARE DEVELOPMENT</span>
+      </div>
+    </div>
+    <p>Website | Mobile | SaaS </p>
+    <p>© 2025 NETICWARE | Desarrollo de Software | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+    class NWLogo3D {
+        constructor(containerId) {
+            this.containerId = containerId;
+            this.container = document.getElementById(containerId);
+            if (!this.container) {
+                console.error('Container not found:', containerId);
+                return;
+            }
+            this.init();
+        }
+
+        init() {
+            // Scene setup
+            this.scene = new THREE.Scene();
+            this.camera = new THREE.PerspectiveCamera(45,
+                this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
+            this.camera.position.set(0, 0, 12);
+
+            // Renderer
+            this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+            this.renderer.setClearColor(0x000000, 0);
+            this.renderer.shadowMap.enabled = true;
+            this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            this.container.appendChild(this.renderer.domElement);
+
+            // Logo group
+            this.logoGroup = new THREE.Group();
+            this.scene.add(this.logoGroup);
+
+            // Create logo
+            this.createNWLogo();
+            this.setupLights();
+            this.setupEventListeners();
+            this.animate();
+
+            // Handle resize
+            this.handleResize();
+        }
+
+        createNWLogo() {
+            const extrudeSettings = {
+                depth: 1.5,
+                bevelEnabled: true,
+                bevelSegments: 8,
+                bevelSize: 0.1,
+                bevelThickness: 0.1
+            };
+
+            // N Shape
+            const nShape = new THREE.Shape();
+            nShape.moveTo(-2, -3);
+            nShape.lineTo(-1, -3);
+            nShape.lineTo(-1, 1);
+            nShape.lineTo(0.5, -1.5);
+            nShape.lineTo(0.5, -3);
+            nShape.lineTo(1.5, -3);
+            nShape.lineTo(1.5, 3);
+            nShape.lineTo(0.5, 3);
+            nShape.lineTo(0.5, 1);
+            nShape.lineTo(-1, 2.5);
+            nShape.lineTo(-1, 3);
+            nShape.lineTo(-2, 3);
+            nShape.lineTo(-2, -3);
+
+            // W Shape (corregida)
+            const wShape = new THREE.Shape();
+            wShape.moveTo(0.5, 3);
+            wShape.lineTo(1.2, 3);
+            wShape.lineTo(1.9, -1);
+            wShape.lineTo(2.5, 1);
+            wShape.lineTo(3.1, -1);
+            wShape.lineTo(3.8, 3);
+            wShape.lineTo(4.5, 3);
+            wShape.lineTo(4.5, -3);
+            wShape.lineTo(3.6, -3);
+            wShape.lineTo(2.8, 0);
+            wShape.lineTo(2.5, -1.5);
+            wShape.lineTo(2.2, 0);
+            wShape.lineTo(1.4, -3);
+            wShape.lineTo(0.5, -3);
+            wShape.lineTo(0.5, 3);
+
+            // Create geometries
+            const nGeometry = new THREE.ExtrudeGeometry(nShape, extrudeSettings);
+            const wGeometry = new THREE.ExtrudeGeometry(wShape, extrudeSettings);
+
+            // Materials
+            const nMaterial = new THREE.MeshPhongMaterial({
+                color: 0x00ffff,
+                shininess: 100,
+                transparent: true,
+                opacity: 0.9
+            });
+
+            const wMaterial = new THREE.MeshPhongMaterial({
+                color: 0x8a2be2,
+                shininess: 100,
+                transparent: true,
+                opacity: 0.9
+            });
+
+            // Create meshes
+            const nMesh = new THREE.Mesh(nGeometry, nMaterial);
+            const wMesh = new THREE.Mesh(wGeometry, wMaterial);
+
+            nMesh.position.set(-1.5, 0, 0);
+            wMesh.position.set(1, 0, 0);
+
+            nMesh.castShadow = true;
+            nMesh.receiveShadow = true;
+            wMesh.castShadow = true;
+            wMesh.receiveShadow = true;
+
+            this.logoGroup.add(nMesh);
+            this.logoGroup.add(wMesh);
+
+            this.createParticles();
+        }
+
+        createParticles() {
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 50; // Reducido para mejor performance en Vaadin
+            const positions = new Float32Array(particlesCount * 3);
+            const colors = new Float32Array(particlesCount * 3);
+
+            for (let i = 0; i < particlesCount; i++) {
+                const i3 = i * 3;
+                positions[i3] = (Math.random() - 0.5) * 15;
+                positions[i3 + 1] = (Math.random() - 0.5) * 15;
+                positions[i3 + 2] = (Math.random() - 0.5) * 8;
+
+                const t = Math.random();
+                if (t < 0.33) {
+                    colors[i3] = 0; colors[i3 + 1] = 1; colors[i3 + 2] = 1;
+                } else if (t < 0.66) {
+                    colors[i3] = 1; colors[i3 + 1] = 0; colors[i3 + 2] = 1;
+                } else {
+                    colors[i3] = 0.5; colors[i3 + 1] = 0.2; colors[i3 + 2] = 0.9;
+                }
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.6
+            });
+
+            const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+            this.scene.add(particles);
+        }
+
+        setupLights() {
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.3);
+            this.scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(5, 5, 5);
+            directionalLight.castShadow = true;
+            this.scene.add(directionalLight);
+
+            const cyanLight = new THREE.PointLight(0x00ffff, 0.6, 20);
+            cyanLight.position.set(-5, 2, 3);
+            this.scene.add(cyanLight);
+
+            const magentaLight = new THREE.PointLight(0xff00ff, 0.6, 20);
+            magentaLight.position.set(5, -2, 3);
+            this.scene.add(magentaLight);
+        }
+
+        setupEventListeners() {
+            this.mouseX = 0;
+            this.mouseY = 0;
+            this.targetRotationX = 0;
+            this.targetRotationY = 0;
+            this.isMouseDown = false;
+
+            this.container.addEventListener('mousedown', (e) => this.onMouseDown(e));
+            this.container.addEventListener('mousemove', (e) => this.onMouseMove(e));
+            this.container.addEventListener('mouseup', () => this.onMouseUp());
+            this.container.addEventListener('wheel', (e) => this.onMouseWheel(e));
+        }
+
+        onMouseDown(event) {
+            this.isMouseDown = true;
+            this.mouseX = event.clientX;
+            this.mouseY = event.clientY;
+        }
+
+        onMouseMove(event) {
+            if (!this.isMouseDown) return;
+
+            const deltaX = event.clientX - this.mouseX;
+            const deltaY = event.clientY - this.mouseY;
+
+            this.targetRotationY += deltaX * 0.01;
+            this.targetRotationX += deltaY * 0.01;
+
+            this.mouseX = event.clientX;
+            this.mouseY = event.clientY;
+        }
+
+        onMouseUp() {
+            this.isMouseDown = false;
+        }
+
+        onMouseWheel(event) {
+            this.camera.position.z += event.deltaY * 0.01;
+            this.camera.position.z = Math.max(5, Math.min(20, this.camera.position.z));
+        }
+
+        handleResize() {
+            window.addEventListener('resize', () => {
+                if (this.container && this.camera && this.renderer) {
+                    this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+                    this.camera.updateProjectionMatrix();
+                    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+                }
+            });
+        }
+
+        animate() {
+            requestAnimationFrame(() => this.animate());
+
+            if (this.logoGroup) {
+                this.logoGroup.rotation.x += (this.targetRotationX - this.logoGroup.rotation.x) * 0.05;
+                this.logoGroup.rotation.y += (this.targetRotationY - this.logoGroup.rotation.y) * 0.05;
+
+                if (!this.isMouseDown) {
+                    this.targetRotationY += 0.005;
+                }
+
+                this.logoGroup.position.y = Math.sin(Date.now() * 0.001) * 0.2;
+            }
+
+            if (this.renderer && this.scene && this.camera) {
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+
+        destroy() {
+            if (this.renderer) {
+                this.container.removeChild(this.renderer.domElement);
+                this.renderer.dispose();
+            }
+        }
+    }
+
+    // Global function para Vaadin
+    // Versión alternativa: NWLogo3D_2
+    window.NWLogo3D_2 = NWLogo3D;
+    window.initNWLogo2 = function(containerId) {
+        return new NWLogo3D(containerId);
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initNWLogo2) {
+        initNWLogo2('logo3d');
+      }
+
+      const hamburgerButton = document.querySelector('.hamburger-button');
+      const hamburgerMenu = document.querySelector('.hamburger-menu');
+      const closeBtn = document.querySelector('.close-button');
+      hamburgerButton.addEventListener('click', () => hamburgerMenu.classList.add('show'));
+      closeBtn.addEventListener('click', () => hamburgerMenu.classList.remove('show'));
+      hamburgerMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => hamburgerMenu.classList.remove('show'));
+      });
+    });
+  </script>
 </body>
 </html>
