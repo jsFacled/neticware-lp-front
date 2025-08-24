@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -7,27 +8,25 @@
 
   <!-- CSS externos -->
   <link rel="stylesheet" href="assets/css/base.css" />
-<link rel="stylesheet" href="assets/css/logo.css" />
-<link rel="stylesheet" href="assets/css/menu.css" />
-<link rel="stylesheet" href="assets/css/hero.css" />
-<link rel="stylesheet" href="assets/css/contact.css" />
-<link rel="stylesheet" href="assets/css/sections.css" />
-<link rel="stylesheet" href="assets/css/footer.css" />
+  <link rel="stylesheet" href="assets/css/logo.css" />
+  <link rel="stylesheet" href="assets/css/menu.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
+  <link rel="stylesheet" href="assets/css/sections.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
 
-  <!-- reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- reCAPTCHA 
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    -->
 </head>
+
 <body>
   <header class="main-header">
     <div class="top-bar">
       <div class="logo">
         <div class="logo__iconContainer">
           <a href="/" class="logo__link">
-            <img
-              src="assets/images/neticware-logo.png"
-              alt="Neticware Logo"
-              class="logo__icon logo__icon--animated"
-            />
+            <img src="assets/images/neticware-logo.png" alt="Neticware Logo" class="logo__icon logo__icon--animated" />
           </a>
         </div>
         <div class="logo__text-group">
@@ -35,8 +34,8 @@
           <span class="logo__description">SOFTWARE DEVELOPMENT</span>
         </div>
       </div>
-      
- <!-- Botón para realizar pruebas
+
+      <!-- Botón para realizar pruebas
       <button class="test-button" onclick="location.href='pru'">Ir a /pru</button>
  -->
 
@@ -62,11 +61,7 @@
     </div>
   </header>
 
-  <section
-    id="hero"
-    class="hero"
-    style="background-image: url('assets/images/Laboratorio-Diseño-Futurista.png');"
-  >
+  <section id="hero" class="hero" style="background-image: url('assets/images/Laboratorio-Diseño-Futurista.png');">
     <h1>Transformá tus ideas en soluciones digitales</h1>
     <div class="hero-content">
       <p>
@@ -110,22 +105,48 @@
       <div class="form-wrapper">
         <h2>Formulario</h2>
         <p>Complete los campos a continuación para que podamos ponernos en contacto con usted.</p>
-        <form>
-          <label>Nombre</label>
-          <input type="text" required />
-          <label>Correo electrónico</label>
-          <input type="email" required />
-          <label>Teléfono</label>
-          <input type="text" />
-          <label>Mensaje</label>
-          <textarea placeholder="Escriba su consulta..." style="height:120px;"></textarea>
 
-          <div class="recaptcha-wrapper">
-            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
-          </div>
+        <form id="contactForm" class="form-grid">
+  <div class="field">
+    <label for="name">Nombre</label>
+    <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+  </div>
 
-          <button type="button" class="cta-button">Enviar</button>
-        </form>
+  <div class="field">
+    <label for="email">Correo electrónico</label>
+    <input id="email" name="email" type="email" placeholder="nombre@dominio.com" required />
+  </div>
+
+  <div class="field">
+    <label for="phone">Teléfono</label>
+    <input id="phone" name="phone" type="tel" placeholder="+54 11 1234-5678" />
+  </div>
+
+  <div class="field full-row">
+    <label for="message">Mensaje</label>
+    <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta…" required></textarea>
+  </div>
+
+  <!-- Campos ocultos de FormSubmit -->
+  <input type="hidden" name="_subject" value="Nueva consulta desde neticware.com.ar" />
+  <input type="hidden" name="_template" value="box" />
+  <input type="hidden" name="_captcha" value="true" />
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="actions full-row">
+    <button type="submit" class="cta-button">Enviar</button>
+  </div>
+</form>
+
+<!-- Mensaje de éxito oculto -->
+<div id="thankYouMessage" class="thank-you" style="display:none;">
+  <h3>¡Gracias por contactarnos!</h3>
+  <p>Recibimos tu mensaje y te responderemos pronto.</p>
+  <button id="newMessageBtn" class="cta-button">Enviar otro mensaje</button>
+</div>
+
+
+
       </div>
     </div>
   </section>
@@ -134,11 +155,8 @@
     <div class="logo">
       <div class="logo__iconContainer">
         <a href="/" class="logo__link">
-          <img
-            src="assets/images/Icono-sinFondo-ChatGPT.png"
-            alt="Neticware Logo"
-            class="logo__icon logo__icon--footer-spin"
-          />
+          <img src="assets/images/Icono-sinFondo-ChatGPT.png" alt="Neticware Logo"
+            class="logo__icon logo__icon--footer-spin" />
         </a>
       </div>
       <div class="logo__text-group">
@@ -153,4 +171,5 @@
   <!-- JS principal -->
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>

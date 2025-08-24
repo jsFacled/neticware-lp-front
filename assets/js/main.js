@@ -26,3 +26,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// ===== Formulario de contacto con mensaje inline =====
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const thankYou = document.getElementById('thankYouMessage');
+  const newMessageBtn = document.getElementById('newMessageBtn');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("https://formsubmit.co/contacto@neticware.com.ar", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          form.reset(); // limpia los campos
+          form.style.display = "none";
+          thankYou.style.display = "block";
+        } else {
+          alert("Hubo un error al enviar el formulario. Intentalo de nuevo.");
+        }
+      } catch (error) {
+        alert("Error de conexión. Intentalo más tarde.");
+      }
+    });
+  }
+
+  if (newMessageBtn) {
+    newMessageBtn.addEventListener('click', () => {
+      thankYou.style.display = "none";
+      form.style.display = "grid"; // vuelve a mostrar el formulario en modo grid
+    });
+  }
+});
+
