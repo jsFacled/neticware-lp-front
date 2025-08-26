@@ -129,28 +129,144 @@
     </div>
   </section>
 
-  <!-- STACK -->
-  <section id="stack" class="stack">
-    <div class="stack__wrap">
-      <h2>Stack & Tecnologías Clave</h2>
-      <p class="stack__lead">Utilizamos Tecnologías robustas y modernas para construir software mantenible y listo para escalar.</p>
-      <ul class="stack__tags" aria-label="Tecnologías de Neticware">
-        <li class="tag">Java</li>
-        <li class="tag">Spring Boot</li>
-        <li class="tag">Vaadin</li>
-        <li class="tag">REST APIs</li>
-        <li class="tag">HTML</li>
-        <li class="tag">CSS</li>
-        <li class="tag">JavaScript</li>
-        <li class="tag">MySQL</li>
-        <li class="tag">PostgreSQL</li>
-        <li class="tag">Docker</li>
-        <li class="tag">CI/CD</li>
-        <li class="tag">Git</li>
-        <li class="tag">Android</li>
-      </ul>
+
+<!-- STACK -->
+<section id="stack" class="stack">
+  <div class="stack__wrap">
+    <h2>Stack & Tecnologías Clave</h2>
+    <p class="stack__lead">Utilizamos tecnologías robustas y modernas para construir software mantenible y listo para escalar.</p>
+
+    <div class="stack__grid">
+      <!-- Backend -->
+      <article class="stackCard stackCard--backend">
+        <h3 class="stackCard__title">Backend</h3>
+        <ul class="stack__tags" aria-label="Backend">
+          <li class="tag tag--java">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/java/ffffff" alt="Java" />
+            </span>
+            <span class="tag__label">Java</span>
+          </li>
+          <li class="tag tag--spring">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/springboot/ffffff" alt="Spring Boot" />
+            </span>
+            <span class="tag__label">Spring Boot</span>
+          </li>
+          <li class="tag tag--vaadin">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/vaadin/ffffff" alt="Vaadin" />
+            </span>
+            <span class="tag__label">Vaadin</span>
+          </li>
+          <li class="tag">
+            <span class="tag__icon">
+              <!-- REST (genérico) -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h6v2H4V7zm0 4h10v2H4v-2zm0 4h8v2H4v-2zm14-8h2v10h-2V7z"/></svg>
+            </span>
+            <span class="tag__label">REST APIs</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Frontend -->
+      <article class="stackCard stackCard--frontend">
+        <h3 class="stackCard__title">Frontend</h3>
+        <ul class="stack__tags" aria-label="Frontend">
+          <li class="tag tag--html">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/html5/ffffff" alt="HTML5" />
+            </span>
+            <span class="tag__label">HTML</span>
+          </li>
+          <li class="tag tag--css">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/css3/ffffff" alt="CSS3" />
+            </span>
+            <span class="tag__label">CSS</span>
+          </li>
+          <li class="tag tag--js">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/javascript/ffffff" alt="JavaScript" />
+            </span>
+            <span class="tag__label">JavaScript</span>
+          </li>
+          <li class="tag tag--react">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/react/ffffff" alt="React" />
+            </span>
+            <span class="tag__label">React</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Bases de datos -->
+      <article class="stackCard stackCard--data">
+        <h3 class="stackCard__title">Bases de Datos</h3>
+        <ul class="stack__tags" aria-label="Bases de datos">
+          <li class="tag tag--mysql">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/mysql/ffffff" alt="MySQL" />
+            </span>
+            <span class="tag__label">MySQL</span>
+          </li>
+          <li class="tag tag--pg">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/postgresql/ffffff" alt="PostgreSQL" />
+            </span>
+            <span class="tag__label">PostgreSQL</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- DevOps & Cloud -->
+      <article class="stackCard stackCard--devops">
+        <h3 class="stackCard__title">DevOps & Cloud</h3>
+        <ul class="stack__tags" aria-label="DevOps y Cloud">
+          <li class="tag tag--docker">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker" />
+            </span>
+            <span class="tag__label">Docker</span>
+          </li>
+          <li class="tag">
+            <span class="tag__icon">
+              <!-- CI/CD genérico -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13.5V11l-1.7-.7-.4-1.1 1-1.4-1.8-1.8-1.4 1-.9-.4L12 3H9.5L8.8 4.7l-1.1.4-1.4-1L4.5 6l1 1.4-.4 1.1L3 9.5V12l2.1.9.4 1.1-1 1.4 1.8 1.8 1.4-1 .9.4L9.5 21H12l.9-2.1 1.1-.4 1.4 1 1.8-1.8-1-1.4.4-1.1L19 13.5zM10.5 9A3.5 3.5 0 1 1 7 12.5 3.5 3.5 0 0 1 10.5 9z"/></svg>
+            </span>
+            <span class="tag__label">CI/CD</span>
+          </li>
+          <li class="tag tag--aws">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/amazonaws/ffffff" alt="AWS" />
+            </span>
+            <span class="tag__label">AWS</span>
+          </li>
+          <li class="tag tag--git">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/git/ffffff" alt="Git" />
+            </span>
+            <span class="tag__label">Git</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Mobile -->
+      <article class="stackCard stackCard--mobile">
+        <h3 class="stackCard__title">Mobile</h3>
+        <ul class="stack__tags" aria-label="Mobile">
+          <li class="tag tag--android">
+            <span class="tag__icon">
+              <img class="tag__brand" src="https://cdn.simpleicons.org/android/ffffff" alt="Android" />
+            </span>
+            <span class="tag__label">Android</span>
+          </li>
+        </ul>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- APPROACH -->
   <section id="approach" class="approach">

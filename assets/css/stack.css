@@ -1,4 +1,4 @@
-/* ===== Stack Section ===== */
+/* ===== Stack Section (variante con categorías) ===== */
 .stack { padding: 3rem 1.25rem; }
 .stack__wrap{
   max-width: 1100px; margin: 0 auto;
@@ -7,19 +7,142 @@
   box-shadow: 0 10px 40px rgba(0,0,0,.45), inset 0 0 0 1px rgba(120,146,255,.08);
   border-radius: 16px; padding: 2rem;
 }
-.stack h2{ margin: 0 0 .5rem 0; color: #fff; font-size: clamp(1.6rem,2.6vw,2rem); }
-.stack__lead{ margin: 0 0 1rem 0; color: rgba(234,240,255,.9); }
+.stack h2{ margin:0 0 .5rem; color:#fff; font-size:clamp(1.6rem,2.6vw,2rem); }
+.stack__lead{ margin:0 0 1.25rem; color:rgba(234,240,255,.9); }
+
+/* Grid de categorías */
+.stack__grid{
+  display:grid; gap:1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+.stackCard{
+  --accent: #3b82f6; /* fallback */
+  grid-column: span 12;
+  border-radius:14px; padding:1rem;
+  background: radial-gradient(80% 120% at 10% 0%, color-mix(in oklab, var(--accent) 18%, #0b1220) 0%, rgba(11,18,32,.35) 60%);
+  outline: 1px solid color-mix(in oklab, var(--accent) 38%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.02), 0 10px 24px rgba(0,0,0,.35);
+}
+.stackCard__title{
+  margin:.25rem 0 .75rem; color:#eaf0ff; font-size:1.05rem; font-weight:700;
+  display:flex; align-items:center; gap:.5rem;
+}
+.stackCard__title::before{
+  content:""; width:8px; height:8px; border-radius:50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent);
+}
+
+/* Colores por categoría */
+.stackCard--backend{  --accent:#22d3ee; }   /* cyan */
+.stackCard--frontend{ --accent:#a78bfa; }   /* violeta */
+.stackCard--data{     --accent:#34d399; }   /* verde */
+.stackCard--devops{   --accent:#f59e0b; }   /* amber */
+.stackCard--mobile{   --accent:#fb7185; }   /* rose */
+
+/* Pills reutilizan tu estilo, pero en grid y con microanimación */
 .stack__tags{
-  list-style: none; margin: 0; padding: 0;
-  display: flex; flex-wrap: wrap; gap: .5rem;
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
 }
+
 .tag{
-  font-size: .9rem; line-height: 1; color: #fff;
-  padding: .55rem .7rem; border-radius: 999px;
-  background: linear-gradient(135deg, rgba(31,107,255,.25), rgba(139,92,246,.25));
-  border: 1px solid rgba(139,92,246,.35);
-  box-shadow: 0 4px 14px rgba(31,107,255,.15);
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  display:flex; align-items:center; gap:.6rem;
+  font-size:.95rem; color:#fff; line-height:1;
+  padding:.7rem .9rem; border-radius:999px;
+  background: linear-gradient(135deg, rgba(31,107,255,.18), rgba(139,92,246,.18));
+  border:1px solid rgba(139,92,246,.28);
+  box-shadow: 0 4px 14px rgba(31,107,255,.12);
+  transition: transform .15s ease, box-shadow .2s ease, filter .15s ease, background .2s ease;
+  will-change:transform;
 }
-.tag:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(31,107,255,.25); filter: brightness(1.05); }
-@media (max-width:640px){ .stack__wrap{ padding: 1.25rem; } }
+.tag__icon{
+  display:grid; place-items:center;
+  width:24px; height:24px; flex:0 0 24px; border-radius:50%;
+  background: rgba(255,255,255,.08);
+  outline:1px solid rgba(139,92,246,.28);
+}
+.tag__icon svg{ width:14px; height:14px; fill: currentColor; color:#eaf0ff; }
+
+.tag:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(31,107,255,.22);
+  background: linear-gradient(135deg, rgba(31,107,255,.26), rgba(139,92,246,.26));
+}
+.tag:hover .tag__icon{ animation: wobble .4s ease; }
+
+@keyframes wobble{
+  0%{ transform: rotate(0) }
+  33%{ transform: rotate(8deg) }
+  66%{ transform: rotate(-6deg) }
+  100%{ transform: rotate(0) }
+}
+
+/* Acentos por tecnología (colorea el pill sutilmente) */
+.tag--java{    --pill:#f97316; }
+.tag--spring{  --pill:#22c55e; }
+.tag--react{   --pill:#38bdf8; }
+
+.tag--java,
+.tag--spring,
+.tag--react{
+  border-color: color-mix(in oklab, var(--pill) 35%, rgba(139,92,246,.28));
+  background: linear-gradient(135deg,
+     color-mix(in oklab, var(--pill) 18%, rgba(31,107,255,.18)),
+     color-mix(in oklab, var(--pill) 12%, rgba(139,92,246,.18)));
+}
+
+.tag__icon{
+  display:grid; place-items:center;
+  width:22px; height:22px; flex:0 0 22px;
+  border-radius:50%;
+  background: rgba(255,255,255,.08);
+  outline:1px solid rgba(139,92,246,.35);
+  box-shadow: inset 0 0 0 1px rgba(31,107,255,.12);
+  overflow:hidden;
+}
+.tag__icon svg{ width:14px; height:14px; fill:#eaf0ff; }
+.tag__icon .tag__brand{
+  width:14px; height:14px; display:block;
+  filter: drop-shadow(0 0 0 transparent); /* nítido en dark */
+}
+
+/* Opcional: color propio por tecnología en el pill */
+.tag--java{    --pill:#f89820; }
+.tag--spring{  --pill:#6db33f; }
+.tag--vaadin{  --pill:#00b4f0; }
+.tag--html{    --pill:#e34f26; }
+.tag--css{     --pill:#1572b6; }
+.tag--js{      --pill:#f7df1e; }
+.tag--mysql{   --pill:#4479a1; }
+.tag--pg{      --pill:#336791; }
+.tag--docker{  --pill:#2496ed; }
+.tag--git{     --pill:#f05032; }
+.tag--react{   --pill:#61dafb; }
+.tag--aws{     --pill:#ff9900; }
+.tag--android{ --pill:#3ddc84; }
+
+.tag--java,.tag--spring,.tag--vaadin,.tag--html,.tag--css,.tag--js,
+.tag--mysql,.tag--pg,.tag--docker,.tag--git,.tag--react,.tag--aws,.tag--android{
+  border-color: color-mix(in oklab, var(--pill) 40%, rgba(139,92,246,.28));
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--pill) 18%, rgba(31,107,255,.18)),
+    color-mix(in oklab, var(--pill) 12%, rgba(139,92,246,.18)));
+}
+
+/* Responsive */
+@media (min-width:720px){
+  .stackCard{ grid-column: span 6; }
+}
+@media (min-width:1024px){
+  .stackCard--backend{ grid-column: span 7; }
+  .stackCard--frontend{ grid-column: span 5; }
+  .stackCard--data{ grid-column: span 4; }
+  .stackCard--devops{ grid-column: span 5; }
+  .stackCard--mobile{ grid-column: span 3; }
+}
+@media (max-width:640px){
+  .stack__wrap{ padding:1.25rem; }
+  .tag{ font-size:.9rem; }
+}
