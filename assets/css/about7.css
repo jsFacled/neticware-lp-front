@@ -1,0 +1,169 @@
+/* About7 Section */
+    .about7 {
+      padding: 5rem 1.5rem;
+      max-width: 1200px;
+      margin: 4rem auto;
+      color: #e0daff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .about7__container {
+      background: rgba(12, 20, 40, 0.88);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(100, 130, 255, 0.2);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                  inset 0 0 0 1px rgba(120, 146, 255, 0.06);
+    }
+
+    .about7__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .about7__header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #fff;
+      margin: 0 0 1rem 0;
+      font-weight: 700;
+    }
+
+    .about7__lead {
+      color: rgba(234, 240, 255, 0.95);
+      line-height: 1.7;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about7__lead strong {
+      color: #7b61ff;
+    }
+
+    .about7__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .about7__story {
+      padding-right: 1rem;
+    }
+
+    .about7__story p {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.7;
+      color: rgba(240, 245, 255, 0.92);
+      font-size: 1.05rem;
+    }
+
+    .about7__details {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about7__values h3,
+    .about7__tech h3,
+    .about7__services h3 {
+      color: #7b61ff;
+      font-size: 1.2rem;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .about7__values h3::before {
+      content: "🌟";
+    }
+
+    .about7__tech h3::before {
+      content: "⚡";
+    }
+
+    .about7__services h3::before {
+      content: "🛠️";
+    }
+
+    .about7__values ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: rgba(240, 245, 255, 0.9);
+    }
+
+    .about7__values li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .about7__values li::before {
+      content: "✔️";
+      flex-shrink: 0;
+    }
+
+    .about7__tech .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .about7__tech .tech-list span {
+      font-size: 0.88rem;
+      padding: 0.4rem 0.7rem;
+      background: rgba(123, 97, 255, 0.12);
+      color: #d0c6ff;
+      border: 1px solid rgba(123, 97, 255, 0.25);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about7__services .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .about7__services .services-list span {
+      font-size: 0.88rem;
+      padding: 0.4rem 0.7rem;
+      background: rgba(255, 184, 0, 0.12);
+      color: #ffd89c;
+      border: 1px solid rgba(255, 184, 0, 0.25);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(255, 184, 0, 0.1);
+    }
+
+    .about7__work-approach {
+      background: rgba(20, 30, 60, 0.5);
+      border: 1px solid rgba(100, 130, 255, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .about7__work-approach p {
+      margin: 0;
+      color: rgba(234, 240, 255, 0.85);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .about7__work-approach strong {
+      color: #ffd700;
+    }
+
+    .about7__cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
