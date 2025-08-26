@@ -1,0 +1,25 @@
+/* ===== Stack Section ===== */
+.stack { padding: 3rem 1.25rem; }
+.stack__wrap{
+  max-width: 1100px; margin: 0 auto;
+  background: rgba(8,12,28,.75); backdrop-filter: blur(6px);
+  border: 1px solid rgba(120,146,255,.22);
+  box-shadow: 0 10px 40px rgba(0,0,0,.45), inset 0 0 0 1px rgba(120,146,255,.08);
+  border-radius: 16px; padding: 2rem;
+}
+.stack h2{ margin: 0 0 .5rem 0; color: #fff; font-size: clamp(1.6rem,2.6vw,2rem); }
+.stack__lead{ margin: 0 0 1rem 0; color: rgba(234,240,255,.9); }
+.stack__tags{
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .5rem;
+}
+.tag{
+  font-size: .9rem; line-height: 1; color: #fff;
+  padding: .55rem .7rem; border-radius: 999px;
+  background: linear-gradient(135deg, rgba(31,107,255,.25), rgba(139,92,246,.25));
+  border: 1px solid rgba(139,92,246,.35);
+  box-shadow: 0 4px 14px rgba(31,107,255,.15);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.tag:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(31,107,255,.25); filter: brightness(1.05); }
+@media (max-width:640px){ .stack__wrap{ padding: 1.25rem; } }

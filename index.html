@@ -1,35 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Neticware - Home</title>
 
-  <!-- CSS externos -->
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/logo.css" />
   <link rel="stylesheet" href="assets/css/menu.css" />
   <link rel="stylesheet" href="assets/css/hero.css" />
-  <link rel="stylesheet" href="assets/css/contact.css" />
   <link rel="stylesheet" href="assets/css/services.css" />
-    <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="assets/css/stack.css" />
+  <link rel="stylesheet" href="assets/css/approach.css" />
+  <link rel="stylesheet" href="assets/css/methodology.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
   <link rel="stylesheet" href="assets/css/footer.css" />
-
-  <!-- CSS externos para probar -->
-  <link rel="stylesheet" href="assets/css/about2.css" />
-  <link rel="stylesheet" href="assets/css/about3.css" />
-    <link rel="stylesheet" href="assets/css/about4.css" />
-      <link rel="stylesheet" href="assets/css/about5.css" />
-        <link rel="stylesheet" href="assets/css/about6.css" />
-          <link rel="stylesheet" href="assets/css/about7.css" />
-            <link rel="stylesheet" href="assets/css/about8.css" />
-
-
-
-  <!-- reCAPTCHA 
-     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    -->
 </head>
 
 <body>
@@ -47,15 +34,13 @@
         </div>
       </div>
 
-      <!-- Botón para realizar pruebas
-      <button class="test-button" onclick="location.href='pru'">Ir a /pru</button>
- -->
-
       <nav class="navbar" aria-label="Menú principal">
         <a href="#hero">Inicio</a>
         <a href="#services">Servicios</a>
-        
         <a href="#about">Sobre Nosotros</a>
+        <a href="#stack">Stack</a>
+        <a href="#approach">Enfoque</a>
+        <a href="#methodology">Metodología</a>
         <a href="#contact">Contacto</a>
       </nav>
 
@@ -65,676 +50,271 @@
     <div class="hamburger-menu" aria-hidden="true">
       <button class="close-button" aria-label="Cerrar menú">✖</button>
       <a href="/#services">Servicios</a>
-      <a href="/#products">Productos</a>
-      <a href="/#contact">Contacto</a>
       <a href="/#about">Nosotros</a>
+      <a href="/#stack">Stack</a>
+      <a href="/#approach">Enfoque</a>
+      <a href="/#methodology">Metodología</a>
+      <a href="/#contact">Contacto</a>
     </div>
   </header>
 
   <section id="hero" class="hero" style="background-image: url('assets/images/Laboratorio-Diseño-Futurista.png');">
     <h1>Transformá tus ideas en soluciones digitales</h1>
-    <h2>Desorrollo de páginas web y software a medida</h2>
+    <h2>Desarrollo de páginas web y software a medida</h2>
     <div class="hero-content">
-      <p>
-        Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones móviles y plataformas en la nube
-        para impulsar el crecimiento de tu negocio
-      </p>
+      <p>Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones móviles y plataformas en la nube para impulsar el crecimiento de tu negocio</p>
       <a href="#contact"><button class="hero-cta">Hablemos de tu idea →</button></a>
     </div>
   </section>
 
-<section id="services" class="services">
-  <h2 class="services-heading">Nuestros Servicios</h2>
-
-  <div class="services-grid">
-    <div class="service-card" style="background-image: url('assets/images/services-web.png');">
-      <div class="service-title">Desarrollo Web</div>
-      <div class="service-overlay">
-        <p>Aplicaciones modernas con Vaadin, Spring Boot y tecnologías cloud-ready.</p>
-      </div>
-    </div>
-
+  <!-- SERVICES (se mantiene) -->
+  <section id="services" class="services">
+    <h2 class="services-heading">Nuestros Servicios</h2>
     <div class="services-grid">
-    <div class="service-card" style="background-image: url('assets/images/software-a-medida.png');">
-      <div class="service-title">Software a medida</div>
-      <div class="service-overlay">
-        <p>Soluciones personalizadas que automatizan procesos y resuelven necesidades específicas de tu empresa</p>
-      </div>
-    </div>
-
-    <div class="service-card" style="background-image: url('assets/images/services-mobile.png');">
-      <div class="service-title">Aplicaciones Móviles</div>
-      <div class="service-overlay">
-        <p>Apps híbridas y nativas para Android, con experiencia fluida y moderna.</p>
-      </div>
-    </div>
-
- <div class="services-grid">
-    <div class="service-card" style="background-image: url('assets/images/software-a-medida.png');">
-      <div class="service-title">Landingpages</div>
-      <div class="service-overlay">
-        <p></p>
-      </div>
-    </div>
-     <div class="services-grid">
-    <div class="service-card" style="background-image: url('assets/images/software-a-medida.png');">
-      <div class="service-title">Blogs</div>
-      <div class="service-overlay">
-        <p></p>
-      </div>
-    </div>
-
-
-    <div class="service-card" style="background-image: url('assets/images/services-saas.png');">
-      <div class="service-title">Soluciones SaaS</div>
-      <div class="service-overlay">
-        <p>Plataformas a medida, escalables y seguras para negocios digitales.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<section id="about" class="about">
-  <div class="about__inner">
-    <header class="about__header">
-      <h2>Sobre Nosotros</h2>
-      <p class="about__lead">
-        En <strong>Neticware</strong> nos especializamos en el desarrollo de software integral,
-        desde aplicaciones de escritorio hasta soluciones web. Diseñamos <em>sitios web</em>,
-        <em>landing pages</em> y <em>blogs</em> con foco en rendimiento y conversión. 
-        También desarrollamos <strong>aplicaciones móviles para Android</strong> y 
-        <strong>plataformas SaaS</strong> adaptadas a cada necesidad. Nuestro objetivo:
-        transformar ideas en herramientas digitales eficientes que impulsen el crecimiento.
-      </p>
-    </header>
-
-    <ul class="about__highlights">
-      <li class="about__card">
-        <h3>Servicios</h3>
-        <ul class="about__tags">
-          <li class="tag">Apps de Escritorio</li>
-          <li class="tag">Web Apps</li>
-          <li class="tag">Sitios Web</li>
-          <li class="tag">Landing Pages</li>
-          <li class="tag">Blogs</li>
-          <li class="tag">SaaS</li>
-          <li class="tag">Android</li>
-        </ul>
-      </li>
-
-      <li class="about__card">
-        <h3>Stack</h3>
-        <ul class="about__tags">
-          <li class="tag">Java</li>
-          <li class="tag">Spring Boot</li>
-          <li class="tag">Vaadin</li>
-          <li class="tag">REST APIs</li>
-          <li class="tag">MySQL</li>
-          <li class="tag">Docker</li>
-          <li class="tag">CI/CD</li>
-        </ul>
-      </li>
-
-      <li class="about__card">
-        <h3>Enfoque</h3>
-        <p class="about__text">
-          Diseño centrado en el usuario, performance, seguridad y mantenibilidad. 
-          Iteramos rápido con entregables claros y métricas de resultado.
-        </p>
-      </li>
-    </ul>
-
-    <div class="about__cta">
-      <a href="#contact" class="cta-button">Hablemos de tu proyecto →</a>
-    </div>
-  </div>
-</section>
-
-<!--About 2 --> 
-<section id="about2" class="about2">
-  <div class="about2__container">
-    <header class="about2__header">
-      <h2>Quiénes Somos</h2>
-      <p class="about2__lead">
-        En <strong>Neticware</strong>, no solo desarrollamos software: <em>creamos soluciones que resuelven problemas reales</em>. 
-        Desde Buenos Aires, trabajamos con emprendedores y empresas que necesitan escalar con tecnología robusta, segura y fácil de mantener.
-      </p>
-    </header>
-
-    <div class="about2__content">
-      <div class="about2__text">
-        <p>
-          Fundada en 2020, nuestra misión es <strong>hacer del desarrollo de software una experiencia transparente, ágil y centrada en resultados</strong>. 
-          Trabajamos con tecnologías modernas como <strong>Java, Spring Boot y Vaadin</strong>, combinando backend potente con interfaces limpias.
-        </p>
-        <p>
-          No vendemos líneas de código. Vendemos <strong>soluciones que funcionan</strong>, entregadas en tiempo y forma, con documentación clara y soporte continuo.
-        </p>
-
-        <div class="about2__values">
-          <h3>Nuestros Valores</h3>
-          <ul>
-            <li><strong>Claridad</strong>: Sin tecnicismos innecesarios. Te explicamos cada paso.</li>
-            <li><strong>Velocidad con calidad</strong>: Entregamos rápido, sin sacrificar mantenibilidad.</li>
-            <li><strong>Transparencia total</strong>: Acceso a repositorios, informes de avance y pruebas.</li>
-            <li><strong>Colaboración</strong>: Trabajamos como parte de tu equipo, no como vendedores.</li>
-          </ul>
+      <div class="service-card" style="background-image: url('assets/images/services-web.png');">
+        <div class="service-title">Desarrollo Web</div>
+        <div class="service-overlay">
+          <p>Aplicaciones modernas con Vaadin, Spring Boot y tecnologías cloud-ready.</p>
         </div>
       </div>
 
-      <div class="about2__tech">
-        <div class="tech-card">
-          <h3>Tecnologías Clave</h3>
-          <div class="tech-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">Spring Boot</span>
-            <span class="tech-tag">Vaadin</span>
-            <span class="tech-tag">REST APIs</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">CI/CD</span>
-            <span class="tech-tag">Git</span>
-          </div>
-        </div>
-
-        <div class="tech-card">
-          <h3>Enfoque de Trabajo</h3>
-          <p>
-            Usamos metodologías ágiles con entregas semanales, pruebas automatizadas y documentación viva. 
-            Tu producto crece con <strong>arquitectura escalable</strong> desde el primer día.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="about2__cta">
-      <a href="#contact" class="cta-button">Quiero una consulta gratuita →</a>
-    </div>
-  </div>
-</section>
-
-<!--About 3 --> 
-<section id="about3" class="about3">
-  <div class="about3__container">
-    <div class="about3__content">
-      <div class="about3__text">
-        <h2>Construimos software que impulsa tu negocio</h2>
-        <p>
-          En <strong>Neticware</strong>, ayudamos a emprendedores y empresas a transformar sus ideas en productos digitales robustos y escalables. 
-          Desde Buenos Aires, desarrollamos soluciones personalizadas con tecnología moderna y un enfoque ágil.
-        </p>
-        <p>
-          No trabajamos por proyectos. Trabajamos por resultados. 
-          Tu éxito es el nuestro, y por eso nos involucramos desde el primer día como un equipo más.
-        </p>
-      </div>
-
-      <div class="about3__details">
-        <div class="about3__values">
-          <h3>Lo que nos mueve</h3>
-          <ul>
-            <li>✔️ <strong>Claridad</strong>: Sin jerga técnica innecesaria.</li>
-            <li>✔️ <strong>Velocidad + Calidad</strong>: Sin comprometer uno por el otro.</li>
-            <li>✔️ <strong>Transparencia total</strong>: Informes semanales y acceso al código.</li>
-            <li>✔️ <strong>Soporte continuo</strong>: Estamos después del lanzamiento.</li>
-          </ul>
-        </div>
-
-        <div class="about3__tech">
-          <h3>Tecnología que dominamos</h3>
-          <div class="tech-list">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>Vaadin</span>
-            <span>REST APIs</span>
-            <span>Docker</span>
-            <span>MySQL / PostgreSQL</span>
-            <span>Android</span>
-            <span>Machine Learning</span>
-            <span>CI/CD</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about3__cta">
-      <a href="#contact" class="cta-button">Hablemos sin compromiso →</a>
-    </div>
-  </div>
-</section>
-
-<!--About 4 --> 
-<section id="about4" class="about4">
-  <div class="about4__wrap">
-    <!-- Encabezado + pitch -->
-    <header class="about4__header">
-      <h2>Sobre Neticware</h2>
-      <p class="about4__lead">
-        En <strong>Neticware</strong> diseñamos y desarrollamos <em>software a medida</em> para impulsar negocios:
-        <strong>aplicaciones web</strong>, <strong>sitios y landing pages</strong>, <strong>blogs</strong>,
-        <strong>plataformas SaaS</strong> y <strong>aplicaciones móviles para Android</strong> (no iOS).
-        Trabajamos con foco en rendimiento, seguridad y una UX clara, para convertir ideas en productos reales.
-      </p>
-    </header>
-
-    <!-- Tres bloques: Servicios / Stack / Enfoque -->
-    <div class="about4__grid">
-      <section class="about4__card">
-        <h3>¿Qué hacemos?</h3>
-        <ul class="about4__tags" aria-label="Servicios de Neticware">
-          <li class="about4__tag">Apps Web</li>
-          <li class="about4__tag">Sitios Web</li>
-          <li class="about4__tag">Landing Pages</li>
-          <li class="about4__tag">Blogs</li>
-          <li class="about4__tag">SaaS</li>
-          <li class="about4__tag">Android</li>
-          <li class="about4__tag">APIs</li>
-          <li class="about4__tag">Automatizaciones</li>
-        </ul>
-      </section>
-
-      <section class="about4__card">
-        <h3>Stack & herramientas</h3>
-        <ul class="about4__tags" aria-label="Tecnologías que usamos">
-          <li class="about4__tag">Java</li>
-          <li class="about4__tag">Spring Boot</li>
-          <li class="about4__tag">Vaadin</li>
-          <li class="about4__tag">REST</li>
-          <li class="about4__tag">MySQL</li>
-          <li class="about4__tag">Docker</li>
-          <li class="about4__tag">CI/CD</li>
-          <li class="about4__tag">Git</li>
-        </ul>
-      </section>
-
-      <section class="about4__card about4__approach">
-        <h3>Cómo trabajamos</h3>
-        <ul class="about4__list">
-          <li><strong>Claridad:</strong> sin jerga innecesaria; sabés qué, cuándo y cómo.</li>
-          <li><strong>Velocidad + calidad:</strong> iteraciones cortas, código mantenible.</li>
-          <li><strong>Transparencia:</strong> acceso a repos, avances y pruebas.</li>
-          <li><strong>Acompañamiento:</strong> seguimos después del lanzamiento.</li>
-        </ul>
-      </section>
-    </div>
-
-    <!-- Cierre + CTA -->
-    <div class="about4__cta">
-      <p class="about4__cta-text">¿Tenés una idea o proyecto en marcha?</p>
-      <a href="#contact" class="cta-button">Hablemos de tu proyecto →</a>
-    </div>
-  </div>
-</section>
-
-
-<!--About 5 --> 
-<section id="about5" class="about5">
-    <h2>Sobre Neticware</h2>
-    <p>
-        **Neticware** es una consultora de desarrollo de software con sede en Buenos Aires, dedicada a transformar ideas en soluciones digitales robustas y escalables. Desde 2020, nos asociamos con emprendedores y empresas para construir productos que resuelven problemas reales y generan valor.
-    </p>
-    <p>
-        No vendemos líneas de código, sino **soluciones que funcionan** y se adaptan a tus necesidades. Nuestro enfoque se centra en la transparencia, la calidad y la colaboración, trabajando contigo como un socio tecnológico para garantizar tu éxito.
-    </p>
-
-    <hr>
-
-    <div class="about5__details">
-        <div>
-            <h4>Nuestra Tecnología</h4>
-            <p>Nos especializamos en un stack robusto y moderno para asegurar la seguridad y el rendimiento de cada solución que creamos.</p>
-            <div class="about5__tech-list">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>Vaadin</span>
-                <span>REST APIs</span>
-                <span>MySQL</span>
-                <span>PostgreSQL</span>
-                <span>Docker</span>
-                <span>CI/CD</span>
-                <span>Git</span>
-            </div>
-        </div>
-        <div>
-            <h4>Nuestro Enfoque</h4>
-            <p>Aplicamos metodologías ágiles para entregar valor de forma rápida y transparente.</p>
-            <ul class="about5__values">
-                <li>✔️ **Claridad:** Sin jerga técnica innecesaria.</li>
-                <li>✔️ **Velocidad con calidad:** Entregas rápidas sin sacrificar el código mantenible.</li>
-                <li>✔️ **Transparencia total:** Acceso a repositorios, informes de avance semanales y pruebas.</li>
-                <li>✔️ **Soporte continuo:** Estamos a tu lado antes, durante y después del lanzamiento.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="about5__cta">
-        <a href="#contact" class="cta-button">Hablemos de tu proyecto →</a>
-    </div>
-</section>
-<!--About 6 --> 
-<section id="about6" class="about6">
-  <div class="about6__container">
-    <header class="about6__header">
-      <h2>Sobre Nosotros</h2>
-      <p class="about6__lead">
-        En <strong>Neticware</strong>, transformamos ideas en soluciones digitales robustas y escalables. Desde Buenos Aires, ayudamos a emprendedores y empresas a construir software que impulsa su crecimiento, con un enfoque ágil, transparente y centrado en resultados.
-      </p>
-    </header>
-
-    <div class="about6__content">
-      <div class="about6__text">
-        <p>
-          Fundada en 2020, nuestra misión es hacer del desarrollo de software una experiencia clara y eficiente. Creamos <strong>aplicaciones web, móviles y plataformas SaaS</strong> personalizadas, utilizando tecnologías modernas como <strong>Java, Spring Boot y Vaadin</strong>. Nos involucramos como parte de tu equipo, ofreciendo entregas rápidas, documentación clara y soporte continuo.
-        </p>
-        <div class="about6__values">
-          <h3>Nuestros Valores</h3>
-          <ul>
-            <li><strong>Claridad</strong>: Explicamos cada paso sin tecnicismos innecesarios.</li>
-            <li><strong>Calidad + Velocidad</strong>: Entregas rápidas sin comprometer la mantenibilidad.</li>
-            <li><strong>Transparencia</strong>: Acceso a repositorios y reportes de avance.</li>
-            <li><strong>Colaboración</strong>: Trabajamos como socios, no solo como proveedores.</li>
-          </ul>
+      <div class="service-card" style="background-image: url('assets/images/software-a-medida.png');">
+        <div class="service-title">Software a Medida</div>
+        <div class="service-overlay">
+          <p>Soluciones que automatizan procesos y resuelven necesidades específicas.</p>
         </div>
       </div>
 
-      <div class="about6__tech">
-        <div class="tech-card">
-          <h3>Tecnologías Clave</h3>
-          <div class="tech-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">Spring Boot</span>
-            <span class="tech-tag">Vaadin</span>
-            <span class="tech-tag">REST APIs</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">CI/CD</span>
-            <span class="tech-tag">Android</span>
-          </div>
+      <div class="service-card" style="background-image: url('assets/images/services-mobile.png');">
+        <div class="service-title">Aplicaciones Móviles</div>
+        <div class="service-overlay">
+          <p>Apps híbridas y nativas para <strong>Android</strong>, con experiencia fluida.</p>
         </div>
-        <div class="tech-card">
-          <h3>Nuestros Servicios</h3>
-          <div class="tech-tags">
-            <span class="tech-tag">Desarrollo Web</span>
-            <span class="tech-tag">Apps Móviles</span>
-            <span class="tech-tag">Soluciones SaaS</span>
-            <span class="tech-tag">Software a Medida</span>
-            <span class="tech-tag">Landing Pages</span>
-            <span class="tech-tag">Blogs</span>
-          </div>
+      </div>
+
+      <div class="service-card" style="background-image: url('assets/images/software-a-medida.png');">
+        <div class="service-title">Landing Pages</div>
+        <div class="service-overlay"><p>Optimización para conversión y performance.</p></div>
+      </div>
+
+      <div class="service-card" style="background-image: url('assets/images/software-a-medida.png');">
+        <div class="service-title">Blogs</div>
+        <div class="service-overlay"><p>Contenido administrable y SEO técnico.</p></div>
+      </div>
+
+      <div class="service-card" style="background-image: url('assets/images/services-saas.png');">
+        <div class="service-title">Soluciones SaaS</div>
+        <div class="service-overlay">
+          <p>Plataformas a medida, escalables y seguras para negocios digitales.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="about6__cta">
-      <a href="#contact" class="cta-button">Hablemos de tu proyecto →</a>
-    </div>
-  </div>
-</section>
-<!--About 7 --> 
-<!-- About7 Section -->
-  <section id="about7" class="about7">
-    <div class="about7__container">
-      <header class="about7__header">
-        <h2>Construimos software que impulsa tu negocio</h2>
-        <p class="about7__lead">
-          En <strong>Neticware</strong> nos especializamos en transformar ideas en herramientas digitales eficientes. 
-          Desde Buenos Aires, desarrollamos soluciones personalizadas con tecnología moderna y un enfoque centrado en resultados.
+  <!-- ABOUT (presentación general) -->
+  <section id="about" class="about">
+    <div class="about__inner">
+      <header class="about__header">
+        <h2>Sobre Neticware</h2>
+        <p class="about__lead">
+          En <strong>Neticware</strong> diseñamos y desarrollamos <em>software a medida</em> que potencia negocios:
+          <strong>aplicaciones web</strong>, <strong>sitios y landing pages</strong>, <strong>blogs</strong>,
+          <strong>plataformas SaaS</strong> y <strong>apps móviles para Android</strong> (no iOS).
+          Priorizamos rendimiento, seguridad y una UX clara para convertir ideas en productos reales.
         </p>
       </header>
-
-      <div class="about7__content">
-        <div class="about7__story">
-          <p>
-            Fundada en 2020, nuestra misión es hacer del desarrollo de software una experiencia transparente, ágil y centrada en el crecimiento de tu negocio. 
-            Combinamos backend potente con interfaces limpias usando tecnologías como <strong>Java, Spring Boot y Vaadin</strong>.
-          </p>
-          <p>
-            No vendemos líneas de código. Vendemos <strong>soluciones que funcionan</strong>, entregadas en tiempo y forma, 
-            con documentación clara y soporte continuo. Trabajamos como parte de tu equipo, no como vendedores.
-          </p>
-          <div class="about7__work-approach">
-            <p>
-              Usamos metodologías ágiles con <strong>entregas semanales, pruebas automatizadas y documentación viva</strong>. 
-              Tu producto crece con arquitectura escalable desde el primer día.
-            </p>
-          </div>
-        </div>
-
-        <div class="about7__details">
-          <div class="about7__values">
-            <h3>Nuestros Valores</h3>
-            <ul>
-              <li><strong>Claridad</strong>: Sin tecnicismos innecesarios. Te explicamos cada paso.</li>
-              <li><strong>Velocidad con calidad</strong>: Entregamos rápido, sin sacrificar mantenibilidad.</li>
-              <li><strong>Transparencia total</strong>: Acceso a repositorios, informes de avance y pruebas.</li>
-              <li><strong>Colaboración</strong>: Trabajamos como parte de tu equipo, no como vendedores.</li>
-              <li><strong>Soporte continuo</strong>: Estamos después del lanzamiento.</li>
-            </ul>
-          </div>
-
-          <div class="about7__tech">
-            <h3>Tecnologías que dominamos</h3>
-            <div class="tech-list">
-              <span>Java</span>
-              <span>Spring Boot</span>
-              <span>Vaadin</span>
-              <span>REST APIs</span>
-              <span>MySQL</span>
-              <span>PostgreSQL</span>
-              <span>Docker</span>
-              <span>CI/CD</span>
-              <span>Git</span>
-              <span>Android</span>
-            </div>
-          </div>
-
-          <div class="about7__services">
-            <h3>Nuestros Servicios</h3>
-            <div class="services-list">
-              <span>Apps de Escritorio</span>
-              <span>Web Apps</span>
-              <span>Sitios Web</span>
-              <span>Landing Pages</span>
-              <span>Blogs</span>
-              <span>SaaS</span>
-              <span>Android</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about7__cta">
+      <div class="about__cta">
         <a href="#contact" class="cta-button">Hablemos de tu proyecto →</a>
       </div>
     </div>
   </section>
-<!--About 8 --> 
-<section id="about8" class="about8">
-  <div class="about8__wrapper">
-    <!-- Título y descripción principal -->
-    <header class="about8__header">
-      <h2>Sobre Neticware</h2>
-      <p class="about8__lead">
-        Transformamos ideas en <strong>software funcional, escalable y listo para crecer</strong>. 
-        Desde Buenos Aires, ayudamos a emprendedores y empresas a construir productos digitales 
-        con tecnología robusta y un enfoque ágil y transparente.
-      </p>
-    </header>
 
-    <!-- Contenido principal: texto + detalles -->
-    <div class="about8__content">
-      <div class="about8__text">
-        <p>
-          No somos solo desarrolladores. Somos <strong>aliados tecnológicos</strong> que nos involucramos 
-          desde el inicio para entender tu negocio, tu audiencia y tus objetivos.
-        </p>
-        <p>
-          Trabajamos con <strong>Java, Spring Boot y Vaadin</strong> para construir aplicaciones web y móviles 
-          de alto rendimiento, seguras y fáciles de mantener. Todo con entregas semanales, 
-          documentación clara y soporte continuo.
-        </p>
-      </div>
+  <!-- STACK -->
+  <section id="stack" class="stack">
+    <div class="stack__wrap">
+      <h2>Stack & Tecnologías Clave</h2>
+      <p class="stack__lead">Utilizamos Tecnologías robustas y modernas para construir software mantenible y listo para escalar.</p>
+      <ul class="stack__tags" aria-label="Tecnologías de Neticware">
+        <li class="tag">Java</li>
+        <li class="tag">Spring Boot</li>
+        <li class="tag">Vaadin</li>
+        <li class="tag">REST APIs</li>
+        <li class="tag">HTML</li>
+        <li class="tag">CSS</li>
+        <li class="tag">JavaScript</li>
+        <li class="tag">MySQL</li>
+        <li class="tag">PostgreSQL</li>
+        <li class="tag">Docker</li>
+        <li class="tag">CI/CD</li>
+        <li class="tag">Git</li>
+        <li class="tag">Android</li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="about8__details">
-        <div class="about8__values">
-          <h3>Nuestros Pilares</h3>
-          <ul>
-            <li>✔️ <strong>Claridad</strong>: Sin tecnicismos innecesarios.</li>
-            <li>✔️ <strong>Velocidad + Calidad</strong>: Sin compromisos.</li>
-            <li>✔️ <strong>Transparencia total</strong>: Acceso al código y avances semanales.</li>
-            <li>✔️ <strong>Soporte post-lanzamiento</strong>: Estamos después del "listo".</li>
-          </ul>
-        </div>
-
-        <div class="about8__tech">
-          <h3>Tecnología que usamos</h3>
-          <div class="tech-tags">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>Vaadin</span>
-            <span>REST APIs</span>
-            <span>Docker</span>
-            <span>MySQL / PostgreSQL</span>
-            <span>CI/CD</span>
-            <span>Android</span>
-          </div>
-        </div>
+  <!-- APPROACH -->
+  <section id="approach" class="approach">
+    <div class="approach__wrap">
+      <h2>Nuestro Enfoque</h2>
+      <div class="approach__grid">
+        <article class="approach__card">
+          <h3>Claridad</h3>
+          <p>Comunicación directa, sin jerga innecesaria. Sabés qué, cuándo y cómo en cada etapa.</p>
+        </article>
+        <article class="approach__card">
+          <h3>Velocidad + Calidad</h3>
+          <p>Iteraciones cortas y entregas frecuentes sin comprometer la mantenibilidad.</p>
+        </article>
+        <article class="approach__card">
+          <h3>Transparencia</h3>
+          <p>Acceso a repositorios, informes semanales y pruebas visibles en tiempo real.</p>
+        </article>
+        <article class="approach__card">
+          <h3>Colaboración</h3>
+          <p>Trabajamos como parte de tu equipo, alineados a tus objetivos.</p>
+        </article>
+        <article class="approach__card">
+          <h3>Acompañamiento</h3>
+          <p>Soporte antes, durante y después del lanzamiento para asegurar evolución.</p>
+        </article>
       </div>
     </div>
+  </section>
 
-    <!-- CTA final -->
-    <div class="about8__cta">
-      <a href="#contact" class="cta-button">Hablemos sin compromiso →</a>
+  <!-- METHODOLOGY -->
+  <section id="methodology" class="methodology">
+    <div class="methodology__wrap">
+      <h2>Metodología</h2>
+      <div class="methodology__grid">
+        <article class="method-card">
+          <h3>Descubrimiento</h3>
+          <p>Analizamos necesidades y objetivos para comprender la visión.</p>
+          <p class="action">→ Definimos alcance, prioridades y KPIs.</p>
+        </article>
+        <article class="method-card">
+          <h3>Diseño</h3>
+          <p>Prototipos y wireframes para validar la solución antes del desarrollo.</p>
+          <p class="action">→ Validamos la experiencia antes de escribir código.</p>
+        </article>
+        <article class="method-card">
+          <h3>Desarrollo</h3>
+          <p>Implementación con el stack adecuado y buenas prácticas.</p>
+          <p class="action">→ Entregas semanales, feedback continuo y métricas.</p>
+        </article>
+        <article class="method-card">
+          <h3>Lanzamiento</h3>
+          <p>Despliegue seguro y escalable, con checklist y monitoreo inicial.</p>
+          <p class="action">→ Producto estable y listo para el mercado.</p>
+        </article>
+        <article class="method-card">
+          <h3>Soporte y Mantenimiento</h3>
+          <p>Asistencia técnica, actualizaciones y mejoras continuas.</p>
+          <p class="action">→ Evolución sostenida post-lanzamiento.</p>
+        </article>
+      </div>
+      <div class="methodology__cta">
+        <a class="cta-button" href="#contact">Empecemos hoy →</a>
+      </div>
     </div>
-  </div>
-</section>
-<!--Contact section --> 
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-card">
       <div class="form-wrapper">
         <h2>Formulario</h2>
         <p>Complete los campos a continuación para que podamos ponernos en contacto con usted.</p>
-
         <form id="contactForm" class="form-grid">
-  <div class="field">
-    <label for="name">Nombre</label>
-    <input id="name" name="name" type="text" placeholder="Tu nombre" required />
-  </div>
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+          </div>
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" placeholder="nombre@dominio.com" required />
+          </div>
+          <div class="field">
+            <label for="phone">Teléfono</label>
+            <input id="phone" name="phone" type="tel" placeholder="+54 11 1234-5678" />
+          </div>
+          <div class="field full-row">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta…" required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="Nueva consulta desde neticware.com.ar" />
+          <input type="hidden" name="_template" value="box" />
+          <input type="hidden" name="_captcha" value="true" />
+          <input type="text" name="_honey" style="display:none">
+          <div class="actions full-row">
+            <button type="submit" class="cta-button">Enviar</button>
+          </div>
+          <div class="quick-actions full-row">
+            <p class="quick-actions-title">Otras formas de contacto:</p>
+            <a href="tel:+5491165165422" class="cta-button">📞 Llamar</a>
+            <a href="https://wa.me/5491165165422?text=Hola%20quisiera%20más%20información" target="_blank" class="cta-button">💬 WhatsApp</a>
+          </div>
+        </form>
 
-  <div class="field">
-    <label for="email">Correo electrónico</label>
-    <input id="email" name="email" type="email" placeholder="nombre@dominio.com" required />
-  </div>
-
-  <div class="field">
-    <label for="phone">Teléfono</label>
-    <input id="phone" name="phone" type="tel" placeholder="+54 11 1234-5678" />
-  </div>
-
-  <div class="field full-row">
-    <label for="message">Mensaje</label>
-    <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta…" required></textarea>
-  </div>
-
-  <!-- Campos ocultos de FormSubmit -->
-  <input type="hidden" name="_subject" value="Nueva consulta desde neticware.com.ar" />
-  <input type="hidden" name="_template" value="box" />
-  <input type="hidden" name="_captcha" value="true" />
-  <input type="text" name="_honey" style="display:none">
-
-  <div class="actions full-row">
-    <button type="submit" class="cta-button">Enviar</button>
-  </div>
-
-  <!-- Acciones rápidas -->
-<div class="quick-actions full-row">
-  <p class="quick-actions-title">Otras formas de contacto:</p>
-  <a href="tel:+5491165165422" class="cta-button">📞 Llamar</a>
-  <a href="https://wa.me/5491165165422?text=Hola%20quisiera%20más%20información" target="_blank" class="cta-button">💬 WhatsApp</a>
-</div>
-
-</form>
-
-<!-- Mensaje de éxito oculto -->
-<div id="thankYouMessage" class="thank-you" style="display:none;">
-  <h3>¡Gracias por contactarnos!</h3>
-  <p>Recibimos tu mensaje y te responderemos pronto.</p>
-  <button id="newMessageBtn" class="cta-button">Enviar otro mensaje</button>
-</div>
-
-
-
+        <div id="thankYouMessage" class="thank-you" style="display:none;">
+          <h3>¡Gracias por contactarnos!</h3>
+          <p>Recibimos tu mensaje y te responderemos pronto.</p>
+          <button id="newMessageBtn" class="cta-button">Enviar otro mensaje</button>
+        </div>
       </div>
     </div>
   </section>
 
   <footer id="footer" class="footer">
-  <div class="footer-container">
-    <!-- Marca -->
-    <div class="footer-brand">
-      <div class="logo">
-        <div class="logo__iconContainer">
-          <a href="/" class="logo__link">
-            <img
-              src="assets/images/Icono-sinFondo-ChatGPT.png"
-              alt="Neticware Logo"
-              class="logo__icon logo__icon--footer-spin"
-            />
-          </a>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo__iconContainer">
+            <a href="/" class="logo__link">
+              <img src="assets/images/Icono-sinFondo-ChatGPT.png" alt="Neticware Logo" class="logo__icon logo__icon--footer-spin"/>
+            </a>
+          </div>
+          <div class="logo__text-group">
+            <span class="logo__name">neticware</span>
+            <span class="logo__description">SOFTWARE DEVELOPMENT</span>
+          </div>
         </div>
-        <div class="logo__text-group">
-          <span class="logo__name">neticware</span>
-          <span class="logo__description">SOFTWARE DEVELOPMENT</span>
-        </div>
+        <p class="footer-claim">Website | Mobile | SaaS</p>
       </div>
-      <p class="footer-claim">Website | Mobile | SaaS</p>
+
+      <div class="footer-services">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#services">Desarrollo Web</a></li>
+          <li><a href="#services">Aplicaciones Móviles</a></li>
+          <li><a href="#services">Soluciones SaaS</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Mapa del sitio</h4>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#approach">Enfoque</a></li>
+          <li><a href="#methodology">Metodología</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Tel: <a href="tel:+5491165165422">+54 9 11 6516 5422</a></p>
+        <p>Email: <a href="mailto:contacto@neticware.com.ar">contacto@neticware.com.ar</a></p>
+      </div>
     </div>
 
-       <!-- Servicios -->
-  <div class="footer-services">
-  <h4>Servicios</h4>
-  <ul>
-    <li><a href="#services">Desarrollo Web</a></li>
-    <li><a href="#services">Aplicaciones Móviles</a></li>
-    <li><a href="#services">Soluciones SaaS</a></li>
-  </ul>
-</div>
-
-
-    <!-- Mapa del sitio -->
-    <div class="footer-links">
-      <h4>Mapa del sitio</h4>
-      <ul>
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#products">Productos</a></li>
-        <li><a href="#about">Nosotros</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>© 2025 NETICWARE | Desarrollo de Software | Todos los derechos reservados</p>
     </div>
+  </footer>
 
- 
-    <!-- Contacto -->
-    <div class="footer-contact">
-      <h4>Contacto</h4>
-      <p>Tel: <a href="tel:+5491165165422">+54 9 11 6516 5422</a></p>
-      <p>Email: <a href="mailto:contacto@neticware.com.ar">contacto@neticware.com.ar</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 NETICWARE | Desarrollo de Software | Todos los derechos reservados</p>
-  </div>
-</footer>
-
-
-  <!-- JS principal -->
   <script src="assets/js/main.js"></script>
 </body>
-
 </html>
