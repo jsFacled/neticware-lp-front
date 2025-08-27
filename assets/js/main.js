@@ -66,18 +66,82 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Toggle de descripción para mobile/touch
-document.querySelectorAll('.service-card .service-toggle').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const card = e.currentTarget.closest('.service-card');
-    card.classList.toggle('is-open');
-  });
-});
-// Cerrar si se toca fuera (opcional)
-document.addEventListener('click', (e) => {
-  document.querySelectorAll('.service-card.is-open').forEach(card => {
-    if (!card.contains(e.target)) card.classList.remove('is-open');
-  });
-});
+// ===== Services: overlay + efecto máquina de escribir =====
+(function(){
+  // Helpers
+  const timers = new WeakMap();
+  function typeIn(el, text, speed = 18){
+    clearTimer(el);
+    el.textContent = "";
+    el.classList.add("typing-caret");
+    let i = 0;
+    const id = setInterval(() => {
+      el.textContent += text[i] ?? "";
+      i++;
+      if (i > text.length){
+        clearInterval(id);
+        el.classList.remove("typing-caret");
+      }
+    }, speed);
+    timers.set(el, id);
+  }
+  function clearTimer(el){
+    const id = timers.get(el);
+    if (id) clearInterval(id);
+    timers.delete(el);
+  }
+  function resetType(el){
+    clearTimer(el);
+    if (el?.dataset.fulltext) el.textContent = "";
+    el?.classList.remove("typing-caret");
+  }
 
+  // Guardar texto original
+  document.querySelectorAll('.service-overlay p').forEach(p => {
+    if (!p.dataset.fulltext) p.dataset.fulltext = p.textContent.trim();
+    p.textContent = "";
+  });
+
+  const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // Desktop: escribe al hover
+  if (isDesktop){
+    document.querySelectorAll('.service-card').forEach(card => {
+      const p = card.querySelector('.service-overlay p');
+      card.addEventListener('mouseenter', () => {
+        if (!p) return;
+        resetType(p);
+        typeIn(p, p.dataset.fulltext, 16);
+      });
+      card.addEventListener('mouseleave', () => resetType(p));
+    });
+  }
+
+  // Mobile/touch: botón +
+  document.querySelectorAll('.service-card .service-toggle').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = e.currentTarget.closest('.service-card');
+      const p = card.querySelector('.service-overlay p');
+      const opening = !card.classList.contains('is-open');
+      card.classList.toggle('is-open', opening);
+      if (opening){
+        resetType(p);
+        setTimeout(() => typeIn(p, p.dataset.fulltext, 20), 120);
+      } else {
+        resetType(p);
+      }
+    });
+  });
+
+  // Cerrar si se toca fuera (mobile)
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.service-card.is-open').forEach(card => {
+      if (!card.contains(e.target)) {
+        const p = card.querySelector('.service-overlay p');
+        card.classList.remove('is-open');
+        resetType(p);
+      }
+    });
+  });
+})();

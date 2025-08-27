@@ -107,3 +107,48 @@
   .services-heading{ font-size: 1.6rem; }
   .service-header h3{ font-size: 1.1rem; }
 }
+
+/* Por defecto: oculto el + */
+.service-toggle { display: none; }
+
+/* Desktop (hay hover y puntero fino): oculto + y habilito overlay por hover */
+@media (hover: hover) and (pointer: fine) {
+  .service-toggle { display: none; }
+  .service-card:hover .service-overlay { opacity: 1; pointer-events: auto; }
+}
+
+/* Mobile/touch (sin hover, puntero grueso): muestro + y deshabilito hover */
+@media (hover: none), (pointer: coarse) {
+  .service-toggle { display: inline-flex; }
+  .service-card:hover .service-overlay { opacity: 0; pointer-events: none; } /* evita parpadeos */
+}
+
+/* Estilo del botón + (si no lo tenés ya) */
+.service-toggle{
+  appearance: none; border: 0; border-radius: 10px;
+  width: 34px; height: 34px; align-items: center; justify-content: center;
+  font-weight: 700; background: rgba(255,255,255,.12); color: #c7d2fe; cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.service-toggle:hover{ background: rgba(255,255,255,.2); }
+.service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
+
+/* === Typewriter (cursor) === */
+.service-overlay p{
+  margin: 0; max-width: 90%;
+  line-height: 1.45; font-size: 1rem;
+  white-space: pre-wrap;          /* respeta saltos si existieran */
+}
+
+/* cursor mientras escribe */
+.typing-caret::after{
+  content: "|";
+  display: inline-block;
+  margin-left: 2px;
+  opacity: .8;
+  animation: caret-blink 1s steps(1, end) infinite;
+}
+@keyframes caret-blink{
+  0%, 50% { opacity: .8; }
+  50.01%, 100% { opacity: 0; }
+}
