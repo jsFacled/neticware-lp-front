@@ -1,94 +1,109 @@
-/* ===== Services Section ===== */
-.services {
+/* ===== Services Section (título general) ===== */
+.services{
   padding: 4rem 1rem 3rem;
   max-width: 1200px;
   margin: 0 auto;
 }
-
-.services-heading {
+.services-heading{
   text-align: center;
   font-size: 2rem;
   color: #ffd700;
   margin-bottom: 2rem;
 }
 
-/* Grid de tarjetas */
-.services-grid {
+/* ===== Grid ===== */
+.services-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-/* Tarjeta de servicio */
-.service-card {
+/* ===== Card ===== */
+.service-card{
   position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(2px);
+  transition: transform .25s ease;
+}
+.service-card:hover{ transform: translateY(-2px); }
+
+/* Header (título SIEMPRE visible) */
+.service-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .9rem 1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
+}
+.service-header h3{
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.4);
+  letter-spacing: .2px;
+}
+
+/* Toggle (accesible para mobile/touch) */
+.service-toggle{
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  width: 34px; height: 34px;
+  font-weight: 700;
+  background: rgba(255,255,255,.1);
+  color: #c7d2fe;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.service-toggle:hover{ background: rgba(255,255,255,.18); }
+.service-toggle:active{ transform: scale(.96); }
+
+/* Imagen */
+.service-media{
   aspect-ratio: 16/9;
   background-size: cover;
   background-position: center;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,.35);
-  transition: transform .3s ease;
-}
-.service-card:hover {
-  transform: scale(1.03);
+  background-color: #0e1e44; /* fallback */
 }
 
-/* Título siempre visible */
-.service-title {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, transparent, rgba(0,0,0,.7));
-  color: #ffd700;
-  font-size: 1.3rem;
-  font-weight: 600;
-  text-align: center;
-  padding: .6rem;
-  z-index: 2;
-  text-shadow: 0 1px 2px rgba(0,0,0,.7);
-}
-
-/* Overlay (solo descripción al hover/tap) */
-.service-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(10,28,61,.78);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Overlay (descripcion) */
+.service-overlay{
+  position: absolute; inset: 0;
+  display: flex; justify-content: center; align-items: center;
+  text-align: center; color: #fff;
   padding: 1rem;
-  text-align: center;
-  color: #fff;
-  opacity: 0;
-  transition: opacity .35s ease;
+  background: rgba(10,28,61,.80);
+  opacity: 0; pointer-events: none;
+  transition: opacity .28s ease;
 }
 
-.service-card:hover .service-overlay,
-.service-card:focus .service-overlay,
-.service-card:focus-within .service-overlay {
-  opacity: 1;
+/* Mostrar overlay en hover (desktop) */
+.service-card:hover .service-overlay{ opacity: 1; }
+
+/* Mostrar overlay si la card está abierta (mobile/touch) */
+.service-card.is-open .service-overlay{
+  opacity: 1; pointer-events: auto;
 }
 
-.service-overlay p {
-  font-size: 1rem;
-  line-height: 1.4;
-  max-width: 90%;
-  margin: 0;
+/* Texto overlay */
+.service-overlay p{
+  margin: 0; max-width: 90%;
+  line-height: 1.45; font-size: 1rem;
 }
+.service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
 
 /* Motion-safe */
-@media (prefers-reduced-motion: reduce) {
-  .service-card, .service-overlay {
-    transition: none;
-  }
+@media (prefers-reduced-motion: reduce){
+  .service-card, .service-overlay{ transition: none; }
 }
 
-/* Mobile tweaks */
-@media (max-width: 768px) {
-  .services-heading {
-    font-size: 1.6rem;
-  }
+/* Mobile */
+@media (max-width: 768px){
+  .services-heading{ font-size: 1.6rem; }
+  .service-header h3{ font-size: 1.1rem; }
 }

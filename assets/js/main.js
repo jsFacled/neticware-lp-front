@@ -66,3 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Toggle de descripción para mobile/touch
+document.querySelectorAll('.service-card .service-toggle').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const card = e.currentTarget.closest('.service-card');
+    card.classList.toggle('is-open');
+  });
+});
+// Cerrar si se toca fuera (opcional)
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('.service-card.is-open').forEach(card => {
+    if (!card.contains(e.target)) card.classList.remove('is-open');
+  });
+});
+
