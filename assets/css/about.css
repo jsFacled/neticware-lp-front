@@ -1,129 +1,85 @@
-/* ===== ABOUT (Nosotros) – mejora visual sin cambiar HTML ===== */
-:root{
-  
-   --about-bg: url("../images/about-nosotros.png"); /* si tu carpeta es assets/images */
-
-  --about-glass: rgba(10,14,32,.38);
-  --about-stroke: rgba(120,146,255,.26);
-  --about-glow: 0 14px 44px rgba(0,0,0,.28);
-  --brand-grad: linear-gradient(90deg,#63a4ff 0%, #8b5cf6 100%);
-}
-
-/* Sección con fondo + overlays sin tocar el HTML */
-.about{
-  position: relative;
-  padding: clamp(2.25rem, 4vw, 3.25rem) 1.25rem;
-  max-width: none;          /* liberamos ancho para que respire */
-  margin: 0;
-  overflow: clip;
-  isolation: isolate;
-}
-.about::before{
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(99,164,255,.18), transparent 60%),
-    radial-gradient(900px 500px at 100% 10%, rgba(139,92,246,.16), transparent 60%),
-    var(--about-bg);
-  background-size: cover, cover, cover;    /* asegura cover en los 3 layers */
-  background-position: center, center, center;
-  opacity: 0.58;;
-  filter: saturate(1.05) contrast(1.03) brightness(1.06);
-  z-index:-2;
-}
-.about::after{
-  /* velo para mejorar legibilidad del copy */
-  content:"";
-  position: absolute; inset: 0;
-background: linear-gradient(180deg, rgba(7,10,24,.38), rgba(7,10,24,.55));
-  z-index: -1;
-}
-
-/* Card principal (glass) */
-.about__inner{
-  width: min(1100px, 95%);
-  margin: 0 auto;
-  background: var(--about-glass);
-  border: 1px solid var(--about-stroke);
-
-  border-radius: 18px;
-  backdrop-filter: blur(10px);
-  box-shadow: var(--about-glow), inset 0 0 0 1px rgba(120,146,255,.06);
-  padding: clamp(1.25rem, 2.8vw, 2rem);
-  position: relative;
-}
-
-/* Borde con brillo suave al hacer hover (sin JS) */
-.about__inner::after{
-  content:"";
-  position:absolute; inset:-1px;
-  border-radius: inherit;
-  pointer-events:none;
-  background: conic-gradient(from 180deg at 50% 50%, rgba(139,92,246,.18), rgba(99,164,255,.18), rgba(139,92,246,.18));
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude; -webkit-mask-composite: xor;
-  padding: 1px;
-  opacity: 0; transition: opacity .35s ease;
-}
-.about__inner:hover::after{ opacity: .9; }
-
-/* Título con divider y gradiente de marca */
-.about__header h2{
-  margin: 0 0 .65rem 0;
-  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+.about {
+  padding: 4rem 1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.8)),
+              url("../images/about-nosotros.png") center/cover no-repeat;
   color: #fff;
-  letter-spacing: .2px;
-  position: relative;
 }
-.about__header h2::after{
+
+.about__wrap {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  align-items: start;
+}
+
+.about__text {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(120,146,255,.25);
+  border-radius: 14px;
+  padding: 2rem;
+  transition: background .3s ease, transform .3s ease;
+}
+.about__text:hover {
+  background: rgba(0,0,0,.55);
+  transform: translateY(-2px);
+}
+
+.about__text h2 {
+  font-size: 2rem; margin-bottom: 1rem;
+  position: relative; color: #fff;
+}
+.about__text h2::after {
   content:"";
   display:block;
   width: 72px; height: 3px;
-  margin-top: .5rem;
-  background: var(--brand-grad);
+  margin-top: .4rem;
+  background: linear-gradient(90deg,#63a4ff 0%, #8b5cf6 100%);
   border-radius: 4px;
-  box-shadow: 0 6px 18px rgba(99,164,255,.35);
+  box-shadow: 0 4px 12px rgba(99,164,255,.35);
 }
 
-/* Lead más legible en pantallas grandes y chicas */
-.about__lead{
-  margin: .25rem 0 0 0;
-  color: rgba(244,248,255,.96);
-  font-size: clamp(1rem, 1.15vw, 1.06rem);
-  line-height: 1.68;
+.about__text p {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
 }
 
-/* CTA alineado y mejorado sin cambiar el <a> existente */
-.about__cta{
-  margin-top: 1.35rem;
-  display: flex;
-  justify-content: flex-end;
+.about__highlights {
+  display: grid; gap: 1rem;
 }
-.about__cta .cta-button{
-  display: inline-flex; align-items:center; gap:.5rem;
-  padding: .85rem 1.05rem;
+
+.about__card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(120,146,255,.25);
   border-radius: 12px;
-  font-weight: 700;
-  color: #0b1026;
-  background: var(--brand-grad);
-  border: 0;
-  box-shadow: 0 10px 24px rgba(31,107,255,.28);
-  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-  text-decoration: none;
+  padding: 1.2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  transition: background .3s ease, transform .3s ease;
 }
-.about__cta .cta-button:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.03);
-  box-shadow: 0 16px 32px rgba(31,107,255,.34);
+.about__card:hover {
+  background: rgba(0,0,0,.55);
+  transform: translateY(-2px);
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 992px){
-  .about__inner{ padding: 1.25rem; }
-  .about__cta{ justify-content: center; }
+.about__card h3 {
+  margin: 0 0 .5rem; color: #ffd700;
 }
-@media (max-width: 640px){
-  .about{ padding: 2rem 1rem; }
-  .about__header h2::after{ width: 56px; }
+
+.cta-button {
+  display: inline-block;
+  padding: .75rem 1.2rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#1F6BFF,#8B5CF6);
+  color: #fff; font-weight: 600;
+  box-shadow: 0 6px 20px rgba(31,107,255,.35);
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s, filter .15s;
+}
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(31,107,255,.45);
+  filter: brightness(1.05);
+}
+
+@media (max-width: 768px){
+  .about__wrap { grid-template-columns: 1fr; }
 }
