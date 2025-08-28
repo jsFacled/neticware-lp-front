@@ -5,7 +5,7 @@
   /* Fondo: degradado + imagen (usa tu carpeta /images) */
   background:
     linear-gradient(to right, rgba(0,0,0,.7) 0%, rgba(10,28,61,.3) 40%, rgba(10,28,61,0) 80%),
-    url('assets/images/Laboratorio-Diseño-Futurista.png');
+    url('../images/Laboratorio-Diseño-Futurista.png');
   background-size:cover; background-repeat:no-repeat; background-position:center;
   width:100%; min-height:100vh;
 
