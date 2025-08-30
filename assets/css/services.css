@@ -1,7 +1,7 @@
-/* ===== Services Section (título general) ===== */
+/* ===== Services Section (corrección: 3 columnas fijas + más separación) ===== */
 .services{
   padding: 4rem 1rem 3rem;
-  max-width: 1200px;
+  max-width: 1500px; /* mantenemos el contenedor para que no aparezcan 5 en fila */
   margin: 0 auto;
 }
 .services-heading{
@@ -12,10 +12,25 @@
 }
 
 /* ===== Grid ===== */
+/* FIX: forzamos 3 columnas en desktop para que las tarjetas queden 3x3 */
 .services-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(280px, 1fr)); /* exactamente 3 columnas en desktop */
+  gap: 4rem; /* más separación entre tarjetas (lo único que querías) */
+}
+
+/* Responsive: 2 columnas en pantallas medias, 1 en mobile */
+@media (max-width: 1200px){
+  .services-grid{
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2.25rem;
+  }
+}
+@media (max-width: 760px){
+  .services-grid{
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 /* ===== Card ===== */
@@ -94,6 +109,7 @@
 .service-overlay p{
   margin: 0; max-width: 90%;
   line-height: 1.45; font-size: 1rem;
+  white-space: pre-wrap; /* respeta saltos si existieran */
 }
 .service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
 
@@ -133,14 +149,7 @@
 .service-toggle:hover{ background: rgba(255,255,255,.2); }
 .service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
 
-/* === Typewriter (cursor) === */
-.service-overlay p{
-  margin: 0; max-width: 90%;
-  line-height: 1.45; font-size: 1rem;
-  white-space: pre-wrap;          /* respeta saltos si existieran */
-}
-
-/* cursor mientras escribe */
+/* cursor mientras escribe (typewriter) */
 .typing-caret::after{
   content: "|";
   display: inline-block;
