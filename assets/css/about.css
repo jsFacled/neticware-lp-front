@@ -6,7 +6,7 @@
 }
 
 .about__wrap {
-  max-width: 1100px; margin: 0 auto;
+  max-width: 1000px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
   align-items: start;
 }
@@ -52,6 +52,7 @@
   border: 1px solid rgba(120,146,255,.25);
   border-radius: 12px;
   padding: 1.2rem;
+  margin-left: 2rem;
   box-shadow: 0 6px 18px rgba(0,0,0,.3);
   transition: background .3s ease, transform .3s ease;
 }
