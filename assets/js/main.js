@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(form);
 
       try {
-        const response = await fetch("https://formsubmit.co/contacto@neticware.com.ar", {
+        const response = await fetch("https://formsubmit.co/ef7d59049898d7f53426aae769f74ea4", {
           method: "POST",
           body: formData,
         });
