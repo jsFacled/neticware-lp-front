@@ -399,36 +399,46 @@
       <div class="form-wrapper">
         <h2>Formulario</h2>
         <p>Complete los campos a continuación para que podamos ponernos en contacto con usted.</p>
-        <form id="contactForm" class="form-grid">
-          <div class="field">
-            <label for="name">Nombre</label>
-            <input id="name" name="name" type="text" placeholder="Tu nombre" required />
-          </div>
-          <div class="field">
-            <label for="email">Correo electrónico</label>
-            <input id="email" name="email" type="email" placeholder="nombre@dominio.com" required />
-          </div>
-          <div class="field">
-            <label for="phone">Teléfono</label>
-            <input id="phone" name="phone" type="tel" placeholder="+54 11 1234-5678" />
-          </div>
-          <div class="field full-row">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta…" required></textarea>
-          </div>
-          <input type="hidden" name="_subject" value="Nueva consulta desde neticware.com.ar" />
-          <input type="hidden" name="_template" value="box" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" style="display:none">
-          <div class="actions full-row">
-            <button type="submit" class="cta-button">Enviar</button>
-          </div>
-          <div class="quick-actions full-row">
-            <p class="quick-actions-title">Otras formas de contacto:</p>
-            <a href="tel:+5491165165422" class="cta-button">📞 Llamar</a>
-            <a href="https://wa.me/5491165165422?text=Hola%20quisiera%20más%20información" target="_blank" class="cta-button">💬 WhatsApp</a>
-          </div>
-        </form>
+        <form id="contactForm" class="form-grid" novalidate>
+  <div class="field">
+    <label for="name">Nombre</label>
+    <input id="name" name="name" type="text" placeholder="Tu nombre"
+      required minlength="2" maxlength="50"
+      pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"
+      title="Solo letras y espacios, entre 2 y 50 caracteres" />
+  </div>
+
+  <div class="field">
+  <label for="email">Correo electrónico</label>
+  <input id="email" name="email" type="email" 
+         placeholder="nombre@dominio.com" 
+         required />
+</div>
+
+
+  <div class="field">
+    <label for="phone">Teléfono</label>
+    <input id="phone" name="phone" type="tel" placeholder="+54 11 1234-5678"
+      pattern="^\+?[0-9\s\-]{8,15}$"
+      title="Debe ser un número válido (8 a 15 dígitos, puede incluir +, espacios o guiones)" />
+  </div>
+
+  <div class="field full-row">
+    <label for="message">Mensaje</label>
+    <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta…"
+      required minlength="10" maxlength="1000"></textarea>
+  </div>
+
+  <input type="hidden" name="_subject" value="Nueva consulta desde neticware.com.ar" />
+  <input type="hidden" name="_template" value="box" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="actions full-row">
+    <button type="submit" class="cta-button">Enviar</button>
+  </div>
+</form>
+
 
         <div id="thankYouMessage" class="thank-you" style="display:none;">
           <h3>¡Gracias por contactarnos!</h3>

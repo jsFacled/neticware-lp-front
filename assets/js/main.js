@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ===== Formulario de contacto con mensaje inline =====
+// ===== Formulario de contacto con validaciones =====
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   const thankYou = document.getElementById('thankYouMessage');
@@ -37,11 +37,34 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      // 1. Validación HTML5 básica (required, pattern, minlength, etc.)
+      if (!form.checkValidity()) {
+        form.reportValidity(); 
+        return;
+      }
+
+      // 2. Validación extra de email con regex más estricto
+      const emailRegex = /^(?!.*\.\.)(?!.*\.$)(?!^\.)[a-zA-Z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/;
+      const emailValue = form.email.value.trim();
+
+      if (!emailRegex.test(emailValue)) {
+        alert("Por favor ingresá un correo válido con dominio real (ejemplo: nombre@dominio.com).");
+        return;
+      }
+
+      // 3. Validación extra de teléfono (si el usuario lo completa)
+      const phoneValue = form.phone.value.trim();
+      if (phoneValue && !/^\+?[0-9\s\-]{8,15}$/.test(phoneValue)) {
+        alert("El teléfono debe tener entre 8 y 15 dígitos (se permiten +, espacios y guiones).");
+        return;
+      }
+
+      // Datos a enviar
       const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        message: form.message.value,
+        name: form.name.value.trim(),
+        email: emailValue,
+        phone: phoneValue,
+        message: form.message.value.trim(),
         _subject: "Nueva consulta desde neticware.com.ar",
         _captcha: "false",
         _template: "box"
@@ -77,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
 
 
 
