@@ -37,31 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const payload = {
-        name:    form.name.value,
-        email:   form.email.value,
-        phone:   form.phone.value,
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
         message: form.message.value,
-
-        _subject:  "Nueva consulta desde neticware.com.ar",
-        _template: "box",
-        _captcha:  "false",                 // IMPORTANTE con AJAX
-        _replyto:  form.email.value,        // para que Reply funcione
-        _honey:    form.querySelector('[name="_honey"]')?.value || ""
+        _subject: "Nueva consulta desde neticware.com.ar",
+        _captcha: "false",
+        _template: "box"
       };
 
       try {
-        const response = await fetch("https://formsubmit.co/ajax/contacto@neticware.com.ar", {
+        const response = await fetch("https://formsubmit.co/ajax/ef7d59049898d7f53426aae769f74ea4", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
           },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(data)
         });
 
         if (response.ok) {
-          // const data = await response.json(); // si querés validar data.success
           form.reset();
           form.style.display = "none";
           thankYou.style.display = "block";
@@ -81,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
 
 
 
