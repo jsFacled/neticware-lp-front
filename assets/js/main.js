@@ -37,19 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const formData = new FormData(form);
+      const payload = {
+        name:    form.name.value,
+        email:   form.email.value,
+        phone:   form.phone.value,
+        message: form.message.value,
+
+        _subject:  "Nueva consulta desde neticware.com.ar",
+        _template: "box",
+        _captcha:  "false",                 // IMPORTANTE con AJAX
+        _replyto:  form.email.value,        // para que Reply funcione
+        _honey:    form.querySelector('[name="_honey"]')?.value || ""
+      };
 
       try {
-        const response = await fetch("https://formsubmit.co/contacto@neticware.com.ar", {
+        const response = await fetch("https://formsubmit.co/ajax/contacto@neticware.com.ar", {
           method: "POST",
-          body: formData,
           headers: {
-            'Accept': 'application/json' 
-        }
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
 
         if (response.ok) {
-          form.reset(); // limpia los campos
+          // const data = await response.json(); // si querés validar data.success
+          form.reset();
           form.style.display = "none";
           thankYou.style.display = "block";
         } else {
@@ -64,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (newMessageBtn) {
     newMessageBtn.addEventListener('click', () => {
       thankYou.style.display = "none";
-      form.style.display = "grid"; // vuelve a mostrar el formulario en modo grid
+      form.style.display = "grid";
     });
   }
 });
