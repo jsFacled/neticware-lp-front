@@ -43,6 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch("https://formsubmit.co/contacto@neticware.com.ar", {
           method: "POST",
           body: formData,
+          headers: {
+            'Accept': 'application/json' 
+        }
         });
 
         if (response.ok) {
@@ -65,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
 
 // ===== Services: overlay + efecto máquina de escribir =====
 (function(){
@@ -147,13 +152,3 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// **********************************************************************************************//
-// About3 expandible
-document.addEventListener('DOMContentLoaded', () => {
-  const card = document.querySelector('.about3__card');
-  const toggle = document.querySelector('.about3__toggle');
-  toggle.addEventListener('click', () => {
-    card.classList.toggle('expanded');
-    toggle.textContent = card.classList.contains('expanded') ? "Ver menos" : "Ver más";
-  });
-});
