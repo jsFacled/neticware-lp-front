@@ -186,4 +186,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
+//Detecta si la URL es /servicios, /nosotros, etc. Si coincide, hace scroll automático hasta esa sección.
+document.addEventListener("DOMContentLoaded", () => {
+  // Rutas limpias → ID de sección
+  const routes = {
+    "/servicios": "#services",
+    "/nosotros": "#about",
+    "/stack": "#stack",
+    "/enfoque": "#approach",
+    "/metodologia": "#methodology",
+    "/contacto": "#contact"
+  };
 
+  const path = window.location.pathname.toLowerCase();
+
+  if (routes[path]) {
+    const section = document.querySelector(routes[path]);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+});
