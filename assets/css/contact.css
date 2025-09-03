@@ -1,6 +1,6 @@
 /* ===== Contacto / Formulario ===== */
 #contact {
-  background-image: url('../images/panel-metal.png');
+  background-image: url('../images/panel-metal.webp');
   background-size: cover; background-position: center;
   display: flex; justify-content: center; align-items: center;
   padding: 40px 16px;
