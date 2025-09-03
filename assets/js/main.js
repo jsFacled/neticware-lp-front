@@ -37,29 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // 1. Validación HTML5 básica (required, pattern, minlength, etc.)
       if (!form.checkValidity()) {
-        form.reportValidity(); 
+        form.reportValidity();
         return;
       }
 
-      // 2. Validación extra de email con regex más estricto
       const emailRegex = /^(?!.*\.\.)(?!.*\.$)(?!^\.)[a-zA-Z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/;
       const emailValue = form.email.value.trim();
-
       if (!emailRegex.test(emailValue)) {
         alert("Por favor ingresá un correo válido con dominio real (ejemplo: nombre@dominio.com).");
         return;
       }
 
-      // 3. Validación extra de teléfono (si el usuario lo completa)
       const phoneValue = form.phone.value.trim();
       if (phoneValue && !/^\+?[0-9\s\-]{8,15}$/.test(phoneValue)) {
         alert("El teléfono debe tener entre 8 y 15 dígitos (se permiten +, espacios y guiones).");
         return;
       }
 
-      // Datos a enviar
       const data = {
         name: form.name.value.trim(),
         email: emailValue,
@@ -101,14 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-
-
-
-
 // ===== Services: overlay + efecto máquina de escribir =====
 (function(){
-  // Helpers
   const timers = new WeakMap();
   function typeIn(el, text, speed = 18){
     clearTimer(el);
@@ -136,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     el?.classList.remove("typing-caret");
   }
 
-  // Guardar texto original
   document.querySelectorAll('.service-overlay p').forEach(p => {
     if (!p.dataset.fulltext) p.dataset.fulltext = p.textContent.trim();
     p.textContent = "";
@@ -144,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  // Desktop: escribe al hover
   if (isDesktop){
     document.querySelectorAll('.service-card').forEach(card => {
       const p = card.querySelector('.service-overlay p');
@@ -157,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile/touch: botón +
   document.querySelectorAll('.service-card .service-toggle').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -174,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cerrar si se toca fuera (mobile)
   document.addEventListener('click', (e) => {
     document.querySelectorAll('.service-card.is-open').forEach(card => {
       if (!card.contains(e.target)) {
@@ -186,10 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-//Detecta si la URL es /servicios, /nosotros, etc. Si coincide, hace scroll automático hasta esa sección.
+// ===== Manejo de rutas limpias (SPA) =====
 document.addEventListener("DOMContentLoaded", () => {
-  // Rutas limpias → ID de sección
   const routes = {
+    "/": "#hero",
     "/servicios": "#services",
     "/nosotros": "#about",
     "/stack": "#stack",
@@ -198,7 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "/contacto": "#contact"
   };
 
-  const path = window.location.pathname.toLowerCase();
+  // 1. Si venimos de 404, usar la ruta original
+  const redirectPath = sessionStorage.redirect;
+  delete sessionStorage.redirect;
+
+  const path = redirectPath || window.location.pathname.toLowerCase();
 
   if (routes[path]) {
     const section = document.querySelector(routes[path]);
@@ -206,4 +195,19 @@ document.addEventListener("DOMContentLoaded", () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   }
+
+  // 2. Interceptar clicks en enlaces internos
+  document.querySelectorAll('a[href^="/"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const path = link.getAttribute("href").toLowerCase();
+      if (routes[path]) {
+        e.preventDefault();
+        const section = document.querySelector(routes[path]);
+        if (section) {
+          history.pushState({}, "", path);
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  });
 });
