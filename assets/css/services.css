@@ -1,7 +1,7 @@
 /* ===== Services Section (corrección: 3 columnas fijas + más separación) ===== */
 .services{
   padding: 4rem 1rem 3rem;
-  max-width: 1500px; /* mantenemos el contenedor para que no aparezcan 5 en fila */
+  max-width: 1500px;
   margin: 0 auto;
 }
 .services-heading{
@@ -12,25 +12,16 @@
 }
 
 /* ===== Grid ===== */
-/* FIX: forzamos 3 columnas en desktop para que las tarjetas queden 3x3 */
 .services-grid{
   display: grid;
-  grid-template-columns: repeat(3, minmax(280px, 1fr)); /* exactamente 3 columnas en desktop */
-  gap: 4rem; /* más separación entre tarjetas */
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 4rem;
 }
-
-/* Responsive: 2 columnas en pantallas medias, 1 en mobile */
 @media (max-width: 1200px){
-  .services-grid{
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 2.25rem;
-  }
+  .services-grid{ grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 2.25rem; }
 }
 @media (max-width: 760px){
-  .services-grid{
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
+  .services-grid{ grid-template-columns: 1fr; gap: 1.25rem; }
 }
 
 /* ===== Card ===== */
@@ -45,7 +36,7 @@
 }
 .service-card:hover{ transform: translateY(-2px); }
 
-/* Header (título SIEMPRE visible) */
+/* Header */
 .service-header{
   display: flex;
   align-items: center;
@@ -63,13 +54,13 @@
   letter-spacing: .2px;
 }
 
-/* Toggle (botón +, accesible para mobile/touch) */
+/* Toggle */
 .service-toggle{
   appearance: none;
   border: 0;
   border-radius: 10px;
   width: 34px; height: 34px;
-  display: inline-flex; /* visible por defecto */
+  display: inline-flex;
   align-items: center; justify-content: center;
   font-weight: 700;
   background: rgba(255,255,255,.12);
@@ -86,10 +77,10 @@
   aspect-ratio: 16/9;
   background-size: cover;
   background-position: center;
-  background-color: #0e1e44; /* fallback */
+  background-color: #0e1e44;
 }
 
-/* Overlay (descripcion) */
+/* Overlay */
 .service-overlay{
   position: absolute; inset: 0;
   display: flex; justify-content: center; align-items: center;
@@ -99,14 +90,8 @@
   opacity: 0; pointer-events: none;
   transition: opacity .28s ease;
 }
-
-/* Mostrar overlay en hover (desktop) */
 .service-card:hover .service-overlay{ opacity: 1; }
-
-/* Mostrar overlay si la card está abierta (mobile/touch) */
-.service-card.is-open .service-overlay{
-  opacity: 1; pointer-events: auto;
-}
+.service-card.is-open .service-overlay{ opacity: 1; pointer-events: auto; }
 
 /* Texto overlay */
 .service-overlay p{
@@ -120,25 +105,24 @@
   .service-card, .service-overlay{ transition: none; }
 }
 
-/* Mobile */
+/* Mobile ajustes tipográficos */
 @media (max-width: 768px){
   .services-heading{ font-size: 1.6rem; }
   .service-header h3{ font-size: 1.1rem; }
 }
 
-/* Desktop (hay hover y puntero fino): oculto + y habilito overlay por hover */
+/* Desktop (hover disponible): oculto + */
 @media (hover: hover) and (pointer: fine) {
   .service-toggle { display: none; }
   .service-card:hover .service-overlay { opacity: 1; pointer-events: auto; }
 }
 
-/* Mobile/touch (sin hover, puntero grueso): muestro + y deshabilito hover */
+/* Mobile/touch: solo muestro el +, sin reglas de hover que tapen el overlay */
 @media (hover: none), (pointer: coarse) {
   .service-toggle { display: inline-flex; }
-  .service-card:hover .service-overlay { opacity: 0; pointer-events: none; }
 }
 
-/* cursor mientras escribe (typewriter) */
+/* Typewriter caret */
 .typing-caret::after{
   content: "|";
   display: inline-block;
