@@ -16,7 +16,7 @@
 .services-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 1fr)); /* exactamente 3 columnas en desktop */
-  gap: 4rem; /* más separación entre tarjetas (lo único que querías) */
+  gap: 4rem; /* más separación entre tarjetas */
 }
 
 /* Responsive: 2 columnas en pantallas medias, 1 en mobile */
@@ -63,20 +63,23 @@
   letter-spacing: .2px;
 }
 
-/* Toggle (accesible para mobile/touch) */
+/* Toggle (botón +, accesible para mobile/touch) */
 .service-toggle{
   appearance: none;
   border: 0;
   border-radius: 10px;
   width: 34px; height: 34px;
+  display: inline-flex; /* visible por defecto */
+  align-items: center; justify-content: center;
   font-weight: 700;
-  background: rgba(255,255,255,.1);
+  background: rgba(255,255,255,.12);
   color: #c7d2fe;
   cursor: pointer;
   transition: background .2s ease, transform .2s ease;
 }
-.service-toggle:hover{ background: rgba(255,255,255,.18); }
+.service-toggle:hover{ background: rgba(255,255,255,.2); }
 .service-toggle:active{ transform: scale(.96); }
+.service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
 
 /* Imagen */
 .service-media{
@@ -109,9 +112,8 @@
 .service-overlay p{
   margin: 0; max-width: 90%;
   line-height: 1.45; font-size: 1rem;
-  white-space: pre-wrap; /* respeta saltos si existieran */
+  white-space: pre-wrap;
 }
-.service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
 
 /* Motion-safe */
 @media (prefers-reduced-motion: reduce){
@@ -124,9 +126,6 @@
   .service-header h3{ font-size: 1.1rem; }
 }
 
-/* Por defecto: oculto el + */
-.service-toggle { display: none; }
-
 /* Desktop (hay hover y puntero fino): oculto + y habilito overlay por hover */
 @media (hover: hover) and (pointer: fine) {
   .service-toggle { display: none; }
@@ -136,18 +135,8 @@
 /* Mobile/touch (sin hover, puntero grueso): muestro + y deshabilito hover */
 @media (hover: none), (pointer: coarse) {
   .service-toggle { display: inline-flex; }
-  .service-card:hover .service-overlay { opacity: 0; pointer-events: none; } /* evita parpadeos */
+  .service-card:hover .service-overlay { opacity: 0; pointer-events: none; }
 }
-
-/* Estilo del botón + (si no lo tenés ya) */
-.service-toggle{
-  appearance: none; border: 0; border-radius: 10px;
-  width: 34px; height: 34px; align-items: center; justify-content: center;
-  font-weight: 700; background: rgba(255,255,255,.12); color: #c7d2fe; cursor: pointer;
-  transition: background .2s ease, transform .2s ease;
-}
-.service-toggle:hover{ background: rgba(255,255,255,.2); }
-.service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
 
 /* cursor mientras escribe (typewriter) */
 .typing-caret::after{
