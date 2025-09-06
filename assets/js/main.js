@@ -183,13 +183,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "/contacto": "#contact"
   };
 
-  // Función para manejar el desplazamiento
   function handleRoute() {
-    const isLocal = window.location.protocol === "file:" || window.location.hostname === "localhost";
-    let path = isLocal ? window.location.hash.replace("#", "/") || "/" : window.location.pathname.toLowerCase();
-
-    // Si no es local y no hay pathname, usa el hash
-    if (!isLocal && !path && window.location.hash) {
+    let path = window.location.pathname.toLowerCase();
+    if (window.location.hash) {
       path = "/" + window.location.hash.replace("#", "").toLowerCase();
     }
 
@@ -202,26 +198,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Interceptar clics en enlaces
   document.querySelectorAll('a[href^="/"]').forEach(link => {
     link.addEventListener("click", e => {
       const path = link.getAttribute("href").toLowerCase();
       if (routes[path]) {
         e.preventDefault();
-        if (isLocal) {
-          window.location.hash = path.replace("/", "");
-        } else {
-          history.pushState({}, "", path);
-        }
+        history.pushState({}, "", path);
         document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
       }
     });
   });
 
-  // Manejar cambios en el historial (popstate y hashchange)
   window.addEventListener("popstate", handleRoute);
   window.addEventListener("hashchange", handleRoute);
 
-  // Ejecutar al cargar la página
   handleRoute();
 });
