@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0;url=/">
-  <script>
-    // Extrae la última parte de la ruta y la convierte en hash
-    const pathParts = window.location.pathname.split("/").filter(part => part);
-    const hash = pathParts.length > 0 ? "#" + pathParts[pathParts.length - 1] : "#hero";
-    // Usa history.pushState para mantener el control en el cliente
-    history.pushState({}, "", hash);
-    window.location.href = "/"; // Redirige tras el pushState
-  </script>
-  <title>Página no encontrada - Neticware</title>
+    <meta charset="utf-8">
+    <title>Redirigiendo...</title>
+    <script>
+        // Obtiene la ruta limpia y la guarda en sessionStorage
+        // para que main.js la pueda leer
+        sessionStorage.redirect = location.href;
+
+        // Redirige al inicio para cargar la SPA
+        location.href = location.pathname.substring(0, location.pathname.indexOf('/',1) + 1);
+    </script>
 </head>
 <body>
-  <p>La página que buscas no existe. Redirigiendo a la página principal...</p>
 </body>
 </html>

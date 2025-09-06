@@ -173,44 +173,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== Manejo de rutas limpias (SPA) =====
 document.addEventListener("DOMContentLoaded", () => {
-  const routes = {
-    "/": "#hero",
-    "/servicios": "#services",
-    "/nosotros": "#about",
-    "/stack": "#stack",
-    "/enfoque": "#approach",
-    "/metodologia": "#methodology",
-    "/contacto": "#contact"
-  };
+    const routes = {
+        "/": "#hero",
+        "/servicios": "#services",
+        "/nosotros": "#about",
+        "/stack": "#stack",
+        "/enfoque": "#approach",
+        "/metodologia": "#methodology",
+        "/contacto": "#contact"
+    };
 
-  function handleRoute() {
-    let path = window.location.pathname.toLowerCase();
-    if (window.location.hash) {
-      path = "/" + window.location.hash.replace("#", "").toLowerCase();
+    function handleRoute() {
+        let path = window.location.pathname.toLowerCase();
+        
+        // Paso clave: si venimos de 404.html, lee la ruta original
+        if (sessionStorage.redirect) {
+            path = new URL(sessionStorage.redirect).pathname.toLowerCase();
+            delete sessionStorage.redirect; // Limpia la variable
+        }
+        
+        const targetSection = routes[path];
+        if (targetSection) {
+            document.querySelector(targetSection)?.scrollIntoView({ behavior: "smooth" });
+        }
+        // No es necesario else para rutas no encontradas, ya se redirige al inicio
     }
 
-    if (routes[path]) {
-      const section = document.querySelector(routes[path]);
-      if (section) section.scrollIntoView({ behavior: "smooth" });
-    } else {
-      history.replaceState({}, "", "/");
-      document.querySelector("#hero").scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
-  document.querySelectorAll('a[href^="/"]').forEach(link => {
-    link.addEventListener("click", e => {
-      const path = link.getAttribute("href").toLowerCase();
-      if (routes[path]) {
-        e.preventDefault();
-        history.pushState({}, "", path);
-        document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
-      }
+    // Interceptar clics en enlaces
+    document.querySelectorAll('a[href^="/"]').forEach(link => {
+        link.addEventListener("click", e => {
+            const path = link.getAttribute("href").toLowerCase();
+            if (routes[path]) {
+                e.preventDefault();
+                history.pushState({}, "", path);
+                document.querySelector(routes[path])?.scrollIntoView({ behavior: "smooth" });
+            }
+        });
     });
-  });
 
-  window.addEventListener("popstate", handleRoute);
-  window.addEventListener("hashchange", handleRoute);
+    // Manejar el botón de "atrás" del navegador
+    window.addEventListener("popstate", handleRoute);
 
-  handleRoute();
+    // Llama a la función al cargar la página
+    handleRoute();
 });
