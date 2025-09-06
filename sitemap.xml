@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Secciones principales con URLs limpias -->
+  <!-- Secciones principales con rutas limpias -->
   <url>
     <loc>https://www.neticware.com.ar/servicios</loc>
     <changefreq>monthly</changefreq>

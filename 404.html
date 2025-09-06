@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Neticware — Redirigiendo…</title>
-  <meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0;url=/">
   <script>
-    // Guardamos la ruta original
-    const redirectTo = window.location.pathname + window.location.search + window.location.hash;
-    sessionStorage.redirect = redirectTo;
-    // Redirigimos al index.html
-    window.location.href = "/";
+    // Extrae la última parte de la ruta y la convierte en hash
+    const pathParts = window.location.pathname.split("/").filter(part => part);
+    const hash = pathParts.length > 0 ? "#" + pathParts[pathParts.length - 1] : "#hero";
+    window.location.href = "/" + hash;
   </script>
-  <style>
-    body {
-      margin:0; display:flex; align-items:center; justify-content:center;
-      height:100vh; font-family:sans-serif; background:#0A1C3D; color:#fff;
-    }
-    .msg { text-align:center; }
-  </style>
+  <title>Página no encontrada - Neticware</title>
 </head>
 <body>
-  <div class="msg">
-    <p>Redirigiendo a Neticware…</p>
-  </div>
+  <p>La página que buscas no existe. Redirigiendo a la página principal...</p>
 </body>
 </html>

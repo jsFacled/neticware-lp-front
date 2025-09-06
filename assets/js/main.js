@@ -183,31 +183,38 @@ document.addEventListener("DOMContentLoaded", () => {
     "/contacto": "#contact"
   };
 
-  // 1. Si venimos de 404, usar la ruta original
+  // Manejo inicial de la ruta
   const redirectPath = sessionStorage.redirect;
   delete sessionStorage.redirect;
-
   const path = redirectPath || window.location.pathname.toLowerCase();
 
   if (routes[path]) {
-    const section = document.querySelector(routes[path]);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
+  } else {
+    history.replaceState({}, "", "/");
+    document.querySelector("#hero").scrollIntoView({ behavior: "smooth" });
   }
 
-  // 2. Interceptar clicks en enlaces internos
+  // Interceptar clics en enlaces
   document.querySelectorAll('a[href^="/"]').forEach(link => {
     link.addEventListener("click", e => {
       const path = link.getAttribute("href").toLowerCase();
       if (routes[path]) {
         e.preventDefault();
-        const section = document.querySelector(routes[path]);
-        if (section) {
-          history.pushState({}, "", path);
-          section.scrollIntoView({ behavior: "smooth" });
-        }
+        history.pushState({}, "", path);
+        document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
       }
     });
+  });
+
+  // Manejar navegación atrás/adelante
+  window.addEventListener("popstate", () => {
+    const path = window.location.pathname.toLowerCase();
+    if (routes[path]) {
+      document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
+    } else {
+      history.replaceState({}, "", "/");
+      document.querySelector("#hero").scrollIntoView({ behavior: "smooth" });
+    }
   });
 });
