@@ -7,7 +7,9 @@
     // Extrae la última parte de la ruta y la convierte en hash
     const pathParts = window.location.pathname.split("/").filter(part => part);
     const hash = pathParts.length > 0 ? "#" + pathParts[pathParts.length - 1] : "#hero";
-    window.location.href = "/" + hash;
+    // Usa history.pushState para mantener el control en el cliente
+    history.pushState({}, "", hash);
+    window.location.href = "/"; // Redirige tras el pushState
   </script>
   <title>Página no encontrada - Neticware</title>
 </head>
