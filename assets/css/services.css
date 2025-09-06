@@ -68,6 +68,21 @@
   cursor: pointer;
   transition: background .2s ease, transform .2s ease;
 }
+
+/* Símbolo por defecto: + */
+.service-toggle::before {
+  content: "+";
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Cuando está abierto, cambia a X */
+.service-card.is-open .service-toggle::before {
+  content: "✖";
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 .service-toggle:hover{ background: rgba(255,255,255,.2); }
 .service-toggle:active{ transform: scale(.96); }
 .service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
@@ -117,7 +132,7 @@
   .service-card:hover .service-overlay { opacity: 1; pointer-events: auto; }
 }
 
-/* Mobile/touch: solo muestro el +, sin reglas de hover que tapen el overlay */
+/* Mobile/touch: muestro +, sin hover */
 @media (hover: none), (pointer: coarse) {
   .service-toggle { display: inline-flex; }
 }
