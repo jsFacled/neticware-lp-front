@@ -183,16 +183,23 @@ document.addEventListener("DOMContentLoaded", () => {
     "/contacto": "#contact"
   };
 
-  // Manejo inicial de la ruta
-  const redirectPath = sessionStorage.redirect;
-  delete sessionStorage.redirect;
-  const path = redirectPath || window.location.pathname.toLowerCase();
+  // Función para manejar el desplazamiento
+  function handleRoute() {
+    const isLocal = window.location.protocol === "file:" || window.location.hostname === "localhost";
+    let path = isLocal ? window.location.hash.replace("#", "/") || "/" : window.location.pathname.toLowerCase();
 
-  if (routes[path]) {
-    document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
-  } else {
-    history.replaceState({}, "", "/");
-    document.querySelector("#hero").scrollIntoView({ behavior: "smooth" });
+    // Si no es local y no hay pathname, usa el hash
+    if (!isLocal && !path && window.location.hash) {
+      path = "/" + window.location.hash.replace("#", "").toLowerCase();
+    }
+
+    if (routes[path]) {
+      const section = document.querySelector(routes[path]);
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      history.replaceState({}, "", "/");
+      document.querySelector("#hero").scrollIntoView({ behavior: "smooth" });
+    }
   }
 
   // Interceptar clics en enlaces
@@ -201,20 +208,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const path = link.getAttribute("href").toLowerCase();
       if (routes[path]) {
         e.preventDefault();
-        history.pushState({}, "", path);
+        if (isLocal) {
+          window.location.hash = path.replace("/", "");
+        } else {
+          history.pushState({}, "", path);
+        }
         document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
       }
     });
   });
 
-  // Manejar navegación atrás/adelante
-  window.addEventListener("popstate", () => {
-    const path = window.location.pathname.toLowerCase();
-    if (routes[path]) {
-      document.querySelector(routes[path]).scrollIntoView({ behavior: "smooth" });
-    } else {
-      history.replaceState({}, "", "/");
-      document.querySelector("#hero").scrollIntoView({ behavior: "smooth" });
-    }
-  });
+  // Manejar cambios en el historial (popstate y hashchange)
+  window.addEventListener("popstate", handleRoute);
+  window.addEventListener("hashchange", handleRoute);
+
+  // Ejecutar al cargar la página
+  handleRoute();
 });
