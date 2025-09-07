@@ -1,10 +1,10 @@
-/* ===== Services Section (corrección: 3 columnas fijas + más separación) ===== */
-.services{
+/* ===== Services Section ===== */
+.services {
   padding: 4rem 1rem 3rem;
   max-width: 1500px;
   margin: 0 auto;
 }
-.services-heading{
+.services-heading {
   text-align: center;
   font-size: 2rem;
   color: #ffd700;
@@ -12,32 +12,38 @@
 }
 
 /* ===== Grid ===== */
-.services-grid{
+.services-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 1fr));
   gap: 4rem;
 }
-@media (max-width: 1200px){
-  .services-grid{ grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 2.25rem; }
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2.25rem;
+  }
 }
-@media (max-width: 760px){
-  .services-grid{ grid-template-columns: 1fr; gap: 1.25rem; }
+@media (max-width: 760px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 /* ===== Card ===== */
-.service-card{
+.service-card {
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 24px rgba(0,0,0,.35);
-  background: rgba(255,255,255,.04);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+  background: rgba(255, 255, 255, .04);
   backdrop-filter: blur(2px);
   transition: transform .25s ease;
 }
-.service-card:hover{ transform: translateY(-2px); }
+.service-card:hover { transform: translateY(-2px); }
 
-/* Header */
-.service-header{
+/* ===== Header ===== */
+.service-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,7 +53,7 @@
   position: relative;
   z-index: 3; /* arriba del overlay */
 }
-.service-header h3{
+.service-header h3 {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.2;
@@ -56,8 +62,8 @@
   letter-spacing: .2px;
 }
 
-/* Toggle (botón + / ✖) */
-.service-toggle{
+/* ===== Toggle (botón + / ✖) ===== */
+.service-toggle {
   appearance: none;
   border: 0;
   border-radius: 10px;
@@ -65,99 +71,106 @@
   display: inline-flex;
   align-items: center; justify-content: center;
   font-weight: 700;
-  background: rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, .12);
   color: #c7d2fe;
   cursor: pointer;
   transition: background .2s ease, transform .2s ease;
   position: relative;
-  z-index: 3; /* siempre arriba del overlay */
+  z-index: 3;
 }
-
-/* Símbolo por defecto: + */
+/* Símbolo por defecto */
 .service-toggle::before {
   content: "+";
   font-size: 1.2rem;
   line-height: 1;
 }
+/* Cuando está abierto */
+.service-card.is-open .service-toggle::before { content: "✖"; }
 
-/* Cuando está abierto, cambia a ✖ */
-.service-card.is-open .service-toggle::before {
-  content: "✖";
-}
+.service-toggle:hover { background: rgba(255,255,255,.2); }
+.service-toggle:active { transform: scale(.96); }
+.service-card.is-open .service-toggle { background: rgba(255,255,255,.22); }
 
-.service-toggle:hover{ background: rgba(255,255,255,.2); }
-.service-toggle:active{ transform: scale(.96); }
-.service-card.is-open .service-toggle{ background: rgba(255,255,255,.22); }
-
-/* Imagen */
-.service-media{
+/* ===== Imagen ===== */
+.service-media {
   aspect-ratio: 16/9;
   background-size: cover;
   background-position: center;
   background-color: #0e1e44;
 }
 
-/* Overlay */
-.service-overlay{
+/* ===== Overlay ===== */
+.service-overlay {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   top: 60px; /* deja libre el header con el botón */
-  display: flex; justify-content: center; align-items: center;
-  text-align: center; color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
   padding: 1rem;
   background: rgba(10,28,61,.80);
-  opacity: 0; pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
   transition: opacity .28s ease;
   z-index: 1;
 }
-.service-card:hover .service-overlay{ opacity: 1; }
-.service-card.is-open .service-overlay{ opacity: 1; pointer-events: auto; }
+/* Desktop hover */
+.service-card:hover .service-overlay { opacity: 1; }
+/* Mobile toggle */
+.service-card.is-open .service-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* Texto overlay */
-.service-overlay p{
-  margin: 0; max-width: 90%;
-  line-height: 1.45; font-size: 1rem;
+.service-overlay p {
+  margin: 0;
+  max-width: 90%;
+  line-height: 1.45;
+  font-size: 1rem;
   white-space: pre-wrap;
 }
 
-/* Motion-safe */
-@media (prefers-reduced-motion: reduce){
-  .service-card, .service-overlay{ transition: none; }
+/* ===== Motion-safe ===== */
+@media (prefers-reduced-motion: reduce) {
+  .service-card, .service-overlay { transition: none; }
 }
 
-/* Mobile ajustes tipográficos */
-@media (max-width: 768px){
-  .services-heading{ font-size: 1.6rem; }
-  .service-header h3{ font-size: 1.1rem; }
+/* ===== Mobile tipografía ===== */
+@media (max-width: 768px) {
+  .services-heading { font-size: 1.6rem; }
+  .service-header h3 { font-size: 1.1rem; }
 }
 
-/* Desktop (hover disponible): oculto botón */
+/* ===== Desktop ===== */
 @media (hover: hover) and (pointer: fine) {
   .service-toggle { display: none; }
-  .service-card:hover .service-overlay { opacity: 1; pointer-events: auto; }
+  .service-card:hover .service-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
-/* Mobile/touch: muestro botón */
+/* ===== Mobile/touch ===== */
 @media (hover: none), (pointer: coarse) {
   .service-toggle { display: inline-flex; }
+  .service-card:hover .service-overlay {
+    opacity: 0; /* desactivo hover fantasma en mobile */
+    pointer-events: none;
+  }
 }
 
-/* Typewriter caret */
-.typing-caret::after{
+/* ===== Typewriter caret ===== */
+.typing-caret::after {
   content: "|";
   display: inline-block;
   margin-left: 2px;
   opacity: .8;
   animation: caret-blink 1s steps(1, end) infinite;
 }
-@keyframes caret-blink{
+@keyframes caret-blink {
   0%, 50% { opacity: .8; }
   50.01%, 100% { opacity: 0; }
-}
-/* Desactivar hover en mobile/touch */
-@media (hover: none), (pointer: coarse) {
-  .service-card:hover .service-overlay {
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
 }
