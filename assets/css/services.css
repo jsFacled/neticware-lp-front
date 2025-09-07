@@ -35,8 +35,8 @@
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
-  background: rgba(255, 255, 255, .04);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  background: rgba(255,255,255,.04);
   backdrop-filter: blur(2px);
   transition: transform .25s ease;
 }
@@ -51,7 +51,7 @@
   padding: .9rem 1rem;
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
   position: relative;
-  z-index: 3; /* arriba del overlay */
+  z-index: 3;
 }
 .service-header h3 {
   margin: 0;
@@ -71,22 +71,18 @@
   display: inline-flex;
   align-items: center; justify-content: center;
   font-weight: 700;
-  background: rgba(255, 255, 255, .12);
+  background: rgba(255,255,255,.12);
   color: #c7d2fe;
   cursor: pointer;
   transition: background .2s ease, transform .2s ease;
   position: relative;
   z-index: 3;
 }
-/* Símbolo por defecto */
 .service-toggle::before {
   content: "+";
   font-size: 1.2rem;
-  line-height: 1;
 }
-/* Cuando está abierto */
 .service-card.is-open .service-toggle::before { content: "✖"; }
-
 .service-toggle:hover { background: rgba(255,255,255,.2); }
 .service-toggle:active { transform: scale(.96); }
 .service-card.is-open .service-toggle { background: rgba(255,255,255,.22); }
@@ -102,11 +98,8 @@
 /* ===== Overlay ===== */
 .service-overlay {
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  top: 60px; /* deja libre el header con el botón */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 60px; left: 0; right: 0; bottom: 0;
+  display: flex; justify-content: center; align-items: center;
   text-align: center;
   color: #fff;
   padding: 1rem;
@@ -116,15 +109,6 @@
   transition: opacity .28s ease;
   z-index: 1;
 }
-/* Desktop hover */
-.service-card:hover .service-overlay { opacity: 1; }
-/* Mobile toggle */
-.service-card.is-open .service-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Texto overlay */
 .service-overlay p {
   margin: 0;
   max-width: 90%;
@@ -157,8 +141,12 @@
 @media (hover: none), (pointer: coarse) {
   .service-toggle { display: inline-flex; }
   .service-card:hover .service-overlay {
-    opacity: 0; /* desactivo hover fantasma en mobile */
+    opacity: 0;   /* desactivo hover fantasma */
     pointer-events: none;
+  }
+  .service-card.is-open .service-overlay {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
