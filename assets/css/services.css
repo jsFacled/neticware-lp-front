@@ -54,7 +54,7 @@
   letter-spacing: .2px;
 }
 
-/* Toggle */
+/* Toggle (botón + / ✖) */
 .service-toggle{
   appearance: none;
   border: 0;
@@ -76,11 +76,9 @@
   line-height: 1;
 }
 
-/* Cuando está abierto, cambia a X */
+/* Cuando está abierto, cambia a ✖ */
 .service-card.is-open .service-toggle::before {
   content: "✖";
-  font-size: 1.2rem;
-  line-height: 1;
 }
 
 .service-toggle:hover{ background: rgba(255,255,255,.2); }
@@ -126,13 +124,13 @@
   .service-header h3{ font-size: 1.1rem; }
 }
 
-/* Desktop (hover disponible): oculto + */
+/* Desktop (hover disponible): oculto botón */
 @media (hover: hover) and (pointer: fine) {
   .service-toggle { display: none; }
   .service-card:hover .service-overlay { opacity: 1; pointer-events: auto; }
 }
 
-/* Mobile/touch: muestro +, sin hover */
+/* Mobile/touch: muestro botón */
 @media (hover: none), (pointer: coarse) {
   .service-toggle { display: inline-flex; }
 }
