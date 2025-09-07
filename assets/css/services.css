@@ -98,7 +98,7 @@
 /* ===== Overlay ===== */
 .service-overlay {
   position: absolute;
-  top: 60px; left: 0; right: 0; bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   display: flex; justify-content: center; align-items: center;
   text-align: center;
   color: #fff;
@@ -147,6 +147,7 @@
   .service-card.is-open .service-overlay {
     opacity: 1;
     pointer-events: auto;
+    top: 60px; /* en mobile deja libre el header con el botón */
   }
 }
 
