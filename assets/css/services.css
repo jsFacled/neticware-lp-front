@@ -154,3 +154,10 @@
   0%, 50% { opacity: .8; }
   50.01%, 100% { opacity: 0; }
 }
+/* Desactivar hover en mobile/touch */
+@media (hover: none), (pointer: coarse) {
+  .service-card:hover .service-overlay {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
