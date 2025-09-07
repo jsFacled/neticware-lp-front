@@ -1,8 +1,20 @@
 /* === Hero Section === */
 .hero {
-  background:
+  background-color: #0a1c3d; /* fallback sólido */
+  background-image:
     linear-gradient(to right, rgba(0,0,0,.7) 0%, rgba(10,28,61,.3) 40%, rgba(10,28,61,0) 80%),
-    url('../images/hero-redes.webp');
+    -webkit-image-set(
+      url('../images/hero-redes.avif') type('image/avif'),
+      url('../images/hero-redes.webp') type('image/webp'),
+      url('../images/hero-redes.jpg') type('image/jpeg')
+    );
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,.7) 0%, rgba(10,28,61,.3) 40%, rgba(10,28,61,0) 80%),
+    image-set(
+      url('../images/hero-redes.avif') type('image/avif'),
+      url('../images/hero-redes.webp') type('image/webp'),
+      url('../images/hero-redes.jpg') type('image/jpeg')
+    );
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
