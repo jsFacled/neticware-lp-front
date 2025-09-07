@@ -16,7 +16,7 @@
       "@id": "https://www.neticware.com.ar/#organization",
       "name": "Neticware S.A.S.",
       "url": "https://www.neticware.com.ar/",
-      "logo": "https://www.neticware.com.ar/assets/images/neticware-logo.png",
+      "logo": "https://www.neticware.com.ar/assets/images/neticware-logo.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+54-9-11-6516-5422",
@@ -61,7 +61,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Neticware — Desarrollo de Software a Medida | Sitios Web y Apps" />
   <meta name="twitter:description" content="Sitios web, SaaS y apps Android con foco en rendimiento, seguridad y UX clara." />
-  <meta name="twitter:image" content="https://www.neticware.com.ar/assets/images/og-" />
+  <meta name="twitter:image" content="https://www.neticware.com.ar/assets/images/og-cover-neticware-1200x630.jpg" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -83,7 +83,7 @@
       <div class="logo">
         <div class="logo__iconContainer">
           <a href="/" class="logo__link">
-            <img src="assets/images/neticware-logo.png" alt="Neticware Logo" class="logo__icon logo__icon--animated" loading="lazy" width="150" height="50"/>
+            <img src="assets/images/neticware-logo.webp" alt="Neticware Logo" class="logo__icon logo__icon--animated" loading="lazy" />
           </a>
         </div>
         <div class="logo__text-group">
@@ -138,25 +138,41 @@
   <h2 class="services-heading">Nuestros Servicios</h2>
 
   <div class="services-grid">
-    <!-- Card -->
+    <!-- Card Desarrollo Web-->
     <article class="service-card">
       <header class="service-header">
         <h3>Desarrollo Web</h3>
         <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-web.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-web.avif" type="image/avif">
+          <source srcset="assets/images/services-web.webp" type="image/webp">
+          <img src="assets/images/services-web.jpg" 
+               alt="Desarrollo de aplicaciones web modernas con Vaadin y Spring Boot" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Aplicaciones modernas con Vaadin, Spring Boot y tecnologías cloud-ready.</p>
       </div>
     </article>
 
-    <!-- Card -->
+    <!-- Card Software a Medida-->
     <article class="service-card">
       <header class="service-header">
         <h3>Software a Medida</h3>
         <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/software-a-medida.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-software-a-medida.avif" type="image/avif">
+          <source srcset="assets/images/services-software-a-medida.webp" type="image/webp">
+          <img src="assets/images/services-software-a-medida.jpg" 
+               alt="Software a medida para automatizar procesos y resolver necesidades específicas" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Soluciones que automatizan procesos y resuelven necesidades específicas.</p>
       </div>
@@ -168,7 +184,15 @@
         <h3>Aplicaciones Móviles</h3>
         <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-mobile.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-mobile.avif" type="image/avif">
+          <source srcset="assets/images/services-mobile.webp" type="image/webp">
+          <img src="assets/images/services-mobile.jpg" 
+               alt="Aplicaciones móviles nativas e híbridas para Android con experiencia fluida" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Apps híbridas y nativas para <strong>Android</strong>, con experiencia fluida.</p>
       </div>
@@ -180,7 +204,15 @@
         <h3>Landing Pages</h3>
         <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-lp.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-lp.avif" type="image/avif">
+          <source srcset="assets/images/services-lp.webp" type="image/webp">
+          <img src="assets/images/services-lp.jpg" 
+               alt="Landing pages optimizadas para conversión y performance" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Optimización para conversión y performance.</p>
       </div>
@@ -192,7 +224,15 @@
         <h3>Blogs</h3>
         <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-blog.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-blog.avif" type="image/avif">
+          <source srcset="assets/images/services-blog.webp" type="image/webp">
+          <img src="assets/images/services-blog.jpg" 
+               alt="Blogs con contenido administrable y SEO técnico optimizado" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Contenido administrable y SEO técnico.</p>
       </div>
@@ -204,13 +244,22 @@
         <h3>Soluciones SaaS</h3>
         <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-saas.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-saas.avif" type="image/avif">
+          <source srcset="assets/images/services-saas.webp" type="image/webp">
+          <img src="assets/images/services-saas.jpg" 
+               alt="Plataformas SaaS seguras, escalables y a medida para negocios digitales" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Plataformas a medida, escalables y seguras para negocios digitales.</p>
       </div>
     </article>
   </div>
 </section>
+
 
 
 <!-- ABOUT -->
@@ -512,7 +561,7 @@
         <div class="logo">
           <div class="logo__iconContainer">
             <a href="/" class="logo__link">
-              <img src="assets/images/neticware-logo.webp" alt="Neticware Logo" class="logo__icon logo__icon--footer-spin" loading="lazy" width="150" height="50"/>
+              <img src="assets/images/neticware-logo.webp" alt="Neticware Logo" class="logo__icon logo__icon--footer-spin" loading="lazy"/>
             </a>
           </div>
           <div class="logo__text-group">

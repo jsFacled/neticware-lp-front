@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Página principal -->
   <url>
@@ -7,39 +9,84 @@
     <lastmod>2025-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/og-cover-neticware-1200x630.jpg</image:loc>
+      <image:title>Neticware - Desarrollo de Software</image:title>
+      <image:caption>Portada principal con foco en software a medida, SaaS y apps Android</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/neticware-logo.webp</image:loc>
+      <image:title>Logo de Neticware</image:title>
+      <image:caption>Logo oficial de Neticware S.A.S.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Secciones principales con rutas limpias -->
+  <!-- Servicios -->
   <url>
     <loc>https://www.neticware.com.ar/servicios</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-web.webp</image:loc>
+      <image:title>Desarrollo Web</image:title>
+      <image:caption>Aplicaciones web modernas con Vaadin y Spring Boot</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-software-a-medida.webp</image:loc>
+      <image:title>Software a Medida</image:title>
+      <image:caption>Soluciones a medida para automatizar procesos y necesidades específicas</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-mobile.webp</image:loc>
+      <image:title>Aplicaciones móviles</image:title>
+      <image:caption>Apps híbridas y nativas para Android con experiencia fluida</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-lp.webp</image:loc>
+      <image:title>Landing Pages</image:title>
+      <image:caption>Landing pages optimizadas para conversión y performance</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-blog.webp</image:loc>
+      <image:title>Blogs</image:title>
+      <image:caption>Blogs con contenido administrable y SEO técnico optimizado</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-saas.webp</image:loc>
+      <image:title>Soluciones SaaS</image:title>
+      <image:caption>Plataformas SaaS seguras, escalables y a medida para negocios digitales</image:caption>
+    </image:image>
   </url>
 
+  <!-- Nosotros -->
   <url>
     <loc>https://www.neticware.com.ar/nosotros</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Stack -->
   <url>
     <loc>https://www.neticware.com.ar/stack</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
+  <!-- Enfoque -->
   <url>
     <loc>https://www.neticware.com.ar/enfoque</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
+  <!-- Metodología -->
   <url>
     <loc>https://www.neticware.com.ar/metodologia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
+  <!-- Contacto -->
   <url>
     <loc>https://www.neticware.com.ar/contacto</loc>
     <changefreq>monthly</changefreq>
