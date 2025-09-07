@@ -217,3 +217,42 @@ document.addEventListener("DOMContentLoaded", () => {
     // Llama a la función al cargar la página
     handleRoute();
 });
+
+// ==== Actualización del json Schema.org ====
+function updateSchema() {
+  const currentPath = window.location.pathname.toLowerCase();
+
+  // Datos de Service (solo cuando estemos en /servicios)
+  if (currentPath === "/servicios") {
+    const serviceData = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Desarrollo de software a medida, sitios web, SaaS y apps Android",
+      "provider": {
+        "@id": "https://www.neticware.com.ar/#organization"
+      },
+      "areaServed": "AR",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.neticware.com.ar/servicios",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    };
+
+    // Limpia si ya existe
+    const oldScript = document.querySelector('script[data-dynamic-schema]');
+    if (oldScript) oldScript.remove();
+
+    // Inserta dinámicamente
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-dynamic-schema", "true");
+    script.text = JSON.stringify(serviceData, null, 2);
+    document.head.appendChild(script);
+  }
+}
+
+// Llamar en carga inicial y cuando cambies de ruta
+document.addEventListener("DOMContentLoaded", updateSchema);
+window.addEventListener("popstate", updateSchema);
