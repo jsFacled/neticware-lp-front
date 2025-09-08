@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerButton.addEventListener('click', () => {
       hamburgerMenu.classList.add('show');
       hamburgerMenu.setAttribute('aria-hidden', 'false');
+      hamburgerButton.setAttribute('aria-expanded', 'true'); // accesibilidad
     });
   }
 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', () => {
       hamburgerMenu.classList.remove('show');
       hamburgerMenu.setAttribute('aria-hidden', 'true');
+      hamburgerButton.setAttribute('aria-expanded', 'false'); // accesibilidad
     });
   }
 
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       hamburgerMenu.classList.remove('show');
       hamburgerMenu.setAttribute('aria-hidden', 'true');
+      hamburgerButton.setAttribute('aria-expanded', 'false'); // accesibilidad
     });
   });
 });

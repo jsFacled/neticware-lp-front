@@ -76,38 +76,96 @@
   <!-- Critical CSS (header + hero) -->
 <style>
   body {
-    margin: 0; font-family: 'Inter', sans-serif;
-    background-color: #0A1C3D; color: #fff;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #0A1C3D; /* fallback */
+    color: #fff;
   }
   .main-header {
-    position: sticky; top: 0; z-index: 100;
-    background-color: #0A1C3D; height: 80px;
-    display: flex; align-items: center; justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #0A1C3D;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     box-shadow: 0 2px 10px rgba(0,0,0,.3);
   }
-  .logo__name { color: #fff; font-size: 2rem; font-weight: 700; }
+  .logo__name {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+  }
   .hero {
     background: linear-gradient(to right, rgba(0,0,0,.7), rgba(10,28,61,0)),
-              image-set(
-                url('assets/images/hero-redes.avif') type('image/avif'),
-                url('assets/images/hero-redes.webp') type('image/webp'),
-                url('assets/images/hero-redes.jpg') type('image/jpeg')
-              );
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-    min-height: 100vh; display: flex; flex-direction: column;
-    align-items: center; justify-content: flex-start;
-    text-align: center; padding: 5rem 2rem 2rem;
+                image-set(
+                  url('assets/images/hero-redes.avif') type('image/avif'),
+                  url('assets/images/hero-redes.webp') type('image/webp'),
+                  url('assets/images/hero-redes.jpg') type('image/jpeg')
+                );
+    background-color: #0A1C3D; /* fallback */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 5rem 2rem 2rem;
   }
-  .hero h1 { font-size: 3.5rem; margin: 0 0 1.5rem; }
-  .hero h2 { font-size: 1.8rem; margin: 0 0 3rem; }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin: 0 0 1.5rem;
+    color: white;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+    margin: 0 0 3rem;
+    color: #c5c8ff;
+  }
+  .hero-content {
+    max-width: 40em;
+    margin: 0 auto;
+    color: white;
+    background-color: rgba(10,10,25,.45);
+    padding: 2em;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   .hero-cta {
     background: linear-gradient(135deg,#1F6BFF,#8B5CF6);
-    border-radius: 10px; padding: .8em 1.6em; font-weight: 600;
-    color: #fff; cursor: pointer;
+    border-radius: 10px;
+    padding: .8em 1.6em;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+  }
+  .hero-cta--secondary {
+    background: transparent;
+    border: 2px solid #8B5CF6;
+    color: #8B5CF6;
+    border-radius: 10px;
+    padding: .8em 1.6em;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
   }
 </style>
+
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -138,10 +196,11 @@
         </div>
       </div>
 
+      <!-- Menú de escritorio -->
       <nav class="navbar" aria-label="Menú principal">
        
        <a href="/">Inicio</a>
-  <a href="/servicios">Servicios</a>
+       <a href="/servicios">Servicios</a>
   <a href="/nosotros">Sobre Nosotros</a>
   <a href="/stack">Stack</a>
   <a href="/enfoque">Enfoque</a>
@@ -149,18 +208,22 @@
   <a href="/contacto">Contacto</a>
       </nav>
 
-      <button class="hamburger-button" aria-label="Abrir menú">☰</button>
-    </div>
-
-    <div class="hamburger-menu" aria-hidden="true">
-      <button class="close-button" aria-label="Cerrar menú">✖</button>
-     <a href="/servicios">Servicios</a>
-  <a href="/nosotros">Nosotros</a>
-  <a href="/stack">Stack</a>
-  <a href="/enfoque">Enfoque</a>
-  <a href="/metodologia">Metodología</a>
-  <a href="/contacto">Contacto</a>
-    </div>
+        <!-- Botón hamburguesa accesible -->
+    <button class="hamburger-button" 
+            aria-label="Menú principal" 
+            aria-controls="main-menu" 
+            aria-expanded="false">☰</button>
+  </div>
+<!-- Menú hamburguesa accesible -->
+  <nav id="main-menu" class="hamburger-menu" aria-hidden="true">
+    <button class="close-button" aria-label="Cerrar menú">✖</button>
+    <a href="/servicios">Servicios</a>
+    <a href="/nosotros">Nosotros</a>
+    <a href="/stack">Stack</a>
+    <a href="/enfoque">Enfoque</a>
+    <a href="/metodologia">Metodología</a>
+    <a href="/contacto">Contacto</a>
+  </nav>
   </header>
 
 <section id="hero" class="hero">

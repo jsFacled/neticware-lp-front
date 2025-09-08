@@ -21,3 +21,12 @@
 @media (max-width: 768px) {
   .hamburger-menu { width: 180px; padding: 1em .5em; }
 }
+
+/* Foco visible accesible */
+.hamburger-menu a:focus,
+.hamburger-button:focus,
+.close-button:focus {
+  outline: 2px solid #8B5CF6;   /* violeta principal */
+  outline-offset: 3px;          /* un poco más separado */
+  border-radius: 6px;           /* suaviza el borde */
+}
