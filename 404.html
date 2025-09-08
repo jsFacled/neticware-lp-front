@@ -6,8 +6,55 @@
   <title>Neticware | Desarrollo de Software a Medida, Web, SaaS y Apps Android</title>
   <meta name="description" content="En Neticware diseñamos y desarrollamos software a medida: sitios web, SaaS y apps Android. Rendimiento, seguridad y UX clara para hacer crecer tu negocio. ¡Contáctanos!" />
 
+ <!-- Schema.org básico (Organization + Website) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.neticware.com.ar/#organization",
+      "name": "Neticware S.A.S.",
+      "url": "https://www.neticware.com.ar/",
+      "logo": "https://www.neticware.com.ar/assets/images/neticware-logo.webp",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+54-9-11-6516-5422",
+        "contactType": "customer support",
+        "areaServed": "AR",
+        "availableLanguage": ["es", "en"]
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.neticware.com.ar/#website",
+      "url": "https://www.neticware.com.ar/",
+      "name": "Neticware",
+      "publisher": { "@id": "https://www.neticware.com.ar/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.google.com/search?q=site:neticware.com.ar+{search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+
+
   <!-- Canonical -->
   <link rel="canonical" href="https://www.neticware.com.ar/" />
+
+  <!-- Preload Hero Image (prioriza AVIF, fallback WebP/JPG) -->
+<link rel="preload" as="image" 
+      href="assets/images/hero-redes.avif" 
+      type="image/avif" 
+      imagesrcset="
+        assets/images/hero-redes.avif type('image/avif'),
+        assets/images/hero-redes.webp type('image/webp'),
+        assets/images/hero-redes.jpg type('image/jpeg')
+      ">
 
   <!-- Favicon -->
   <link rel="icon" href="assets/images/neticware-logo.png" type="image/png" />
@@ -24,7 +71,101 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Neticware — Desarrollo de Software a Medida | Sitios Web y Apps" />
   <meta name="twitter:description" content="Sitios web, SaaS y apps Android con foco en rendimiento, seguridad y UX clara." />
-  <meta name="twitter:image" content="https://www.neticware.com.ar/assets/images/og-" />
+  <meta name="twitter:image" content="https://www.neticware.com.ar/assets/images/og-cover-neticware-1200x630.jpg" />
+
+  <!-- Critical CSS (header + hero) -->
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #0A1C3D; /* fallback */
+    color: #fff;
+  }
+  .main-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #0A1C3D;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,.3);
+  }
+  .logo__name {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .hero {
+    background: linear-gradient(to right, rgba(0,0,0,.7), rgba(10,28,61,0)),
+                image-set(
+                  url('assets/images/hero-redes.avif') type('image/avif'),
+                  url('assets/images/hero-redes.webp') type('image/webp'),
+                  url('assets/images/hero-redes.jpg') type('image/jpeg')
+                );
+    background-color: #0A1C3D; /* fallback */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 5rem 2rem 2rem;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin: 0 0 1.5rem;
+    color: white;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+    margin: 0 0 3rem;
+    color: #c5c8ff;
+  }
+  .hero-content {
+    max-width: 40em;
+    margin: 0 auto;
+    color: white;
+    background-color: rgba(10,10,25,.45);
+    padding: 2em;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-cta {
+    background: linear-gradient(135deg,#1F6BFF,#8B5CF6);
+    border-radius: 10px;
+    padding: .8em 1.6em;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+  }
+  .hero-cta--secondary {
+    background: transparent;
+    border: 2px solid #8B5CF6;
+    color: #8B5CF6;
+    border-radius: 10px;
+    padding: .8em 1.6em;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+</style>
+
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -46,7 +187,7 @@
       <div class="logo">
         <div class="logo__iconContainer">
           <a href="/" class="logo__link">
-            <img src="assets/images/neticware-logo.png" alt="Neticware Logo" class="logo__icon logo__icon--animated" />
+            <img src="assets/images/neticware-logo.webp" alt="Neticware Logo" class="logo__icon logo__icon--animated" loading="lazy" />
           </a>
         </div>
         <div class="logo__text-group">
@@ -55,10 +196,11 @@
         </div>
       </div>
 
+      <!-- Menú de escritorio -->
       <nav class="navbar" aria-label="Menú principal">
        
        <a href="/">Inicio</a>
-  <a href="/servicios">Servicios</a>
+       <a href="/servicios">Servicios</a>
   <a href="/nosotros">Sobre Nosotros</a>
   <a href="/stack">Stack</a>
   <a href="/enfoque">Enfoque</a>
@@ -66,18 +208,22 @@
   <a href="/contacto">Contacto</a>
       </nav>
 
-      <button class="hamburger-button" aria-label="Abrir menú">☰</button>
-    </div>
-
-    <div class="hamburger-menu" aria-hidden="true">
-      <button class="close-button" aria-label="Cerrar menú">✖</button>
-     <a href="/servicios">Servicios</a>
-  <a href="/nosotros">Nosotros</a>
-  <a href="/stack">Stack</a>
-  <a href="/enfoque">Enfoque</a>
-  <a href="/metodologia">Metodología</a>
-  <a href="/contacto">Contacto</a>
-    </div>
+        <!-- Botón hamburguesa accesible -->
+    <button class="hamburger-button" 
+            aria-label="Menú principal" 
+            aria-controls="main-menu" 
+            aria-expanded="false">☰</button>
+  </div>
+<!-- Menú hamburguesa accesible -->
+  <nav id="main-menu" class="hamburger-menu" aria-hidden="true">
+    <button class="close-button" aria-label="Cerrar menú">✖</button>
+    <a href="/servicios">Servicios</a>
+    <a href="/nosotros">Nosotros</a>
+    <a href="/stack">Stack</a>
+    <a href="/enfoque">Enfoque</a>
+    <a href="/metodologia">Metodología</a>
+    <a href="/contacto">Contacto</a>
+  </nav>
   </header>
 
 <section id="hero" class="hero">
@@ -101,25 +247,41 @@
   <h2 class="services-heading">Nuestros Servicios</h2>
 
   <div class="services-grid">
-    <!-- Card -->
+    <!-- Card Desarrollo Web-->
     <article class="service-card">
       <header class="service-header">
         <h3>Desarrollo Web</h3>
-        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción">+</button>
+        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-web.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-web.avif" type="image/avif">
+          <source srcset="assets/images/services-web.webp" type="image/webp">
+          <img src="assets/images/services-web.jpg" 
+               alt="Desarrollo de aplicaciones web modernas con Vaadin y Spring Boot" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Aplicaciones modernas con Vaadin, Spring Boot y tecnologías cloud-ready.</p>
       </div>
     </article>
 
-    <!-- Card -->
+    <!-- Card Software a Medida-->
     <article class="service-card">
       <header class="service-header">
         <h3>Software a Medida</h3>
-        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción">+</button>
+        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/software-a-medida.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-software-a-medida.avif" type="image/avif">
+          <source srcset="assets/images/services-software-a-medida.webp" type="image/webp">
+          <img src="assets/images/services-software-a-medida.jpg" 
+               alt="Software a medida para automatizar procesos y resolver necesidades específicas" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Soluciones que automatizan procesos y resuelven necesidades específicas.</p>
       </div>
@@ -129,9 +291,17 @@
     <article class="service-card">
       <header class="service-header">
         <h3>Aplicaciones Móviles</h3>
-        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción">+</button>
+        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-mobile.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-mobile.avif" type="image/avif">
+          <source srcset="assets/images/services-mobile.webp" type="image/webp">
+          <img src="assets/images/services-mobile.jpg" 
+               alt="Aplicaciones móviles nativas e híbridas para Android con experiencia fluida" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Apps híbridas y nativas para <strong>Android</strong>, con experiencia fluida.</p>
       </div>
@@ -141,9 +311,17 @@
     <article class="service-card">
       <header class="service-header">
         <h3>Landing Pages</h3>
-        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción">+</button>
+        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-lp.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-lp.avif" type="image/avif">
+          <source srcset="assets/images/services-lp.webp" type="image/webp">
+          <img src="assets/images/services-lp.jpg" 
+               alt="Landing pages optimizadas para conversión y performance" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Optimización para conversión y performance.</p>
       </div>
@@ -153,9 +331,17 @@
     <article class="service-card">
       <header class="service-header">
         <h3>Blogs</h3>
-        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción">+</button>
+        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-blog.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-blog.avif" type="image/avif">
+          <source srcset="assets/images/services-blog.webp" type="image/webp">
+          <img src="assets/images/services-blog.jpg" 
+               alt="Blogs con contenido administrable y SEO técnico optimizado" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Contenido administrable y SEO técnico.</p>
       </div>
@@ -165,15 +351,24 @@
     <article class="service-card">
       <header class="service-header">
         <h3>Soluciones SaaS</h3>
-        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción">+</button>
+        <button class="service-toggle" aria-label="Ver descripción" title="Ver descripción"></button>
       </header>
-      <div class="service-media" style="background-image:url('assets/images/services-saas.webp');"></div>
+      <div class="service-media">
+        <picture>
+          <source srcset="assets/images/services-saas.avif" type="image/avif">
+          <source srcset="assets/images/services-saas.webp" type="image/webp">
+          <img src="assets/images/services-saas.jpg" 
+               alt="Plataformas SaaS seguras, escalables y a medida para negocios digitales" 
+               loading="lazy" width="1200" height="675">
+        </picture>
+      </div>
       <div class="service-overlay">
         <p>Plataformas a medida, escalables y seguras para negocios digitales.</p>
       </div>
     </article>
   </div>
 </section>
+
 
 
 <!-- ABOUT -->
@@ -222,19 +417,19 @@
         <ul class="stack__tags" aria-label="Backend">
           <li class="tag tag--java">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/java/ffffff" alt="Java" />
+              <img class="tag__brand" src="assets/images/icons/i-java.svg" alt="Java" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">Java</span>
           </li>
           <li class="tag tag--spring">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/springboot/ffffff" alt="Spring Boot" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/springboot/ffffff" alt="Spring Boot" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">Spring Boot</span>
           </li>
           <li class="tag tag--vaadin">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/vaadin/ffffff" alt="Vaadin" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/vaadin/ffffff" alt="Vaadin" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">Vaadin</span>
           </li>
@@ -254,25 +449,25 @@
         <ul class="stack__tags" aria-label="Frontend">
           <li class="tag tag--html">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/html5/ffffff" alt="HTML5" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/html5/ffffff" alt="HTML5" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">HTML</span>
           </li>
           <li class="tag tag--css">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/css3/ffffff" alt="CSS3" />
+              <img class="tag__brand" src="assets/images/icons/i-css.svg" alt="CSS3" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">CSS</span>
           </li>
           <li class="tag tag--js">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/javascript/ffffff" alt="JavaScript" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/javascript/ffffff" alt="JavaScript" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">JavaScript</span>
           </li>
           <li class="tag tag--react">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/react/ffffff" alt="React" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/react/ffffff" alt="React" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">React</span>
           </li>
@@ -285,13 +480,13 @@
         <ul class="stack__tags" aria-label="Bases de datos">
           <li class="tag tag--mysql">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/mysql/ffffff" alt="MySQL" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/mysql/ffffff" alt="MySQL"loading="lazy" width="22" height="22" />
             </span>
             <span class="tag__label">MySQL</span>
           </li>
           <li class="tag tag--pg">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/postgresql/ffffff" alt="PostgreSQL" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/postgresql/ffffff" alt="PostgreSQL" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">PostgreSQL</span>
           </li>
@@ -304,7 +499,7 @@
         <ul class="stack__tags" aria-label="DevOps y Cloud">
           <li class="tag tag--docker">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">Docker</span>
           </li>
@@ -317,13 +512,13 @@
           </li>
           <li class="tag tag--aws">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/amazonaws/ffffff" alt="AWS" />
+              <img class="tag__brand" src="assets/images/icons/i-aws.svg" alt="AWS" loading="lazy" width="22" height="22" />
             </span>
             <span class="tag__label">AWS</span>
           </li>
           <li class="tag tag--git">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/git/ffffff" alt="Git" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/git/ffffff" alt="Git" loading="lazy" width="22" height="22"/>
             </span>
             <span class="tag__label">Git</span>
           </li>
@@ -336,7 +531,7 @@
         <ul class="stack__tags" aria-label="Mobile">
           <li class="tag tag--android">
             <span class="tag__icon">
-              <img class="tag__brand" src="https://cdn.simpleicons.org/android/ffffff" alt="Android" />
+              <img class="tag__brand" src="https://cdn.simpleicons.org/android/ffffff" alt="Android" loading="lazy" width="22" height="22" />
             </span>
             <span class="tag__label">Android</span>
           </li>
@@ -475,7 +670,7 @@
         <div class="logo">
           <div class="logo__iconContainer">
             <a href="/" class="logo__link">
-              <img src="assets/images/neticware-logo.webp" alt="Neticware Logo" class="logo__icon logo__icon--footer-spin"/>
+              <img src="assets/images/neticware-logo.webp" alt="Neticware Logo" class="logo__icon logo__icon--footer-spin" loading="lazy"/>
             </a>
           </div>
           <div class="logo__text-group">
@@ -520,6 +715,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
