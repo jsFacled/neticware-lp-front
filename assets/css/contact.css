@@ -54,6 +54,34 @@ input:focus, textarea:focus{
   background:rgba(255,255,255,.08);
 }
 
+/* Select "Motivo de la consulta" */
+select{
+  width:100%;
+  padding:12px 36px 12px 14px;
+  border-radius:10px;
+  border:1px solid rgba(120,146,255,.25);
+  background-color:rgba(255,255,255,.06);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239AA3B2' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  color:#EAF0FF;
+  outline:none;
+  appearance:none;
+  -webkit-appearance:none;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:1rem;
+  transition:border-color .2s, box-shadow .2s, background-color .2s;
+}
+select:focus{
+  border-color:#7aa2ff;
+  box-shadow:0 0 0 3px rgba(31,107,255,.25);
+  background-color:rgba(255,255,255,.08);
+}
+/* Placeholder (opción vacía) en gris tenue */
+select:required:invalid{ color:rgba(234,240,255,.55); }
+select option{ background-color:#0f1b3a; color:#EAF0FF; }
+
 /* elementos que ocupan todo el ancho */
 .full-row{ grid-column: 1 / -1; }
 

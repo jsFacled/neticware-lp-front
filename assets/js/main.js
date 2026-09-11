@@ -58,12 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const reasonLabels = {
+        "desarrollo-software": "Desarrollo de software",
+        "adopcion-ia": "Adopción de IA",
+        "capacitacion": "Capacitación",
+        "otro": "Otro"
+      };
+      const reasonValue = form.reason ? form.reason.value : "";
+      const reasonLabel = reasonLabels[reasonValue] || "Sin especificar";
+
       const data = {
         name: form.name.value.trim(),
         email: emailValue,
         phone: phoneValue,
         message: form.message.value.trim(),
-        _subject: "Nueva consulta desde neticware.com.ar",
+        motivo: reasonLabel,
+        _subject: `Nueva consulta (${reasonLabel}) — neticware.com.ar`,
         _captcha: "false",
         _template: "box"
       };
@@ -202,11 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // No es necesario else para rutas no encontradas, ya se redirige al inicio
     }
 
-    // Interceptar clics en enlaces
+    // Interceptar clics en enlaces (solo si la sección existe en esta página;
+    // en /adopcion-ia los enlaces del menú navegan normalmente a la home,
+    // donde handleRoute() hace el scroll inicial)
     document.querySelectorAll('a[href^="/"]').forEach(link => {
         link.addEventListener("click", e => {
             const path = link.getAttribute("href").toLowerCase();
-            if (routes[path]) {
+            if (routes[path] && document.querySelector(routes[path])) {
                 e.preventDefault();
                 history.pushState({}, "", path);
                 document.querySelector(routes[path])?.scrollIntoView({ behavior: "smooth" });
@@ -219,6 +231,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Llama a la función al cargar la página
     handleRoute();
+});
+
+// ===== Preselección de motivo de consulta (desde /adopcion-ia o el módulo de IA) =====
+document.addEventListener("DOMContentLoaded", () => {
+  const reasonSelect = document.getElementById("reason");
+  if (!reasonSelect) return;
+
+  const motivo = new URLSearchParams(window.location.search).get("motivo");
+  if (motivo && reasonSelect.querySelector(`option[value="${CSS.escape(motivo)}"]`)) {
+    reasonSelect.value = motivo;
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+// ===== Año dinámico del pie de página =====
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.getElementById("footer-year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
 // ==== Actualización del json Schema.org ====

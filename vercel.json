@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/servicios", "destination": "/" },
+    { "source": "/nosotros", "destination": "/" },
+    { "source": "/stack", "destination": "/" },
+    { "source": "/enfoque", "destination": "/" },
+    { "source": "/metodologia", "destination": "/" },
+    { "source": "/contacto", "destination": "/" }
+  ]
+}

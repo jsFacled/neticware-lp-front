@@ -1,0 +1,92 @@
+/* ===== Módulo destacado: Adopción de IA ===== */
+.ai-adoption {
+  padding: 2.5rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ai-adoption__wrap {
+  width: 100%;
+  max-width: 1000px;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  background:
+    linear-gradient(#0f1b3a, #0f1b3a) padding-box,
+    linear-gradient(135deg, #1F6BFF, #8B5CF6) border-box;
+  box-shadow: 0 14px 48px rgba(0,0,0,.45);
+}
+
+.ai-adoption__content {
+  padding: 2.2rem 2rem;
+}
+
+.ai-adoption__content h2 {
+  margin: 0 0 1rem;
+  color: #fff;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.ai-adoption__intro {
+  margin: 0 0 1rem;
+  color: rgba(234,240,255,.9);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+.ai-adoption__desc {
+  margin: 0 0 1.25rem;
+  color: rgba(234,240,255,.9);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+.ai-adoption__differential {
+  margin: 0 0 1.5rem;
+  padding: .9rem 1.1rem;
+  border-left: 3px solid #8B5CF6;
+  border-radius: 0 10px 10px 0;
+  background: rgba(139,92,246,.10);
+  color: #EAF0FF;
+  line-height: 1.6;
+}
+
+.ai-adoption__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Variante outline para el CTA secundario (sobre .cta-button) */
+.cta-button--outline {
+  background: transparent;
+  border: 2px solid #8B5CF6;
+  color: #c5c8ff;
+  box-shadow: none;
+  transition: background .25s ease, color .25s ease, transform .15s, box-shadow .15s;
+}
+.cta-button--outline:hover {
+  background: #8B5CF6;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(139,92,246,.4);
+  filter: none;
+}
+
+/* Foco visible accesible */
+.ai-adoption__actions a:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .ai-adoption { padding: 1.5rem .8rem; }
+  .ai-adoption__content { padding: 1.5rem 1.2rem; }
+  .ai-adoption__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ai-adoption__actions .cta-button {
+    text-align: center;
+  }
+}
