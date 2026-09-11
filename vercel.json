@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/adopcion-ia", "destination": "/adopcion-ia.html" },
     { "source": "/servicios", "destination": "/" },
     { "source": "/nosotros", "destination": "/" },
     { "source": "/stack", "destination": "/" },
