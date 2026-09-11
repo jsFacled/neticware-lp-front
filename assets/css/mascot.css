@@ -1,0 +1,67 @@
+/* ===== Mascota / Robot Compañero ===== */
+.mascot-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  pointer-events: none; /* permite clics a través del contenedor */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mascot-container.hidden {
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+}
+
+.mascot-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  animation: mascot-float 4s ease-in-out infinite;
+  pointer-events: auto; /* la imagen sí recibe eventos */
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.mascot-img:hover {
+  transform: scale(1.08) rotate(-3deg);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+}
+
+/* Animación flotante suave */
+@keyframes mascot-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+/* Reducir movimiento para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  .mascot-img {
+    animation: none;
+  }
+}
+
+/* Mobile: un poco más pequeño y más margen inferior para evitar solapamiento con footer/chat */
+@media (max-width: 640px) {
+  .mascot-container {
+    bottom: 5rem; /* espacio para footer fijo si existe */
+    right: 1rem;
+  }
+  .mascot-img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* Estado "dormido" opcional para scroll */
+.mascot-container.sleeping .mascot-img {
+  animation: none;
+  opacity: 0.6;
+  filter: grayscale(0.3) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
