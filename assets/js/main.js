@@ -245,6 +245,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ===== Enlaces in-page con motivo de consulta (módulo de IA en el inicio) =====
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("a[data-motivo]").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const sel = document.getElementById("reason");
+      const value = link.dataset.motivo;
+      if (sel && sel.querySelector(`option[value="${CSS.escape(value)}"]`)) {
+        sel.value = value;
+      }
+      const target = link.getAttribute("href");
+      if (target) document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+});
+
 // ===== Año dinámico del pie de página =====
 document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("footer-year");
