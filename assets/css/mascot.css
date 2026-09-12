@@ -97,7 +97,8 @@
   margin: .4rem 0 0;
 }
 
-.mascot.is-companion {
+.mascot.is-companion,
+.mascot.is-thinking {
   position: fixed;
   inset: auto 1.5rem 1.5rem auto;
   z-index: 90;
@@ -108,7 +109,12 @@
   animation: mascot-companion-enter .35s ease-out both;
 }
 
-.mascot.is-companion .mascot__image {
+.mascot.is-thinking {
+  width: 130px;
+}
+
+.mascot.is-companion .mascot__image,
+.mascot.is-thinking .mascot__image {
   display: block;
   width: 100%;
   height: auto;
@@ -120,13 +126,38 @@
   transform: none;
 }
 
-.mascot.is-companion .mascot__image:hover {
+.mascot.is-companion .mascot__image:hover,
+.mascot.is-thinking .mascot__image:hover {
   transform: none;
   filter: drop-shadow(0 5px 14px rgba(7, 13, 35, .35));
 }
 
 .mascot.is-companion .mascot__message {
   display: none;
+}
+
+.mascot.is-thinking .mascot__message {
+  position: absolute;
+  right: calc(100% + .8rem);
+  bottom: 42%;
+  display: block;
+  width: min(290px, calc(100vw - 12rem));
+  max-width: none;
+  margin: 0;
+  padding: .85rem 1rem;
+  font-size: .95rem;
+  text-align: left;
+}
+
+.mascot.is-thinking .mascot__message::before {
+  top: auto;
+  left: auto;
+  right: -8px;
+  bottom: 25%;
+  border-top: 1px solid rgba(81, 202, 255, .65);
+  border-right: 1px solid rgba(81, 202, 255, .65);
+  border-left: 0;
+  transform: rotate(45deg);
 }
 
 @keyframes mascot-companion-enter {
@@ -149,7 +180,8 @@
   .mascot__image {
     animation: none;
   }
-  .mascot.is-companion {
+  .mascot.is-companion,
+  .mascot.is-thinking {
     animation: none;
   }
 }
@@ -175,9 +207,20 @@
   .mascot.is-presenting .mascot__message {
     margin-top: .25rem;
   }
-  .mascot.is-companion {
+  .mascot.is-companion,
+  .mascot.is-thinking {
     inset: auto max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) auto;
     width: 78px;
+  }
+  .mascot.is-thinking {
+    width: 88px;
+  }
+  .mascot.is-thinking .mascot__message {
+    right: calc(100% + .5rem);
+    bottom: 12%;
+    width: min(250px, calc(100vw - 8rem));
+    padding: .7rem .85rem;
+    font-size: .86rem;
   }
   .mascot__message {
     width: 100%;
