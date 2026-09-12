@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const services = document.querySelector('#services');
     const aiAdoption = document.querySelector('#ai-adoption');
     const aiActions = aiAdoption?.querySelector('.ai-adoption__actions');
+    const methodology = document.querySelector('#methodology');
+    const contact = document.querySelector('#contact');
     const presenting = {
       src: image.getAttribute('src'),
       alt: image.alt,
@@ -39,13 +41,40 @@ document.addEventListener('DOMContentLoaded', () => {
       height: 1448,
       message: 'IA no siempre es la respuesta.'
     };
-    const poses = { presenting, companion, thinking, pointing };
+    const working = {
+      src: mascot.dataset.workingSrc,
+      alt: 'Mascota de Neticware trabajando en la metodología',
+      width: 1122,
+      height: 1402,
+      message: 'Así lo hacemos.'
+    };
+    const contacting = {
+      src: mascot.dataset.contactSrc,
+      alt: 'Mascota de Neticware invitando a contar un desafío',
+      width: 1122,
+      height: 1402,
+      message: 'Ahora contanos qué querés resolver.'
+    };
+    const celebrating = {
+      src: mascot.dataset.celebratingSrc,
+      alt: 'Mascota de Neticware celebrando el mensaje enviado',
+      width: 1122,
+      height: 1402,
+      message: 'Listo. Ahora nos toca a nosotros.'
+    };
+    const poses = { presenting, companion, thinking, pointing, working, contact: contacting, celebrating };
 
     // Have the companion pose ready when the hero leaves the viewport.
     const companionPreload = new Image();
     companionPreload.src = companion.src;
-    let thinkingPreload;
-    let pointingPreload;
+    const preloadedPoses = new Set();
+    const preloadPose = ({ src }) => {
+      if (preloadedPoses.has(src)) return;
+      preloadedPoses.add(src);
+      const preload = new Image();
+      preload.src = src;
+    };
+    let contactSubmitted = false;
 
     const setState = (state) => {
       if (mascot.dataset.mascotState === state) return;
@@ -56,6 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
       mascot.classList.toggle('is-companion', state === 'companion');
       mascot.classList.toggle('is-thinking', state === 'thinking');
       mascot.classList.toggle('is-pointing', state === 'pointing');
+      mascot.classList.toggle('is-working', state === 'working');
+      mascot.classList.toggle('is-contact', state === 'contact');
+      mascot.classList.toggle('is-celebrating', state === 'celebrating');
       mascot.dataset.mascotState = state;
       image.src = pose.src;
       image.alt = pose.alt;
@@ -65,13 +97,53 @@ document.addEventListener('DOMContentLoaded', () => {
       message.hidden = !pose.message;
     };
 
+    const inSection = (section, headerBottom) => {
+      if (!section) return false;
+      const bounds = section.getBoundingClientRect();
+      return bounds.top <= headerBottom + 16 && bounds.bottom > headerBottom + 24;
+    };
+
+    const inSectionTail = (section) => {
+      const bottom = section.getBoundingClientRect().bottom;
+      return bottom <= window.innerHeight + 60 && bottom > window.innerHeight - 100;
+    };
+
+    const keepInsideSection = (section) => {
+      const clearance = window.innerWidth <= 640 ? 16 : 24;
+      const bottom = Math.max(clearance,
+        window.innerHeight - section.getBoundingClientRect().bottom + clearance);
+      mascot.style.setProperty('--mascot-section-bottom', `${bottom}px`);
+    };
+
     const updateState = () => {
       const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
       const heroBottom = hero.getBoundingClientRect().bottom;
       if (heroBottom > headerBottom) {
         setState('presenting');
+        mascot.classList.remove('is-quiet');
         return;
       }
+
+      if (inSection(contact, headerBottom)) {
+        const compact = window.innerWidth < 1200;
+        const showContact = contactSubmitted || (compact ? inSectionTail(contact) : true);
+        if (compact) keepInsideSection(contact);
+        setState(showContact ? (contactSubmitted ? 'celebrating' : 'contact') : 'companion');
+        mascot.classList.toggle('is-quiet', !compact && !contactSubmitted &&
+          contact.getBoundingClientRect().top < headerBottom - 180);
+        return;
+      }
+
+      if (inSection(methodology, headerBottom)) {
+        const compact = window.innerWidth < 1200;
+        if (compact) keepInsideSection(methodology);
+        setState(compact && !inSectionTail(methodology) ? 'companion' : 'working');
+        mascot.classList.toggle('is-quiet', !compact &&
+          methodology.getBoundingClientRect().top < headerBottom - 160);
+        return;
+      }
+
+      mascot.classList.remove('is-quiet');
 
       const servicesTop = services?.getBoundingClientRect().top ?? Infinity;
       const introDistance = Math.min(window.innerHeight * .55, 480);
@@ -101,13 +173,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let framePending = false;
     const scheduleUpdate = () => {
-      if (!thinkingPreload) {
-        thinkingPreload = new Image();
-        thinkingPreload.src = thinking.src;
+      preloadPose(thinking);
+      preloadPose(pointing);
+      if (methodology?.getBoundingClientRect().top < window.innerHeight * 2) {
+        preloadPose(working);
       }
-      if (!pointingPreload) {
-        pointingPreload = new Image();
-        pointingPreload.src = pointing.src;
+      if (contact?.getBoundingClientRect().top < window.innerHeight * 2) {
+        preloadPose(contacting);
+        preloadPose(celebrating);
       }
       if (framePending) return;
       framePending = true;
@@ -119,6 +192,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', scheduleUpdate, { passive: true });
     window.addEventListener('resize', scheduleUpdate);
+    document.addEventListener('neticware:contact-success', () => {
+      contactSubmitted = true;
+      scheduleUpdate();
+    });
+    document.addEventListener('neticware:contact-reset', () => {
+      contactSubmitted = false;
+      scheduleUpdate();
+    });
     updateState();
     return;
   }

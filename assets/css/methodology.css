@@ -22,6 +22,9 @@
 .method-card .action{ margin:.6rem 0 0; font-weight:600; color:#EAF0FF; opacity:.95; }
 .methodology__cta{ margin-top:1.25rem; display:flex; justify-content:flex-end; }
 @media (max-width:1200px){ .methodology__grid{ grid-template-columns: repeat(3,1fr); } }
+@media (max-width:1199px){
+  .methodology { min-height: calc(100svh - var(--navbar-height)); padding-bottom: 11rem; }
+}
 @media (max-width:640px){
   .methodology__wrap{ padding:1.25rem; }
   .methodology__grid{ grid-template-columns: 1fr; }

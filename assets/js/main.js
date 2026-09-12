@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
           form.reset();
           form.style.display = "none";
           thankYou.style.display = "block";
+          document.dispatchEvent(new Event('neticware:contact-success'));
         } else {
           alert("Hubo un error al enviar el formulario. Intentalo de nuevo.");
         }
@@ -105,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     newMessageBtn.addEventListener('click', () => {
       thankYou.style.display = "none";
       form.style.display = "grid";
+      document.dispatchEvent(new Event('neticware:contact-reset'));
     });
   }
 });

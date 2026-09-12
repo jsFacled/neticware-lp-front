@@ -119,3 +119,7 @@ select option{ background-color:#0f1b3a; color:#EAF0FF; }
   .form-grid{ grid-template-columns: 1fr; }
   .actions{ justify-content:center; }
  .form-wrapper { padding: 18px; border-radius: 12px; } }
+
+@media (max-width: 1199px) {
+  #contact { min-height: calc(100svh - var(--navbar-height)); padding-bottom: 11rem; }
+}
