@@ -30,8 +30,7 @@
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
 }
 
-/* The same mascot instance lives in the Home hero in its initial state.
-   A future companion state can reposition this container without duplicating it. */
+/* The Home uses one mascot instance for both the hero and companion states. */
 .mascot.is-presenting {
   position: relative;
   inset: auto;
@@ -94,6 +93,47 @@
   transform: rotate(45deg);
 }
 
+.mascot.is-presenting .mascot__message {
+  margin: .4rem 0 0;
+}
+
+.mascot.is-companion {
+  position: fixed;
+  inset: auto 1.5rem 1.5rem auto;
+  z-index: 90;
+  display: block;
+  width: 112px;
+  min-width: 0;
+  pointer-events: none;
+  animation: mascot-companion-enter .35s ease-out both;
+}
+
+.mascot.is-companion .mascot__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: none;
+  filter: drop-shadow(0 5px 14px rgba(7, 13, 35, .35));
+  pointer-events: none;
+  cursor: default;
+  transform: none;
+}
+
+.mascot.is-companion .mascot__image:hover {
+  transform: none;
+  filter: drop-shadow(0 5px 14px rgba(7, 13, 35, .35));
+}
+
+.mascot.is-companion .mascot__message {
+  display: none;
+}
+
+@keyframes mascot-companion-enter {
+  from { opacity: 0; transform: translateY(.75rem) scale(.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* Gentle floating animation */
 @keyframes mascot-float {
   0%, 100% {
@@ -107,6 +147,9 @@
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .mascot__image {
+    animation: none;
+  }
+  .mascot.is-companion {
     animation: none;
   }
 }
@@ -129,10 +172,16 @@
     max-width: 275px;
     max-height: 300px;
   }
+  .mascot.is-presenting .mascot__message {
+    margin-top: .25rem;
+  }
+  .mascot.is-companion {
+    inset: auto max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) auto;
+    width: 78px;
+  }
   .mascot__message {
     width: 100%;
     max-width: 340px;
-    margin-top: .25rem;
     padding: .85rem 1rem;
     font-size: .95rem;
   }
