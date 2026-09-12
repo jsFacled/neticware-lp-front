@@ -59,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const reasonLabels = {
-        "desarrollo-software": "Desarrollo de software",
-        "adopcion-ia": "Adopción de IA",
-        "capacitacion": "Capacitación",
-        "otro": "Otro"
+        "software-development": "Desarrollo de software",
+        "ai-adoption": "Adopción de IA",
+        "training": "Capacitación",
+        "other": "Otro"
       };
       const reasonValue = form.reason ? form.reason.value : "";
       const reasonLabel = reasonLabels[reasonValue] || "Sin especificar";
@@ -238,20 +238,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const reasonSelect = document.getElementById("reason");
   if (!reasonSelect) return;
 
-  const motivo = new URLSearchParams(window.location.search).get("motivo");
-  if (motivo && reasonSelect.querySelector(`option[value="${CSS.escape(motivo)}"]`)) {
-    reasonSelect.value = motivo;
+  const publicReasonValues = {
+    "desarrollo-software": "software-development",
+    "adopcion-ia": "ai-adoption",
+    "capacitacion": "training",
+    "otro": "other"
+  };
+  const publicReason = new URLSearchParams(window.location.search).get("motivo");
+  const reason = publicReasonValues[publicReason];
+  if (reason && reasonSelect.querySelector(`option[value="${CSS.escape(reason)}"]`)) {
+    reasonSelect.value = reason;
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   }
 });
 
 // ===== Enlaces in-page con motivo de consulta (módulo de IA en el inicio) =====
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("a[data-motivo]").forEach(link => {
+  document.querySelectorAll("a[data-reason]").forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const sel = document.getElementById("reason");
-      const value = link.dataset.motivo;
+      const value = link.dataset.reason;
       if (sel && sel.querySelector(`option[value="${CSS.escape(value)}"]`)) {
         sel.value = value;
       }

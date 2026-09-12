@@ -1,9 +1,9 @@
-// ===== Comportamiento de la mascota =====
+// ===== Mascot behavior =====
 document.addEventListener('DOMContentLoaded', () => {
-  const mascot = document.querySelector('.mascot-container');
+  const mascot = document.querySelector('.mascot');
   if (!mascot) return;
 
-  // Interacción básica: efecto al pasar el mouse
+  // Basic hover interaction
   mascot.addEventListener('mouseenter', () => {
     mascot.style.transform = 'scale(1.1)';
   });
@@ -12,6 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mascot.style.transform = 'scale(1)';
   });
 
-  // Aquí podrías agregar más lógica, como seguir el mouse o diálogos aleatorios
-  console.log("Mascota inicializada.");
+  // Additional behavior could include mouse tracking or random dialogue
+  console.log("Mascot initialized.");
 });

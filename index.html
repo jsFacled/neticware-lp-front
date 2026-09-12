@@ -48,12 +48,12 @@
 
   <!-- Preload Hero Image (prioriza AVIF, fallback WebP/JPG) -->
 <link rel="preload" as="image" 
-      href="assets/images/hero-redes.avif" 
+      href="assets/images/hero-network.avif"
       type="image/avif" 
       imagesrcset="
-        assets/images/hero-redes.avif type('image/avif'),
-        assets/images/hero-redes.webp type('image/webp'),
-        assets/images/hero-redes.jpg type('image/jpeg')
+        assets/images/hero-network.avif type('image/avif'),
+        assets/images/hero-network.webp type('image/webp'),
+        assets/images/hero-network.jpg type('image/jpeg')
       ">
 
   <!-- Favicon -->
@@ -100,9 +100,9 @@
   .hero {
     background: linear-gradient(to right, rgba(0,0,0,.7), rgba(10,28,61,0)),
                 image-set(
-                  url('assets/images/hero-redes.avif') type('image/avif'),
-                  url('assets/images/hero-redes.webp') type('image/webp'),
-                  url('assets/images/hero-redes.jpg') type('image/jpeg')
+                  url('assets/images/hero-network.avif') type('image/avif'),
+                  url('assets/images/hero-network.webp') type('image/webp'),
+                  url('assets/images/hero-network.jpg') type('image/jpeg')
                 );
     background-color: #0A1C3D; /* fallback */
     background-size: cover;
@@ -180,7 +180,7 @@
   <link rel="stylesheet" href="assets/css/methodology.css" />
   <link rel="stylesheet" href="assets/css/contact.css" />
   <link rel="stylesheet" href="assets/css/footer.css" />
-  <link rel="stylesheet" href="assets/css/mascot.css" />
+  <link rel="stylesheet" href="assets/css/mascot.css?v=20260912" />
 </head>
 
 <body>
@@ -273,9 +273,9 @@
       </header>
       <div class="service-media">
         <picture>
-          <source srcset="assets/images/services-software-a-medida.avif" type="image/avif">
-          <source srcset="assets/images/services-software-a-medida.webp" type="image/webp">
-          <img src="assets/images/services-software-a-medida.jpg" 
+          <source srcset="assets/images/services-custom-software.avif" type="image/avif">
+          <source srcset="assets/images/services-custom-software.webp" type="image/webp">
+          <img src="assets/images/services-custom-software.jpg"
                alt="Software a medida para automatizar procesos y resolver necesidades específicas" 
                loading="lazy" width="1200" height="675">
         </picture>
@@ -388,7 +388,7 @@
       </p>
       <div class="ai-adoption__actions">
         <a href="/adopcion-ia" class="cta-button">Conocer el servicio →</a>
-        <a href="#contact" class="cta-button cta-button--outline" data-motivo="adopcion-ia">Solicitar una reunión</a>
+        <a href="#contact" class="cta-button cta-button--outline" data-reason="ai-adoption">Solicitar una reunión</a>
       </div>
     </div>
   </div>
@@ -667,10 +667,10 @@
     <label for="reason">Motivo de la consulta</label>
     <select id="reason" name="reason" required>
       <option value="" selected disabled>Seleccioná un motivo…</option>
-      <option value="desarrollo-software">Desarrollo de software</option>
-      <option value="adopcion-ia">Adopción de IA</option>
-      <option value="capacitacion">Capacitación</option>
-      <option value="otro">Otro</option>
+      <option value="software-development">Desarrollo de software</option>
+      <option value="ai-adoption">Adopción de IA</option>
+      <option value="training">Capacitación</option>
+      <option value="other">Otro</option>
     </select>
   </div>
 
@@ -750,12 +750,12 @@
     </div>
   </footer>
 
-  <!-- Mascota -->
-  <div class="mascot-container" role="img" aria-label="Mascota de Neticware">
-    <img src="assets/images/mascot/mascot.png" alt="" class="mascot-img" loading="lazy" />
+  <!-- Mascot -->
+  <div class="mascot" role="img" aria-label="Mascota de Neticware">
+    <img src="assets/images/mascot/mascot.png" alt="" class="mascot__image" loading="lazy" />
   </div>
 
-  <script src="assets/js/main.js?v=20260911" defer></script>
-  <script src="assets/js/mascot.js" defer></script>
+  <script src="assets/js/main.js?v=20260912" defer></script>
+  <script src="assets/js/mascot.js?v=20260912" defer></script>
 </body>
 </html>

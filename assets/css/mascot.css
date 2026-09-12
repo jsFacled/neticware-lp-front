@@ -1,36 +1,36 @@
-/* ===== Mascota / Robot Compañero ===== */
-.mascot-container {
+/* ===== Brand mascot ===== */
+.mascot {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 1000;
-  pointer-events: none; /* permite clics a través del contenedor */
+  pointer-events: none; /* allow clicks through the container */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.mascot-container.hidden {
+.mascot--hidden {
   opacity: 0;
   transform: translateY(1rem);
   pointer-events: none;
 }
 
-.mascot-img {
+.mascot__image {
   width: 120px;
   height: 120px;
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
   animation: mascot-float 4s ease-in-out infinite;
-  pointer-events: auto; /* la imagen sí recibe eventos */
+  pointer-events: auto; /* the image receives pointer events */
   cursor: pointer;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.mascot-img:hover {
+.mascot__image:hover {
   transform: scale(1.08) rotate(-3deg);
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
 }
 
-/* Animación flotante suave */
+/* Gentle floating animation */
 @keyframes mascot-float {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -40,27 +40,27 @@
   }
 }
 
-/* Reducir movimiento para usuarios que lo prefieren */
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .mascot-img {
+  .mascot__image {
     animation: none;
   }
 }
 
-/* Mobile: un poco más pequeño y más margen inferior para evitar solapamiento con footer/chat */
+/* Mobile: smaller image and more bottom space to avoid footer/chat overlap */
 @media (max-width: 640px) {
-  .mascot-container {
-    bottom: 5rem; /* espacio para footer fijo si existe */
+  .mascot {
+    bottom: 5rem; /* space for a fixed footer, if present */
     right: 1rem;
   }
-  .mascot-img {
+  .mascot__image {
     width: 90px;
     height: 90px;
   }
 }
 
-/* Estado "dormido" opcional para scroll */
-.mascot-container.sleeping .mascot-img {
+/* Optional sleeping state for scrolling */
+.mascot--sleeping .mascot__image {
   animation: none;
   opacity: 0.6;
   filter: grayscale(0.3) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));

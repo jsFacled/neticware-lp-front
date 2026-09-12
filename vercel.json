@@ -1,6 +1,15 @@
 {
   "rewrites": [
-    { "source": "/adopcion-ia", "destination": "/adopcion-ia.html" },
+    { "source": "/adopcion-ia", "destination": "/ai-adoption.html" },
+    { "source": "/mantenimiento.html", "destination": "/maintenance.html" },
+    { "source": "/assets/images/about-nosotros.webp", "destination": "/assets/images/about-us.webp" },
+    { "source": "/assets/images/hero-redes.avif", "destination": "/assets/images/hero-network.avif" },
+    { "source": "/assets/images/hero-redes.webp", "destination": "/assets/images/hero-network.webp" },
+    { "source": "/assets/images/hero-redes.jpg", "destination": "/assets/images/hero-network.jpg" },
+    { "source": "/assets/images/hero-moderno.webp", "destination": "/assets/images/hero-modern.webp" },
+    { "source": "/assets/images/services-software-a-medida.avif", "destination": "/assets/images/services-custom-software.avif" },
+    { "source": "/assets/images/services-software-a-medida.webp", "destination": "/assets/images/services-custom-software.webp" },
+    { "source": "/assets/images/services-software-a-medida.jpg", "destination": "/assets/images/services-custom-software.jpg" },
     { "source": "/servicios", "destination": "/" },
     { "source": "/nosotros", "destination": "/" },
     { "source": "/stack", "destination": "/" },

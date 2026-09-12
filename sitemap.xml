@@ -10,14 +10,11 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.neticware.com.ar/assets/images/og-cover-neticware-1200x630.avif</image:loc>
-      <image:loc>https://www.neticware.com.ar/assets/images/og-cover-neticware-1200x630.webp</image:loc>
       <image:loc>https://www.neticware.com.ar/assets/images/og-cover-neticware-1200x630.jpg</image:loc>
       <image:title>Neticware - Desarrollo de Software</image:title>
       <image:caption>Portada principal con foco en software a medida, SaaS y apps Android</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.neticware.com.ar/assets/images/neticware-logo.avif</image:loc>
       <image:loc>https://www.neticware.com.ar/assets/images/neticware-logo.webp</image:loc>
       <image:loc>https://www.neticware.com.ar/assets/images/neticware-logo.png</image:loc>
       <image:title>Logo de Neticware</image:title>
@@ -38,9 +35,9 @@
       <image:caption>Aplicaciones web modernas con Vaadin y Spring Boot</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.neticware.com.ar/assets/images/services-software-a-medida.avif</image:loc>
-      <image:loc>https://www.neticware.com.ar/assets/images/services-software-a-medida.webp</image:loc>
-      <image:loc>https://www.neticware.com.ar/assets/images/services-software-a-medida.jpg</image:loc>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-custom-software.avif</image:loc>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-custom-software.webp</image:loc>
+      <image:loc>https://www.neticware.com.ar/assets/images/services-custom-software.jpg</image:loc>
       <image:title>Software a Medida</image:title>
       <image:caption>Soluciones a medida para automatizar procesos y necesidades específicas</image:caption>
     </image:image>
