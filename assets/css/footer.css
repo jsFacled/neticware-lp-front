@@ -156,6 +156,24 @@
 
 
 /* ===== Responsive ===== */
+@media (max-width: 1240px) {
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .footer-brand,
+  .footer-services,
+  .footer-links,
+  .footer-contact {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 0;
+  }
+
+  .footer-claim {
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 768px){
   .footer-container{
     flex-wrap: wrap;
@@ -163,6 +181,7 @@
     align-items: center;
   }
   .footer-brand,
+  .footer-services,
   .footer-links,
   .footer-contact{
     flex: 1 1 100%;

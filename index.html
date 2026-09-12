@@ -108,13 +108,23 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: calc(100svh - var(--navbar-height) - 10px);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding: 5rem 2rem 2rem;
+    justify-content: center;
+    text-align: left;
+    padding: 3rem 2rem;
+  }
+  .hero__layout {
+    width: min(100%, 1280px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+  }
+  .hero__copy { min-width: 0; }
+  @media (max-width: 768px) {
+    .hero__layout { grid-template-columns: minmax(0, 1fr); }
   }
   .hero h1 {
     font-size: 3.5rem;
@@ -128,7 +138,7 @@
   }
   .hero-content {
     max-width: 40em;
-    margin: 0 auto;
+    margin: 0;
     color: white;
     background-color: rgba(10,10,25,.45);
     padding: 2em;
@@ -141,7 +151,7 @@
   .hero-buttons {
     display: flex;
     gap: 1.2rem;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
   .hero-cta {
@@ -171,7 +181,7 @@
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/logo.css" />
   <link rel="stylesheet" href="assets/css/menu.css" />
-  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/hero.css?v=20260912-hero1" />
   <link rel="stylesheet" href="assets/css/services.css" />
   <link rel="stylesheet" href="assets/css/ai-module.css" />
   <link rel="stylesheet" href="assets/css/about.css" />
@@ -179,8 +189,8 @@
   <link rel="stylesheet" href="assets/css/approach.css" />
   <link rel="stylesheet" href="assets/css/methodology.css" />
   <link rel="stylesheet" href="assets/css/contact.css" />
-  <link rel="stylesheet" href="assets/css/footer.css" />
-  <link rel="stylesheet" href="assets/css/mascot.css?v=20260912" />
+  <link rel="stylesheet" href="assets/css/footer.css?v=20260912-footer1" />
+  <link rel="stylesheet" href="assets/css/mascot.css?v=20260912-hero1" />
 </head>
 
 <body>
@@ -225,16 +235,24 @@
   </header>
 
 <section id="hero" class="hero">
-  <h1>Transformá tus ideas en soluciones digitales</h1>
-  <h2>
-    Desarrollo de <span class="highlight">software</span> a medida, aplicaciones e
-    <span class="highlight">inteligencia artificial</span> aplicada a procesos reales
-  </h2>
-  <div class="hero-content">
-    <p>Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones móviles y plataformas en la nube para impulsar el crecimiento de tu negocio</p>
-    <div class="hero-buttons">
-      <a href="#contact"><button class="hero-cta">Hablemos de tu idea →</button></a>
-      <a href="#services"><button class="hero-cta hero-cta--secondary">Ver Servicios</button></a>
+  <div class="hero__layout">
+    <div class="hero__copy">
+      <h1>Transformá tus ideas en soluciones digitales</h1>
+      <h2>
+        Desarrollo de <span class="highlight">software</span> a medida, aplicaciones e
+        <span class="highlight">inteligencia artificial</span> aplicada a procesos reales
+      </h2>
+      <div class="hero-content">
+        <p>Diseñamos, desarrollamos y optimizamos sitios web, aplicaciones móviles y plataformas en la nube para impulsar el crecimiento de tu negocio</p>
+        <div class="hero-buttons">
+          <a href="#contact"><button class="hero-cta">Hablemos de tu idea →</button></a>
+          <a href="#services"><button class="hero-cta hero-cta--secondary">Ver Servicios</button></a>
+        </div>
+      </div>
+    </div>
+    <div class="mascot mascot-container is-presenting" data-mascot-state="presenting">
+      <img src="assets/images/mascot/mascot-presenting.png" alt="Mascota de Neticware presentando nuestras soluciones" class="mascot__image mascot-img" width="1122" height="1402" fetchpriority="high" />
+      <p class="mascot__message">Primero entendemos tu problema. Después elegimos la tecnología.</p>
     </div>
   </div>
 </section>
@@ -750,12 +768,7 @@
     </div>
   </footer>
 
-  <!-- Mascot -->
-  <div class="mascot" role="img" aria-label="Mascota de Neticware">
-    <img src="assets/images/mascot/mascot.png" alt="" class="mascot__image" loading="lazy" />
-  </div>
-
   <script src="assets/js/main.js?v=20260912" defer></script>
-  <script src="assets/js/mascot.js?v=20260912" defer></script>
+  <script src="assets/js/mascot.js?v=20260912-hero1" defer></script>
 </body>
 </html>

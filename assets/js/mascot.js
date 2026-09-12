@@ -3,7 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const mascot = document.querySelector('.mascot');
   if (!mascot) return;
 
-  // Basic hover interaction
+  // The Home starts with the existing mascot instance integrated into its hero.
+  // No scroll or companion behavior is active in this first stage.
+  if (mascot.closest('#hero')) {
+    mascot.classList.add('is-presenting');
+    mascot.dataset.mascotState = 'presenting';
+    return;
+  }
+
+  // Preserve the existing behavior on pages outside the Home.
   mascot.addEventListener('mouseenter', () => {
     mascot.style.transform = 'scale(1.1)';
   });
@@ -11,7 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
   mascot.addEventListener('mouseleave', () => {
     mascot.style.transform = 'scale(1)';
   });
-
-  // Additional behavior could include mouse tracking or random dialogue
-  console.log("Mascot initialized.");
 });

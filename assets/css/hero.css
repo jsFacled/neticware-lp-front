@@ -1,6 +1,22 @@
 /* === Hero Section (decoración extendida) === */
+.hero {
+  padding: clamp(2rem, 4vw, 4rem);
+}
+
+.hero__layout {
+  max-width: 1280px;
+}
+
 .hero h1 {
+  font-size: clamp(2.65rem, 4vw, 3.5rem);
+  line-height: 1.12;
   text-shadow: 1px 1px 2px black;
+}
+
+.hero h2 {
+  font-size: clamp(1.4rem, 2.15vw, 1.8rem);
+  line-height: 1.4;
+  margin-bottom: 2rem;
 }
 
 .hero h2 .highlight {
@@ -16,6 +32,7 @@
 
 /* === Contenido === */
 .hero-content {
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,.4);
 }
@@ -55,10 +72,28 @@
 }
 
 /* === Responsive === */
-@media (max-width:768px){
-  .hero h1 { font-size: 2.4rem; }
-  .hero h2 { font-size: 1.3rem; margin-bottom: 2rem; }
-  .hero-content { width: 90%; padding: 1.2em; }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero { padding-inline: 1.5rem; }
+  .hero__layout { gap: 1.5rem; }
+  .hero h1 { font-size: clamp(2.3rem, 3.6vw, 3rem); }
+  .hero h2 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+  .hero-content { padding: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 2.5rem clamp(1rem, 5vw, 2rem); }
+  .hero__layout { gap: 1.5rem; }
+  .hero h1 { font-size: clamp(2.1rem, 6vw, 2.7rem); }
+  .hero h2 { font-size: clamp(1.2rem, 3.5vw, 1.5rem); margin-bottom: 1.5rem; }
+  .hero-content { padding: 1.25rem; }
   .hero p { font-size: 1rem; }
   .hero button { font-size: .9rem; padding: .6em 1em; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding-block: 2rem; }
+  .hero h1 { font-size: clamp(1.95rem, 8vw, 2.3rem); }
+  .hero h2 { font-size: 1.15rem; }
+  .hero-content { padding: 1.1rem; }
+  .hero-buttons { gap: .75rem; }
 }
