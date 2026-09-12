@@ -98,7 +98,8 @@
 }
 
 .mascot.is-companion,
-.mascot.is-thinking {
+.mascot.is-thinking,
+.mascot.is-pointing {
   position: fixed;
   inset: auto 1.5rem 1.5rem auto;
   z-index: 90;
@@ -109,12 +110,14 @@
   animation: mascot-companion-enter .35s ease-out both;
 }
 
-.mascot.is-thinking {
+.mascot.is-thinking,
+.mascot.is-pointing {
   width: 130px;
 }
 
 .mascot.is-companion .mascot__image,
-.mascot.is-thinking .mascot__image {
+.mascot.is-thinking .mascot__image,
+.mascot.is-pointing .mascot__image {
   display: block;
   width: 100%;
   height: auto;
@@ -127,7 +130,8 @@
 }
 
 .mascot.is-companion .mascot__image:hover,
-.mascot.is-thinking .mascot__image:hover {
+.mascot.is-thinking .mascot__image:hover,
+.mascot.is-pointing .mascot__image:hover {
   transform: none;
   filter: drop-shadow(0 5px 14px rgba(7, 13, 35, .35));
 }
@@ -136,7 +140,8 @@
   display: none;
 }
 
-.mascot.is-thinking .mascot__message {
+.mascot.is-thinking .mascot__message,
+.mascot.is-pointing .mascot__message {
   position: absolute;
   right: calc(100% + .8rem);
   bottom: 42%;
@@ -149,7 +154,24 @@
   text-align: left;
 }
 
-.mascot.is-thinking .mascot__message::before {
+.mascot.is-pointing .mascot__message {
+  width: min(240px, calc(100vw - 12rem));
+}
+
+@media (min-width: 1100px) {
+  .mascot.is-pointing {
+    inset: var(--navbar-height) 1.5rem auto auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1099px) {
+  .mascot.is-pointing .mascot__message {
+    width: min(180px, calc(100vw - 12rem));
+  }
+}
+
+.mascot.is-thinking .mascot__message::before,
+.mascot.is-pointing .mascot__message::before {
   top: auto;
   left: auto;
   right: -8px;
@@ -181,7 +203,8 @@
     animation: none;
   }
   .mascot.is-companion,
-  .mascot.is-thinking {
+  .mascot.is-thinking,
+  .mascot.is-pointing {
     animation: none;
   }
 }
@@ -208,19 +231,25 @@
     margin-top: .25rem;
   }
   .mascot.is-companion,
-  .mascot.is-thinking {
+  .mascot.is-thinking,
+  .mascot.is-pointing {
     inset: auto max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) auto;
     width: 78px;
   }
-  .mascot.is-thinking {
+  .mascot.is-thinking,
+  .mascot.is-pointing {
     width: 88px;
   }
-  .mascot.is-thinking .mascot__message {
+  .mascot.is-thinking .mascot__message,
+  .mascot.is-pointing .mascot__message {
     right: calc(100% + .5rem);
     bottom: 12%;
     width: min(250px, calc(100vw - 8rem));
     padding: .7rem .85rem;
     font-size: .86rem;
+  }
+  .mascot.is-pointing .mascot__message {
+    width: min(210px, calc(100vw - 8rem));
   }
   .mascot__message {
     width: 100%;

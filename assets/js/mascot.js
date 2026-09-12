@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = mascot.querySelector('.mascot__message');
     const header = document.querySelector('.main-header');
     const services = document.querySelector('#services');
+    const aiAdoption = document.querySelector('#ai-adoption');
+    const aiActions = aiAdoption?.querySelector('.ai-adoption__actions');
     const presenting = {
       src: image.getAttribute('src'),
       alt: image.alt,
@@ -30,12 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
       height: 1402,
       message: 'No empieces eligiendo una de estas. Empezá por lo que necesitás resolver.'
     };
-    const poses = { presenting, companion, thinking };
+    const pointing = {
+      src: mascot.dataset.pointingSrc,
+      alt: 'Mascota de Neticware señalando el enfoque de adopción de IA',
+      width: 1086,
+      height: 1448,
+      message: 'IA no siempre es la respuesta.'
+    };
+    const poses = { presenting, companion, thinking, pointing };
 
     // Have the companion pose ready when the hero leaves the viewport.
     const companionPreload = new Image();
     companionPreload.src = companion.src;
     let thinkingPreload;
+    let pointingPreload;
 
     const setState = (state) => {
       if (mascot.dataset.mascotState === state) return;
@@ -45,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mascot.classList.toggle('is-presenting', isPresenting);
       mascot.classList.toggle('is-companion', state === 'companion');
       mascot.classList.toggle('is-thinking', state === 'thinking');
+      mascot.classList.toggle('is-pointing', state === 'pointing');
       mascot.dataset.mascotState = state;
       image.src = pose.src;
       image.alt = pose.alt;
@@ -66,7 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
       const introDistance = Math.min(window.innerHeight * .55, 480);
       const inServicesIntro = servicesTop <= headerBottom + 16 &&
         servicesTop > headerBottom - introDistance;
-      setState(inServicesIntro ? 'thinking' : 'companion');
+      if (inServicesIntro) {
+        setState('thinking');
+        return;
+      }
+
+      const aiTop = aiAdoption?.getBoundingClientRect().top ?? Infinity;
+      let inAiIntro = false;
+      if (aiActions && window.innerWidth < 1100) {
+        const aiBottom = aiAdoption.getBoundingClientRect().bottom;
+        const actionsBottom = aiActions.getBoundingClientRect().bottom;
+        const dialogueTop = window.innerHeight - (window.innerWidth <= 640 ? 100 :
+          window.innerWidth <= 768 ? 150 : 170);
+        const exitSlack = window.innerWidth <= 640 ? 70 : 0;
+        inAiIntro = actionsBottom < dialogueTop && aiBottom > dialogueTop - exitSlack;
+      } else {
+        const aiIntroDistance = Math.min(window.innerHeight * .42, 320);
+        inAiIntro = aiTop <= headerBottom + 16 &&
+          aiTop > headerBottom - aiIntroDistance;
+      }
+      setState(inAiIntro ? 'pointing' : 'companion');
     };
 
     let framePending = false;
@@ -74,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!thinkingPreload) {
         thinkingPreload = new Image();
         thinkingPreload.src = thinking.src;
+      }
+      if (!pointingPreload) {
+        pointingPreload = new Image();
+        pointingPreload.src = pointing.src;
       }
       if (framePending) return;
       framePending = true;
