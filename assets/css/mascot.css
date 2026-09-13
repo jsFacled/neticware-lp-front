@@ -152,6 +152,31 @@
   display: none;
 }
 
+.mascot.is-services-intro {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  display: block;
+  width: 128px;
+  min-width: 0;
+  pointer-events: none;
+  animation: mascot-companion-enter .35s ease-out both;
+}
+
+.mascot.is-services-intro .mascot__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: none;
+  filter: drop-shadow(0 5px 14px rgba(7, 13, 35, .35));
+  pointer-events: none;
+  cursor: default;
+}
+
+.mascot.is-services-intro .mascot__message {
+  display: none;
+}
+
 .mascot.is-thinking .mascot__message,
 .mascot.is-pointing .mascot__message,
 .mascot.is-working .mascot__message,
@@ -273,6 +298,7 @@
     animation: none;
   }
   .mascot.is-companion,
+  .mascot.is-services-intro,
   .mascot.is-thinking,
   .mascot.is-pointing,
   .mascot.is-working,
@@ -302,6 +328,9 @@
   }
   .mascot.is-presenting .mascot__message {
     margin-top: .25rem;
+  }
+  .mascot.is-services-intro {
+    width: 96px;
   }
   .mascot.is-companion,
   .mascot.is-thinking,
@@ -355,11 +384,4 @@
   animation: none;
   opacity: 0.6;
   filter: grayscale(0.3) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-}
-
-@media (max-width: 1199px) {
-  .mascot.is-companion[data-mascot-state="services-intro"] {
-    top: max(calc(var(--navbar-height) + .5rem), var(--mascot-services-intro-top));
-    bottom: auto;
-  }
 }

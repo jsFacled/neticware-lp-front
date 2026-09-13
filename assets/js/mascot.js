@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const hero = mascot.closest('#hero');
   if (hero) {
+    const heroMascotSlot = mascot.parentElement;
     const image = mascot.querySelector('.mascot__image');
     const message = mascot.querySelector('.mascot__message');
     const header = document.querySelector('.main-header');
     const services = document.querySelector('#services');
     const servicesHeading = services?.querySelector('.services-heading');
+    const servicesMascotSlot = services?.querySelector('.services__mascot-slot');
     const servicesGrid = services?.querySelector('.services-grid');
     const aiAdoption = document.querySelector('#ai-adoption');
     const aiActions = aiAdoption?.querySelector('.ai-adoption__actions');
@@ -86,12 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let contactSubmitted = false;
 
     const setState = (state) => {
+      const targetSlot = state === 'services-intro' ? servicesMascotSlot : heroMascotSlot;
+      if (targetSlot && mascot.parentElement !== targetSlot) targetSlot.append(mascot);
       if (mascot.dataset.mascotState === state) return;
 
       const isPresenting = state === 'presenting';
       const pose = poses[state];
       mascot.classList.toggle('is-presenting', isPresenting);
-      mascot.classList.toggle('is-companion', state === 'companion' || state === 'services-intro');
+      mascot.classList.toggle('is-companion', state === 'companion');
+      mascot.classList.toggle('is-services-intro', state === 'services-intro');
       mascot.classList.toggle('is-thinking', state === 'thinking');
       mascot.classList.toggle('is-pointing', state === 'pointing');
       mascot.classList.toggle('is-working', state === 'working');
@@ -162,11 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const introDistance = Math.min(window.innerHeight * .55, 480);
       const cardsReached = servicesGrid?.getBoundingClientRect().top <= headerBottom + 48;
       if (servicesIntroVisible && !cardsReached) {
-        if (window.innerWidth < 1200) {
-          const imageHeight = window.innerWidth <= 640 ? 78 : 112;
-          mascot.style.setProperty('--mascot-services-intro-top',
-            `${headingTop - imageHeight - 10}px`);
-        }
         setState('services-intro');
         return;
       }
