@@ -1,92 +1,273 @@
-/* ===== Módulo destacado: Adopción de IA ===== */
+/* IA feature on the Home */
 .ai-adoption {
-  padding: 2.5rem 1rem;
+  position: relative;
+  isolation: isolate;
+  margin-top: 0;
+  padding: 5.5rem clamp(1rem, 4vw, 4rem) 6rem;
+  background:
+    linear-gradient(90deg, rgba(5, 16, 39, .91), rgba(7, 20, 49, .82)),
+    url('../images/hero-modern.webp') center / cover no-repeat;
+}
+
+.ai-adoption::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 68% 49%, rgba(31, 107, 255, .2), transparent 40%);
+  pointer-events: none;
+}
+
+.ai-adoption__inner {
+  position: relative;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.ai-adoption__head {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+  align-items: end;
+}
+
+.ai-adoption__lead {
+  align-self: start;
+  padding-top: .5rem;
+}
+
+.ai-adoption__eyebrow {
+  margin: 0 0 1rem;
+  color: #75caff;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.ai-adoption__lead h2 {
+  margin: 0 0 .6rem;
+  color: #fff;
+  font-size: clamp(2.4rem, 4vw, 3.7rem);
+  line-height: 1.1;
+}
+
+.ai-adoption__lead h2 span {
+  background: linear-gradient(90deg, #5dcaff, #9d6bff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ai-adoption__lead > p:last-child {
+  margin: 0;
+  color: #cbdaf2;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.ai-adoption__mascot-slot {
   display: flex;
+  align-items: flex-end;
   justify-content: center;
+  min-height: 310px;
+}
+
+@media (min-width: 1101px) {
+  .ai-adoption__mascot-slot { transform: translateX(-2rem); }
 }
 
 .ai-adoption__wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(350px, .85fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
   width: 100%;
-  max-width: 1000px;
-  border: 2px solid transparent;
-  border-radius: 18px;
-  background:
-    linear-gradient(#0f1b3a, #0f1b3a) padding-box,
-    linear-gradient(135deg, #1F6BFF, #8B5CF6) border-box;
-  box-shadow: 0 14px 48px rgba(0,0,0,.45);
+  margin-top: -3.25rem;
+  padding: clamp(2rem, 3vw, 3rem);
+  border: 1px solid rgba(101, 139, 255, .85);
+  border-radius: 22px;
+  background: linear-gradient(140deg, rgba(9, 22, 49, .97), rgba(10, 22, 50, .93));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .45), inset 0 0 30px rgba(31, 107, 255, .08);
+  backdrop-filter: blur(12px);
 }
 
-.ai-adoption__content {
-  padding: 2.2rem 2rem;
-}
+.ai-adoption__content { min-width: 0; }
 
-.ai-adoption__content h2 {
+.ai-adoption__content h3 {
+  max-width: 22ch;
   margin: 0 0 1rem;
   color: #fff;
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.6rem, 2.25vw, 2.25rem);
+  line-height: 1.22;
 }
 
-.ai-adoption__intro {
-  margin: 0 0 1rem;
-  color: rgba(234,240,255,.9);
-  line-height: 1.65;
-  font-size: 1.05rem;
-}
-
+.ai-adoption__intro,
 .ai-adoption__desc {
-  margin: 0 0 1.25rem;
-  color: rgba(234,240,255,.9);
-  line-height: 1.65;
+  max-width: 66ch;
+  margin: 0 0 1rem;
+  color: rgba(234, 240, 255, .9);
   font-size: 1.05rem;
+  line-height: 1.65;
 }
+
+.ai-adoption__desc { margin-bottom: 1.3rem; }
 
 .ai-adoption__differential {
-  margin: 0 0 1.5rem;
+  max-width: 66ch;
+  margin: 0 0 1.4rem;
   padding: .9rem 1.1rem;
-  border-left: 3px solid #8B5CF6;
+  border-left: 3px solid #8b5cf6;
   border-radius: 0 10px 10px 0;
-  background: rgba(139,92,246,.10);
-  color: #EAF0FF;
-  line-height: 1.6;
+  background: rgba(139, 92, 246, .13);
+  color: #eaf0ff;
+  line-height: 1.55;
 }
 
 .ai-adoption__actions {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
-/* Variante outline para el CTA secundario (sobre .cta-button) */
-.cta-button--outline {
+.ai-adoption__actions .cta-button { text-align: center; }
+
+.ai-adoption__actions .cta-button--outline {
+  border: 2px solid #8b5cf6;
   background: transparent;
-  border: 2px solid #8B5CF6;
-  color: #c5c8ff;
   box-shadow: none;
-  transition: background .25s ease, color .25s ease, transform .15s, box-shadow .15s;
+  color: #c5c8ff;
 }
-.cta-button--outline:hover {
-  background: #8B5CF6;
+
+.ai-adoption__actions .cta-button--outline:hover {
+  background: #8b5cf6;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, .4);
   color: #fff;
-  box-shadow: 0 8px 24px rgba(139,92,246,.4);
   filter: none;
 }
 
-/* Foco visible accesible */
 .ai-adoption__actions a:focus-visible {
-  outline: 2px solid #8B5CF6;
+  outline: 2px solid #8b5cf6;
   outline-offset: 3px;
   border-radius: 6px;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .ai-adoption { padding: 1.5rem .8rem; }
-  .ai-adoption__content { padding: 1.5rem 1.2rem; }
-  .ai-adoption__actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .ai-adoption__actions .cta-button {
-    text-align: center;
-  }
+/* Diagram: evaluate the alternatives before choosing a solution. */
+.ai-adoption__visual {
+  position: relative;
+  align-self: center;
+  min-width: 0;
+  min-height: 415px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: radial-gradient(circle at 50% 70%, rgba(13, 115, 255, .22), transparent 50%);
+}
+
+.ai-adoption__connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 6px rgba(43, 173, 255, .75));
+}
+
+.ai-adoption__node {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
+  width: 28%;
+  min-height: 90px;
+  border: 1px solid #35bfff;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(20, 48, 103, .97), rgba(8, 27, 66, .96));
+  box-shadow: 0 0 20px rgba(28, 125, 255, .3), inset 0 0 14px rgba(31, 107, 255, .17);
+  color: #f2f7ff;
+  font-size: .9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ai-adoption__node-icon {
+  color: #74ddff;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.ai-adoption__node--ai {
+  top: 4%;
+  left: 36%;
+  border-color: #8180ff;
+  box-shadow: 0 0 23px rgba(139, 92, 246, .45), inset 0 0 14px rgba(139, 92, 246, .2);
+}
+
+.ai-adoption__node--software { top: 39%; left: 13%; }
+.ai-adoption__node--automation { top: 39%; right: 13%; }
+
+.ai-adoption__hub {
+  position: absolute;
+  z-index: 1;
+  bottom: 14%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #5fceff;
+  border-radius: 50%;
+  background: radial-gradient(circle, #174bad, #0a1d47 72%);
+  box-shadow: 0 0 18px #1f6bff, 0 0 45px rgba(31, 107, 255, .45);
+  transform: translateX(-50%);
+}
+
+.ai-adoption__hub::before,
+.ai-adoption__hub::after {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border: 1px solid rgba(48, 162, 255, .4);
+  border-radius: 50%;
+}
+
+.ai-adoption__hub::after { inset: -27px; opacity: .45; }
+.ai-adoption__hub img { width: 66px; height: 66px; object-fit: contain; }
+
+.ai-adoption__visual-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  color: #b7dfff;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .ai-adoption__head { display: block; }
+  .ai-adoption__mascot-slot { min-height: 280px; }
+  .ai-adoption__wrap { grid-template-columns: 1fr; margin-top: 0; }
+  .ai-adoption__visual { width: min(100%, 540px); margin: 0 auto; }
+}
+
+@media (max-width: 640px) {
+  .ai-adoption { padding: 3.5rem 1rem 4rem; }
+  .ai-adoption__lead h2 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
+  .ai-adoption__lead > p:last-child { font-size: 1rem; }
+  .ai-adoption__mascot-slot { min-height: 270px; }
+  .ai-adoption__wrap { gap: 1rem; padding: 1.5rem 1.1rem; }
+  .ai-adoption__content h3 { font-size: 1.55rem; }
+  .ai-adoption__intro, .ai-adoption__desc { font-size: .98rem; }
+  .ai-adoption__actions { flex-direction: column; }
+  .ai-adoption__visual { min-height: 320px; }
+  .ai-adoption__node { min-height: 65px; font-size: .72rem; }
+  .ai-adoption__node-icon { font-size: 1.45rem; }
+  .ai-adoption__hub { width: 74px; height: 74px; }
+  .ai-adoption__hub img { width: 50px; height: 50px; }
 }

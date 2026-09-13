@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const servicesMascotSlot = services?.querySelector('.services__mascot-slot');
     const servicesGrid = services?.querySelector('.services-grid');
     const aiAdoption = document.querySelector('#ai-adoption');
-    const aiActions = aiAdoption?.querySelector('.ai-adoption__actions');
+    const aiMascotSlot = aiAdoption?.querySelector('.ai-adoption__mascot-slot');
     const methodology = document.querySelector('#methodology');
     const contact = document.querySelector('#contact');
     const presenting = {
@@ -88,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let contactSubmitted = false;
 
     const setState = (state) => {
-      const targetSlot = state === 'services-intro' ? servicesMascotSlot : heroMascotSlot;
+      const targetSlot = state === 'services-intro' ? servicesMascotSlot :
+        state === 'pointing' ? aiMascotSlot : heroMascotSlot;
       if (targetSlot && mascot.parentElement !== targetSlot) targetSlot.append(mascot);
       if (mascot.dataset.mascotState === state) return;
 
@@ -176,21 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const aiTop = aiAdoption?.getBoundingClientRect().top ?? Infinity;
-      let inAiIntro = false;
-      if (aiActions && window.innerWidth < 1100) {
-        const aiBottom = aiAdoption.getBoundingClientRect().bottom;
-        const actionsBottom = aiActions.getBoundingClientRect().bottom;
-        const dialogueTop = window.innerHeight - (window.innerWidth <= 640 ? 100 :
-          window.innerWidth <= 768 ? 150 : 170);
-        const exitSlack = window.innerWidth <= 640 ? 70 : 0;
-        inAiIntro = actionsBottom < dialogueTop && aiBottom > dialogueTop - exitSlack;
-      } else {
-        const aiIntroDistance = Math.min(window.innerHeight * .42, 320);
-        inAiIntro = aiTop <= headerBottom + 16 &&
-          aiTop > headerBottom - aiIntroDistance;
-      }
-      setState(inAiIntro ? 'pointing' : 'companion');
+      const aiBounds = aiAdoption?.getBoundingClientRect();
+      const inAiFeature = aiBounds && aiBounds.top <= window.innerHeight * .6 &&
+        aiBounds.bottom > headerBottom + 24;
+      setState(inAiFeature ? 'pointing' : 'companion');
     };
 
     let framePending = false;

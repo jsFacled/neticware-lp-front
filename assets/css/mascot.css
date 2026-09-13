@@ -385,3 +385,69 @@
   opacity: 0.6;
   filter: grayscale(0.3) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
 }
+
+/* On the Home, the pointing pose belongs to the IA feature's composition. */
+.mascot.is-pointing {
+  position: relative;
+  inset: auto;
+  z-index: 2;
+  width: 230px;
+  min-width: 0;
+}
+
+.mascot.is-pointing .mascot__image {
+  width: 100%;
+  height: auto;
+}
+
+.mascot.is-pointing .mascot__message {
+  position: absolute;
+  top: 23%;
+  right: auto;
+  bottom: auto;
+  left: calc(100% - 3rem);
+  width: 220px;
+  max-width: none;
+  text-align: left;
+}
+
+.mascot.is-pointing .mascot__message::before {
+  top: 43%;
+  right: auto;
+  bottom: auto;
+  left: -8px;
+  border: 0;
+  border-bottom: 1px solid rgba(81, 202, 255, .65);
+  border-left: 1px solid rgba(81, 202, 255, .65);
+}
+
+@media (max-width: 640px) {
+  .mascot.is-pointing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 280px);
+  }
+
+  .mascot.is-pointing .mascot__image {
+    width: 150px;
+  }
+
+  .mascot.is-pointing .mascot__message {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-top: -.5rem;
+    text-align: center;
+  }
+
+  .mascot.is-pointing .mascot__message::before {
+    top: -8px;
+    right: auto;
+    bottom: auto;
+    left: calc(50% - 7px);
+    border: 0;
+    border-top: 1px solid rgba(81, 202, 255, .65);
+    border-left: 1px solid rgba(81, 202, 255, .65);
+  }
+}
