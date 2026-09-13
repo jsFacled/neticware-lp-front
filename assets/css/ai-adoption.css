@@ -248,12 +248,36 @@
 .ai-diff blockquote {
   margin: 0;
   padding: 1.75rem 1.75rem;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border-radius: 16px;
   background:
     linear-gradient(#0f1b3a, #0f1b3a) padding-box,
-    linear-gradient(135deg, #1F6BFF, #8B5CF6) border-box;
-  box-shadow: 0 12px 40px rgba(0,0,0,.45);
+    linear-gradient(135deg, #45CFFF, #8575FF 55%, #D478FF) border-box;
+  box-shadow:
+    0 0 8px rgba(69,207,255,.8),
+    0 0 24px rgba(120,104,255,.65),
+    0 0 48px rgba(139,92,246,.35),
+    0 12px 40px rgba(0,0,0,.45);
+  animation: ai-diff-neon-pulse 5.32s ease-in-out infinite;
+}
+@keyframes ai-diff-neon-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(69,207,255,.8),
+      0 0 24px rgba(120,104,255,.65),
+      0 0 48px rgba(139,92,246,.35),
+      0 12px 40px rgba(0,0,0,.45);
+  }
+  50% {
+    box-shadow:
+      0 0 3px rgba(69,207,255,.4),
+      0 0 10px rgba(120,104,255,.3),
+      0 0 20px rgba(139,92,246,.16),
+      0 12px 40px rgba(0,0,0,.45);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-diff blockquote { animation: none; }
 }
 .ai-diff blockquote p {
   margin: 0;
