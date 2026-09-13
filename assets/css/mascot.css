@@ -356,3 +356,10 @@
   opacity: 0.6;
   filter: grayscale(0.3) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
 }
+
+@media (max-width: 1199px) {
+  .mascot.is-companion[data-mascot-state="services-intro"] {
+    top: max(calc(var(--navbar-height) + .5rem), var(--mascot-services-intro-top));
+    bottom: auto;
+  }
+}

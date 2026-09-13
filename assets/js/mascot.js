@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = mascot.querySelector('.mascot__message');
     const header = document.querySelector('.main-header');
     const services = document.querySelector('#services');
+    const servicesHeading = services?.querySelector('.services-heading');
+    const servicesGrid = services?.querySelector('.services-grid');
     const aiAdoption = document.querySelector('#ai-adoption');
     const aiActions = aiAdoption?.querySelector('.ai-adoption__actions');
     const methodology = document.querySelector('#methodology');
@@ -25,6 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
       alt: 'Mascota de Neticware acompañando el recorrido',
       width: 1086,
       height: 1448,
+      message: ''
+    };
+    const servicesIntro = {
+      src: mascot.dataset.servicesIntroSrc,
+      alt: 'Mascota de Neticware acompañando la introducción a los servicios',
+      width: 1254,
+      height: 1254,
       message: ''
     };
     const thinking = {
@@ -62,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       height: 1402,
       message: 'Listo. Ahora nos toca a nosotros.'
     };
-    const poses = { presenting, companion, thinking, pointing, working, contact: contacting, celebrating };
+    const poses = { presenting, companion, 'services-intro': servicesIntro, thinking, pointing, working, contact: contacting, celebrating };
 
     // Have the companion pose ready when the hero leaves the viewport.
     const companionPreload = new Image();
@@ -82,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isPresenting = state === 'presenting';
       const pose = poses[state];
       mascot.classList.toggle('is-presenting', isPresenting);
-      mascot.classList.toggle('is-companion', state === 'companion');
+      mascot.classList.toggle('is-companion', state === 'companion' || state === 'services-intro');
       mascot.classList.toggle('is-thinking', state === 'thinking');
       mascot.classList.toggle('is-pointing', state === 'pointing');
       mascot.classList.toggle('is-working', state === 'working');
@@ -118,7 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateState = () => {
       const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
       const heroBottom = hero.getBoundingClientRect().bottom;
-      if (heroBottom > headerBottom) {
+      const servicesTop = services?.getBoundingClientRect().top ?? Infinity;
+      const servicesBottom = services?.getBoundingClientRect().bottom ?? -Infinity;
+      const headingTop = servicesHeading?.getBoundingClientRect().top ?? Infinity;
+      const servicesIntroVisible = headingTop <= window.innerHeight * .55 &&
+        servicesBottom > headerBottom;
+      if (heroBottom > headerBottom && !servicesIntroVisible) {
         setState('presenting');
         mascot.classList.remove('is-quiet');
         return;
@@ -145,11 +159,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       mascot.classList.remove('is-quiet');
 
-      const servicesTop = services?.getBoundingClientRect().top ?? Infinity;
       const introDistance = Math.min(window.innerHeight * .55, 480);
-      const inServicesIntro = servicesTop <= headerBottom + 16 &&
-        servicesTop > headerBottom - introDistance;
-      if (inServicesIntro) {
+      const cardsReached = servicesGrid?.getBoundingClientRect().top <= headerBottom + 48;
+      if (servicesIntroVisible && !cardsReached) {
+        if (window.innerWidth < 1200) {
+          const imageHeight = window.innerWidth <= 640 ? 78 : 112;
+          mascot.style.setProperty('--mascot-services-intro-top',
+            `${headingTop - imageHeight - 10}px`);
+        }
+        setState('services-intro');
+        return;
+      }
+      if (servicesIntroVisible && cardsReached &&
+        servicesTop > headerBottom - introDistance) {
         setState('thinking');
         return;
       }
@@ -173,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let framePending = false;
     const scheduleUpdate = () => {
+      preloadPose(servicesIntro);
       preloadPose(thinking);
       preloadPose(pointing);
       if (methodology?.getBoundingClientRect().top < window.innerHeight * 2) {
