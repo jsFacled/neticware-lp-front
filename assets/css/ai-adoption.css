@@ -2,12 +2,19 @@
 
 /* --- Hero de la página --- */
 .ai-hero {
-  padding: 6rem 1.5rem 4rem;
-  text-align: center;
+  padding: 4.5rem 1.5rem 4rem;
   background:
     radial-gradient(600px 240px at 20% 20%, rgba(31,107,255,.16), transparent 60%),
     radial-gradient(600px 240px at 80% 80%, rgba(139,92,246,.16), transparent 60%),
     #0A1C3D;
+}
+.ai-hero__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
 }
 .ai-hero h1 {
   margin: 0 0 1rem;
@@ -16,7 +23,7 @@
 }
 .ai-hero p {
   max-width: 44em;
-  margin: 0 auto 2rem;
+  margin: 0 0 2rem;
   font-size: 1.15rem;
   line-height: 1.65;
   color: rgba(234,240,255,.9);
@@ -25,19 +32,62 @@
   font-size: 1.05rem;
 }
 
+/* --- Guía consultiva: cada pose pertenece a su sección --- */
+.ai-guide {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ai-guide img {
+  display: block;
+  flex: none;
+  width: auto;
+  height: 116px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .3));
+}
+.ai-guide__message {
+  width: fit-content;
+  max-width: 280px;
+  padding: .8rem 1rem;
+  border: 1px solid rgba(81, 202, 255, .55);
+  border-radius: 12px;
+  background: rgba(9, 20, 49, .9);
+  box-shadow: 0 0 18px rgba(31, 107, 255, .12);
+  color: #f1f5ff;
+  font-size: .95rem;
+  line-height: 1.5;
+}
+.ai-guide--hero,
+.ai-guide--thinking,
+.ai-guide--contact {
+  flex-direction: column;
+  text-align: center;
+}
+.ai-guide--hero img { height: min(36vw, 300px); }
+.ai-guide--thinking img { height: 190px; }
+.ai-guide--contact img { height: 165px; }
+.ai-guide--inline {
+  margin: -.25rem 0 1.5rem;
+}
+
 /* --- Contenedor genérico de secciones --- */
 .ai-section {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2.5rem 1.25rem;
 }
-.ai-section > h2 {
+.ai-section > h2,
+.ai-problem__copy > h2 {
   margin: 0 0 1.25rem;
   font-size: clamp(1.5rem, 2.6vw, 1.9rem);
   color: #fff;
   position: relative;
 }
-.ai-section > h2::after {
+.ai-section > h2::after,
+.ai-problem__copy > h2::after {
   content: "";
   display: block;
   width: 72px;
@@ -51,6 +101,12 @@
 /* --- Problema --- */
 .ai-problem {
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+}
+.ai-problem__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 2rem;
 }
 .ai-problem p {
   font-size: 1.05rem;
@@ -99,11 +155,30 @@
   gap: 1.25rem;
 }
 .ai-step {
+  display: flex;
+  flex-direction: column;
   background: rgba(14,20,45,.6);
   border: 1px solid rgba(120,146,255,.18);
   border-radius: 14px;
   padding: 1.25rem;
 }
+.ai-step--decision {
+  border-color: rgba(81,202,255,.5);
+  background: linear-gradient(160deg, rgba(31,107,255,.12), rgba(14,20,45,.6) 55%);
+}
+.ai-step__image {
+  display: block;
+  width: 100%;
+  height: 140px;
+  margin: 0 0 .9rem;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,.25));
+}
+.ai-step__image--evaluating {
+  mix-blend-mode: screen;
+  mask-image: radial-gradient(ellipse at center, #000 48%, transparent 85%);
+}
+.ai-step__body { min-width: 0; }
 .ai-step__num {
   display: inline-flex;
   align-items: center;
@@ -156,6 +231,20 @@
 .ai-diff {
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
 }
+.ai-diff__layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 130px;
+  align-items: center;
+  gap: 1.25rem;
+}
+.ai-diff__image {
+  display: block;
+  width: 130px;
+  height: 180px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  mask-image: radial-gradient(ellipse at center, #000 42%, transparent 85%);
+}
 .ai-diff blockquote {
   margin: 0;
   padding: 1.75rem 1.75rem;
@@ -179,22 +268,31 @@
   padding-bottom: 4rem;
 }
 .ai-cta__card {
-  max-width: 720px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  grid-template-areas: "copy guide" "action guide";
+  align-items: center;
+  column-gap: 1.5rem;
+  row-gap: 0;
   border-radius: 18px;
   background: rgba(8,12,28,.75);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(120,146,255,.22);
   box-shadow: 0 10px 40px rgba(0,0,0,.45), inset 0 0 0 1px rgba(120,146,255,.08);
 }
+.ai-cta__copy { grid-area: copy; align-self: end; text-align: left; }
+.ai-cta__card > .ai-guide { grid-area: guide; }
+.ai-cta__card > .cta-button { grid-area: action; align-self: start; justify-self: start; }
 .ai-cta__card h2 {
   margin: 0 0 1rem;
   color: #fff;
   font-size: clamp(1.5rem, 2.6vw, 1.9rem);
 }
 .ai-cta__card p {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   color: rgba(234,240,255,.9);
   line-height: 1.65;
   font-size: 1.05rem;
@@ -210,14 +308,46 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
+  .ai-hero__inner { grid-template-columns: minmax(0, 1fr) 240px; }
+  .ai-guide--hero img { height: 235px; }
   .ai-services__grid { grid-template-columns: 1fr 1fr; }
   .ai-process__grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
   .ai-hero { padding: 4rem 1rem 3rem; }
+  .ai-hero__inner { grid-template-columns: 1fr; gap: 2rem; }
+  .ai-hero__copy { text-align: center; }
+  .ai-hero p { margin: 0 auto 2rem; }
+  .ai-guide--hero img { height: 220px; }
+  .ai-guide--thinking img { height: 150px; }
+  .ai-guide--contact img { height: 140px; }
+  .ai-guide--inline img { height: 90px; }
+  .ai-guide__message { font-size: .9rem; }
   .ai-section { padding: 2rem 1rem; }
+  .ai-problem__layout { grid-template-columns: 1fr; gap: 1.25rem; }
   .ai-services__grid,
   .ai-process__grid { grid-template-columns: 1fr; }
+  .ai-step { flex-direction: row-reverse; align-items: center; gap: 1rem; }
+  .ai-step__image { flex: 0 0 90px; width: 90px; height: 125px; margin: 0; }
+  .ai-diff__layout { display: block; }
+  .ai-diff__image { display: none; }
   .ai-diff blockquote { padding: 1.4rem 1.2rem; }
-  .ai-cta__card { padding: 1.75rem 1.25rem; }
+  .ai-cta__card {
+    grid-template-columns: 1fr;
+    grid-template-areas: "copy" "guide" "action";
+    row-gap: 1rem;
+    padding: 1.75rem 1.25rem;
+  }
+  .ai-cta__copy { text-align: center; }
+  .ai-cta__card > .cta-button { justify-self: center; }
+  .ai-cta__card p { margin-bottom: 0; }
+}
+@media (max-width: 360px) {
+  .ai-step { flex-direction: column; align-items: stretch; gap: 0; padding: 1rem; }
+  .ai-step__image { flex: none; width: 100%; height: 88px; margin-bottom: .65rem; }
+  .ai-hero .cta-button,
+  .ai-cta__card > .cta-button {
+    padding: .75rem .7rem;
+    font-size: .9rem;
+  }
 }

@@ -1,3 +1,32 @@
+// ===== Rutas para la vista local sin las rewrites de Vercel =====
+document.addEventListener('DOMContentLoaded', () => {
+  if (!['localhost', '127.0.0.1'].includes(window.location.hostname)) return;
+
+  const homeSections = {
+    '/servicios': 'services',
+    '/nosotros': 'about',
+    '/stack': 'stack',
+    '/enfoque': 'approach',
+    '/metodologia': 'methodology',
+    '/contacto': 'contact'
+  };
+
+  document.querySelectorAll('a[href^="/"]').forEach((link) => {
+    const url = new URL(link.getAttribute('href'), window.location.origin);
+
+    if (url.pathname === '/adopcion-ia') {
+      url.pathname = '/ai-adoption.html';
+    } else {
+      const section = homeSections[url.pathname];
+      if (!section || (document.getElementById(section) && !url.searchParams.has('motivo'))) return;
+      url.pathname = '/';
+      if (section !== 'contact' || !url.searchParams.has('motivo')) url.hash = section;
+    }
+
+    link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
+  });
+});
+
 // ===== Interacciones básicas (menú hamburguesa, cierre al navegar) =====
 document.addEventListener('DOMContentLoaded', () => {
   const hamburgerButton = document.querySelector('.hamburger-button');
@@ -188,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== Manejo de rutas limpias (SPA) =====
 document.addEventListener("DOMContentLoaded", () => {
+    const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
     const routes = {
         "/": "#hero",
         "/servicios": "#services",
@@ -207,7 +237,8 @@ document.addEventListener("DOMContentLoaded", () => {
             delete sessionStorage.redirect; // Limpia la variable
         }
         
-        const targetSection = routes[path];
+        const targetSection = isLocalPreview && Object.values(routes).includes(window.location.hash)
+            ? window.location.hash : routes[path];
         if (targetSection) {
             document.querySelector(targetSection)?.scrollIntoView({ behavior: "smooth" });
         }
@@ -222,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const path = link.getAttribute("href").toLowerCase();
             if (routes[path] && document.querySelector(routes[path])) {
                 e.preventDefault();
-                history.pushState({}, "", path);
+                history.pushState({}, "", isLocalPreview ? `/${routes[path]}` : path);
                 document.querySelector(routes[path])?.scrollIntoView({ behavior: "smooth" });
             }
         });
