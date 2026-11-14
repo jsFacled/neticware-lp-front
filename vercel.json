@@ -1,20 +1,298 @@
 {
   "rewrites": [
-    { "source": "/adopcion-ia", "destination": "/ai-adoption.html" },
-    { "source": "/mantenimiento.html", "destination": "/maintenance.html" },
-    { "source": "/assets/images/about-nosotros.webp", "destination": "/assets/images/about-us.webp" },
-    { "source": "/assets/images/hero-redes.avif", "destination": "/assets/images/hero-network.avif" },
-    { "source": "/assets/images/hero-redes.webp", "destination": "/assets/images/hero-network.webp" },
-    { "source": "/assets/images/hero-redes.jpg", "destination": "/assets/images/hero-network.jpg" },
-    { "source": "/assets/images/hero-moderno.webp", "destination": "/assets/images/hero-modern.webp" },
-    { "source": "/assets/images/services-software-a-medida.avif", "destination": "/assets/images/services-custom-software.avif" },
-    { "source": "/assets/images/services-software-a-medida.webp", "destination": "/assets/images/services-custom-software.webp" },
-    { "source": "/assets/images/services-software-a-medida.jpg", "destination": "/assets/images/services-custom-software.jpg" },
-    { "source": "/servicios", "destination": "/" },
-    { "source": "/nosotros", "destination": "/" },
-    { "source": "/stack", "destination": "/" },
-    { "source": "/enfoque", "destination": "/" },
-    { "source": "/metodologia", "destination": "/" },
-    { "source": "/contacto", "destination": "/" }
+    {
+      "source": "/adopcion-ia",
+      "destination": "/ai-adoption.html"
+    },
+    {
+      "source": "/mantenimiento.html",
+      "destination": "/maintenance.html"
+    },
+    {
+      "source": "/assets/images/about-nosotros.webp",
+      "destination": "/assets/images/optimized/about-us-1024.adef986f04a5.webp"
+    },
+    {
+      "source": "/assets/images/hero-redes.avif",
+      "destination": "/assets/images/optimized/hero-network-1080.201f54c997ad.avif"
+    },
+    {
+      "source": "/assets/images/hero-redes.webp",
+      "destination": "/assets/images/optimized/hero-network-1080.89786acae3a6.webp"
+    },
+    {
+      "source": "/assets/images/hero-redes.jpg",
+      "destination": "/assets/images/optimized/hero-network-1080.34f7e72ab16b.jpg"
+    },
+    {
+      "source": "/assets/images/hero-moderno.webp",
+      "destination": "/assets/images/optimized/hero-modern-1024.d87e77495098.webp"
+    },
+    {
+      "source": "/assets/images/services-software-a-medida.avif",
+      "destination": "/assets/images/optimized/services-custom-software-1200.3ae13f9ddc12.avif"
+    },
+    {
+      "source": "/assets/images/services-software-a-medida.webp",
+      "destination": "/assets/images/optimized/services-custom-software-1200.c37d276f19f9.webp"
+    },
+    {
+      "source": "/assets/images/services-software-a-medida.jpg",
+      "destination": "/assets/images/optimized/services-custom-software-1200.c37d276f19f9.webp"
+    },
+    {
+      "source": "/servicios",
+      "destination": "/"
+    },
+    {
+      "source": "/nosotros",
+      "destination": "/"
+    },
+    {
+      "source": "/stack",
+      "destination": "/"
+    },
+    {
+      "source": "/enfoque",
+      "destination": "/"
+    },
+    {
+      "source": "/metodologia",
+      "destination": "/"
+    },
+    {
+      "source": "/contacto",
+      "destination": "/"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-presenting.png",
+      "destination": "/assets/images/optimized/mascot-presenting-960.f69f16cec08e.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-companion.png",
+      "destination": "/assets/images/optimized/mascot-companion-224.76628cf2b0ea.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot.png",
+      "destination": "/assets/images/optimized/mascot-256.f6b065172d5f.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-thinking.png",
+      "destination": "/assets/images/optimized/mascot-thinking-320.e574ed57c849.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-pointing.png",
+      "destination": "/assets/images/optimized/mascot-pointing-460.be39cee23139.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-working.png",
+      "destination": "/assets/images/optimized/mascot-working-260.92e348dbe1ea.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-contact.png",
+      "destination": "/assets/images/optimized/mascot-contact-320.c3e018ebe0d9.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-celebrating.png",
+      "destination": "/assets/images/optimized/mascot-celebrating-260.27490054c293.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-listening.png",
+      "destination": "/assets/images/optimized/mascot-listening-480.cf4560b2db16.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-evaluating.png",
+      "destination": "/assets/images/optimized/mascot-evaluating-280.23b813bd89d6.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-choosing.png",
+      "destination": "/assets/images/optimized/mascot-choosing-240.749622456326.webp"
+    },
+    {
+      "source": "/assets/images/mascot/mascot-pilot.png",
+      "destination": "/assets/images/optimized/mascot-pilot-240.193591aa83f6.webp"
+    },
+    {
+      "source": "/assets/images/services-web.avif",
+      "destination": "/assets/images/optimized/services-web-1200.3ea182ca4d23.avif"
+    },
+    {
+      "source": "/assets/images/services-web.webp",
+      "destination": "/assets/images/optimized/services-web-1200.a5b5b3ba5e0f.webp"
+    },
+    {
+      "source": "/assets/images/services-web.jpg",
+      "destination": "/assets/images/optimized/services-web-1200.a5b5b3ba5e0f.webp"
+    },
+    {
+      "source": "/assets/images/services-custom-software.avif",
+      "destination": "/assets/images/optimized/services-custom-software-1200.3ae13f9ddc12.avif"
+    },
+    {
+      "source": "/assets/images/services-custom-software.webp",
+      "destination": "/assets/images/optimized/services-custom-software-1200.c37d276f19f9.webp"
+    },
+    {
+      "source": "/assets/images/services-custom-software.jpg",
+      "destination": "/assets/images/optimized/services-custom-software-1200.c37d276f19f9.webp"
+    },
+    {
+      "source": "/assets/images/services-mobile.avif",
+      "destination": "/assets/images/optimized/services-mobile-1200.b7635df5967c.avif"
+    },
+    {
+      "source": "/assets/images/services-mobile.webp",
+      "destination": "/assets/images/optimized/services-mobile-1200.215c493eccc4.webp"
+    },
+    {
+      "source": "/assets/images/services-mobile.jpg",
+      "destination": "/assets/images/optimized/services-mobile-1200.215c493eccc4.webp"
+    },
+    {
+      "source": "/assets/images/services-lp.avif",
+      "destination": "/assets/images/optimized/services-lp-1200.f28b0ffbaa3a.avif"
+    },
+    {
+      "source": "/assets/images/services-lp.webp",
+      "destination": "/assets/images/optimized/services-lp-1200.240e16663bfe.webp"
+    },
+    {
+      "source": "/assets/images/services-lp.jpg",
+      "destination": "/assets/images/optimized/services-lp-1200.240e16663bfe.webp"
+    },
+    {
+      "source": "/assets/images/services-blog.avif",
+      "destination": "/assets/images/optimized/services-blog-1200.db37a814ffb0.avif"
+    },
+    {
+      "source": "/assets/images/services-blog.webp",
+      "destination": "/assets/images/optimized/services-blog-1200.34af84c33a45.webp"
+    },
+    {
+      "source": "/assets/images/services-blog.jpg",
+      "destination": "/assets/images/optimized/services-blog-1200.34af84c33a45.webp"
+    },
+    {
+      "source": "/assets/images/services-saas.avif",
+      "destination": "/assets/images/optimized/services-saas-1200.823b7a83c65a.avif"
+    },
+    {
+      "source": "/assets/images/services-saas.webp",
+      "destination": "/assets/images/optimized/services-saas-1200.9e4722c1ed29.webp"
+    },
+    {
+      "source": "/assets/images/services-saas.jpg",
+      "destination": "/assets/images/optimized/services-saas-1200.9e4722c1ed29.webp"
+    },
+    {
+      "source": "/assets/images/hero-network.avif",
+      "destination": "/assets/images/optimized/hero-network-1080.201f54c997ad.avif"
+    },
+    {
+      "source": "/assets/images/hero-network.webp",
+      "destination": "/assets/images/optimized/hero-network-1080.89786acae3a6.webp"
+    },
+    {
+      "source": "/assets/images/hero-network.jpg",
+      "destination": "/assets/images/optimized/hero-network-1080.34f7e72ab16b.jpg"
+    },
+    {
+      "source": "/assets/images/hero-modern.webp",
+      "destination": "/assets/images/optimized/hero-modern-1024.d87e77495098.webp"
+    },
+    {
+      "source": "/assets/images/about-us.webp",
+      "destination": "/assets/images/optimized/about-us-1024.adef986f04a5.webp"
+    },
+    {
+      "source": "/assets/images/og-cover-neticware-1200x630.jpg",
+      "destination": "/assets/images/optimized/og-cover-neticware-1200x630-1200.159beee0c306.jpg"
+    },
+    {
+      "source": "/assets/images/icons/i-android.svg",
+      "destination": "/assets/images/optimized/i-android.598ac05f45c4.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-aws.svg",
+      "destination": "/assets/images/optimized/i-aws.c691447a65d0.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-css.svg",
+      "destination": "/assets/images/optimized/i-css.27e21a004d96.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-docker.svg",
+      "destination": "/assets/images/optimized/i-docker.7351e7299b16.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-git.svg",
+      "destination": "/assets/images/optimized/i-git.492e41905965.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-html5.svg",
+      "destination": "/assets/images/optimized/i-html5.26ce51142e67.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-java.svg",
+      "destination": "/assets/images/optimized/i-java.0e7667c03d21.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-javascript.svg",
+      "destination": "/assets/images/optimized/i-javascript.5c77a7996f91.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-mysql.svg",
+      "destination": "/assets/images/optimized/i-mysql.0ff7bc41afaa.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-postgresql.svg",
+      "destination": "/assets/images/optimized/i-postgresql.d7e08156b836.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-react.svg",
+      "destination": "/assets/images/optimized/i-react.003ae81fbc4d.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-springboot.svg",
+      "destination": "/assets/images/optimized/i-springboot.0603396dd43b.svg"
+    },
+    {
+      "source": "/assets/images/icons/i-vaadin.svg",
+      "destination": "/assets/images/optimized/i-vaadin.d9d5372c1ba3.svg"
+    },
+    {
+      "source": "/assets/images/neticware-logo.png",
+      "destination": "/assets/images/optimized/logo-520.1705c591010f.webp"
+    },
+    {
+      "source": "/assets/images/neticware-logo.webp",
+      "destination": "/assets/images/optimized/logo-260.8eecb1fcc253.webp"
+    },
+    {
+      "source": "/assets/images/panel-metal.webp",
+      "destination": "/assets/images/optimized/panel-metal-1536.4df95e511cc2.webp"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/assets/images/optimized/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
   ]
 }

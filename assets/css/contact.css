@@ -1,6 +1,6 @@
 /* ===== Contacto / Formulario ===== */
 #contact {
-  background-image: url('../images/panel-metal.webp');
+  background-image: url('../images/optimized/panel-metal-1536.4df95e511cc2.webp');
   background-size: cover; background-position: center;
   display: flex; justify-content: center; align-items: center;
   padding: 40px 16px;
@@ -122,4 +122,8 @@ select option{ background-color:#0f1b3a; color:#EAF0FF; }
 
 @media (max-width: 1199px) {
   #contact { min-height: calc(100svh - var(--navbar-height)); padding-bottom: 11rem; }
+}
+
+@media (max-width: 768px) {
+  #contact { background-image: url('../images/optimized/panel-metal-768.91b8b0401d2f.webp'); }
 }
