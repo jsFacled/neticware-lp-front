@@ -66,8 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const newMessageBtn = document.getElementById('newMessageBtn');
 
   if (form) {
+    const REQUEST_TIMEOUT_MS = 20000;
+    let submitting = false;
+    const submitButton = form.querySelector('button[type="submit"]');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (submitting) return;
 
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -87,46 +92,61 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const reasonLabels = {
-        "software-development": "Desarrollo de software",
-        "ai-adoption": "Adopción de IA",
-        "training": "Capacitación",
-        "other": "Otro"
-      };
-      const reasonValue = form.reason ? form.reason.value : "";
-      const reasonLabel = reasonLabels[reasonValue] || "Sin especificar";
-
       const data = {
         name: form.name.value.trim(),
         email: emailValue,
         phone: phoneValue,
         message: form.message.value.trim(),
-        motivo: reasonLabel,
-        _subject: `Nueva consulta (${reasonLabel}) — neticware.com.ar`,
-        _captcha: "false",
-        _template: "box"
+        reason: form.reason.value,
+        _honey: form.elements.namedItem('_honey').value
       };
 
+      submitting = true;
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando…';
+      form.setAttribute('aria-busy', 'true');
+      const controller = new AbortController();
+      let timedOut = false;
+      const timeoutId = setTimeout(() => {
+        timedOut = true;
+        controller.abort();
+      }, REQUEST_TIMEOUT_MS);
+
       try {
-        const response = await fetch("https://formsubmit.co/ajax/ef7d59049898d7f53426aae769f74ea4", {
+        const response = await fetch("/api/contact", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
+          signal: controller.signal
         });
 
-        if (response.ok) {
+        const result = await response.json().catch((error) => {
+          // El plazo incluye la descarga del cuerpo, no solo los encabezados.
+          if (controller.signal.aborted) throw error;
+          return null;
+        });
+        if (response.ok && result?.success === true) {
           form.reset();
           form.style.display = "none";
           thankYou.style.display = "block";
           document.dispatchEvent(new Event('neticware:contact-success'));
         } else {
-          alert("Hubo un error al enviar el formulario. Intentalo de nuevo.");
+          alert(result?.message || "No pudimos confirmar el envío. Tus datos siguen en el formulario; podés contactarnos por correo.");
         }
       } catch (error) {
-        alert("Error de conexión. Intentalo más tarde.");
+        alert(timedOut
+          ? "La conexión tardó demasiado. No pudimos confirmar el envío; tus datos siguen en el formulario."
+          : "Error de conexión. Intentalo más tarde.");
+      } finally {
+        clearTimeout(timeoutId);
+        submitting = false;
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+        form.removeAttribute('aria-busy');
       }
     });
   }

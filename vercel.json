@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "api/contact.js": { "maxDuration": 15 }
+  },
   "rewrites": [
     { "source": "/adopcion-ia", "destination": "/ai-adoption.html" },
     { "source": "/mantenimiento.html", "destination": "/maintenance.html" },
