@@ -23,7 +23,12 @@ http.createServer(async (req, res) => {
   if (!file.startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
   let bytes, status = 200;
   try { bytes = await readFile(file); }
-  catch { status = 404; file = path.join(root, '404.html'); bytes = await readFile(file); }
+  catch {
+    status = 404;
+    file = path.join(root, '404.html');
+    try { bytes = await readFile(file); }
+    catch { bytes = Buffer.from('<!doctype html><title>404</title><h1>Not found</h1>'); }
+  }
   const headers = { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' };
   headers['Cache-Control'] = requestedPath.startsWith('/assets/images/optimized/') && status === 200
     ? 'public, max-age=31536000, immutable'
