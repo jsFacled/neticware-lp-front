@@ -1,0 +1,5 @@
+_image-sources/
+output/
+tests/
+.playwright-cli/
+.lighthouseci/

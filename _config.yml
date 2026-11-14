@@ -1,0 +1,14 @@
+# Also keep development inputs out of the existing branch/Jekyll Pages build.
+# The production build and any artifact-based Pages workflow publish dist/ only.
+exclude:
+  - _image-sources
+  - node_modules
+  - output
+  - tests
+  - scripts
+  - package.json
+  - package-lock.json
+  - lighthouserc.cjs
+  - assets/image-manifest.json
+  - vercel.json
+  - README.md

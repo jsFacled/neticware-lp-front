@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = mascot.closest('#hero');
   if (hero) {
     const heroMascotSlot = mascot.parentElement;
-    const image = mascot.querySelector('.mascot__image');
+    let image = mascot.querySelector('.mascot__image');
+    let picture = image.closest('picture');
+    const manifest = window.NETICWARE_IMAGES;
+    if (!manifest || !picture) return;
     const message = mascot.querySelector('.mascot__message');
     const header = document.querySelector('.main-header');
     const services = document.querySelector('#services');
@@ -18,56 +21,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const methodology = document.querySelector('#methodology');
     const contact = document.querySelector('#contact');
     const presenting = {
-      src: image.getAttribute('src'),
       alt: image.alt,
       width: image.width,
       height: image.height,
       message: message.textContent
     };
     const companion = {
-      src: mascot.dataset.companionSrc,
       alt: 'Mascota de Neticware acompañando el recorrido',
       width: 1086,
       height: 1448,
       message: ''
     };
     const servicesIntro = {
-      src: mascot.dataset.servicesIntroSrc,
       alt: 'Mascota de Neticware acompañando la introducción a los servicios',
       width: 1254,
       height: 1254,
       message: ''
     };
     const thinking = {
-      src: mascot.dataset.thinkingSrc,
       alt: 'Mascota de Neticware pensando qué problema resolver',
       width: 1122,
       height: 1402,
       message: 'No empieces eligiendo una de estas. Empezá por lo que necesitás resolver.'
     };
     const pointing = {
-      src: mascot.dataset.pointingSrc,
       alt: 'Mascota de Neticware señalando el enfoque de adopción de IA',
       width: 1086,
       height: 1448,
       message: 'IA no siempre es la respuesta.'
     };
     const working = {
-      src: mascot.dataset.workingSrc,
       alt: 'Mascota de Neticware trabajando en la metodología',
       width: 1122,
       height: 1402,
       message: 'Así lo hacemos.'
     };
     const contacting = {
-      src: mascot.dataset.contactSrc,
       alt: 'Mascota de Neticware invitando a contar un desafío',
       width: 1122,
       height: 1402,
       message: 'Ahora contanos qué querés resolver.'
     };
     const celebrating = {
-      src: mascot.dataset.celebratingSrc,
       alt: 'Mascota de Neticware celebrando el mensaje enviado',
       width: 1122,
       height: 1402,
@@ -75,23 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const poses = { presenting, companion, 'services-intro': servicesIntro, thinking, pointing, working, contact: contacting, celebrating };
 
-    // Have the companion pose ready when the hero leaves the viewport.
-    const companionPreload = new Image();
-    companionPreload.src = companion.src;
-    const preloadedPoses = new Set();
-    const preloadPose = ({ src }) => {
-      if (preloadedPoses.has(src)) return;
-      preloadedPoses.add(src);
-      const preload = new Image();
-      preload.src = src;
-    };
     let contactSubmitted = false;
 
-    const setState = (state) => {
+    const commitState = (state, prepared) => {
       const targetSlot = state === 'services-intro' ? servicesMascotSlot :
         state === 'pointing' ? aiMascotSlot : heroMascotSlot;
       if (targetSlot && mascot.parentElement !== targetSlot) targetSlot.append(mascot);
-      if (mascot.dataset.mascotState === state) return;
 
       const isPresenting = state === 'presenting';
       const pose = poses[state];
@@ -104,13 +88,62 @@ document.addEventListener('DOMContentLoaded', () => {
       mascot.classList.toggle('is-contact', state === 'contact');
       mascot.classList.toggle('is-celebrating', state === 'celebrating');
       mascot.dataset.mascotState = state;
-      image.src = pose.src;
+      picture.replaceWith(prepared.picture);
+      picture = prepared.picture;
+      image = prepared.image;
       image.alt = pose.alt;
       image.width = pose.width;
       image.height = pose.height;
       message.textContent = pose.message;
       message.hidden = !pose.message;
     };
+
+    const initialPicture = { picture, image };
+    const images = createMascotImageController({
+      initialState: mascot.dataset.mascotState,
+      apply: commitState,
+      prepare: async (state) => {
+        if (state === 'presenting') {
+          await initialPicture.image.decode();
+          return initialPicture;
+        }
+        const asset = manifest[state];
+        const nextPicture = document.createElement('picture');
+        nextPicture.className = 'mascot__picture';
+        const nextImage = new Image();
+        nextImage.className = image.className;
+        nextImage.width = asset.width;
+        nextImage.height = asset.height;
+        nextImage.alt = poses[state].alt;
+        nextImage.decoding = 'async';
+        nextImage.sizes = asset.sizes;
+        nextPicture.append(nextImage);
+        nextImage.srcset = asset.srcset;
+        nextImage.src = asset.src;
+        await nextImage.decode();
+        return { picture: nextPicture, image: nextImage };
+      }
+    });
+    const setState = state => { void images.show(state); };
+
+    // Warm only the next relevant poses. The visible hero is discovered in HTML.
+    const warmPoses = (states) => states.forEach(state => { void images.preload(state); });
+    if ('IntersectionObserver' in window) {
+      const sections = new Map([
+        [services, ['companion', 'services-intro', 'thinking']],
+        [aiAdoption, ['pointing']],
+        [methodology, ['working']],
+        [contact, ['contact', 'celebrating']]
+      ].filter(([section]) => section));
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          warmPoses(sections.get(entry.target));
+          observer.unobserve(entry.target);
+        });
+      }, { rootMargin: '180px 0px' });
+      sections.forEach((_, section) => observer.observe(section));
+    }
 
     const inSection = (section, headerBottom) => {
       if (!section) return false;
@@ -185,16 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let framePending = false;
     const scheduleUpdate = () => {
-      preloadPose(servicesIntro);
-      preloadPose(thinking);
-      preloadPose(pointing);
-      if (methodology?.getBoundingClientRect().top < window.innerHeight * 2) {
-        preloadPose(working);
-      }
-      if (contact?.getBoundingClientRect().top < window.innerHeight * 2) {
-        preloadPose(contacting);
-        preloadPose(celebrating);
-      }
       if (framePending) return;
       framePending = true;
       requestAnimationFrame(() => {

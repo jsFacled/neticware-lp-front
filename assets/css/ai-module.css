@@ -6,7 +6,7 @@
   padding: 5.5rem clamp(1rem, 4vw, 4rem) 6rem;
   background:
     linear-gradient(90deg, rgba(5, 16, 39, .91), rgba(7, 20, 49, .82)),
-    url('../images/hero-modern.webp') center / cover no-repeat;
+    url('../images/optimized/hero-modern-1024.d87e77495098.webp') center / cover no-repeat;
 }
 
 .ai-adoption::before {

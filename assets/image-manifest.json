@@ -1,0 +1,984 @@
+{
+  "schemaVersion": 1,
+  "encoder": {
+    "aom": "3.15.1",
+    "archive": "3.8.9",
+    "cairo": "1.18.6",
+    "cgif": "0.5.4",
+    "exif": "0.6.26",
+    "expat": "2.8.5",
+    "ffi": "3.8.0",
+    "fontconfig": "2.18.3",
+    "freetype": "2.14.3",
+    "fribidi": "1.0.17",
+    "glib": "2.90.0",
+    "harfbuzz": "14.5.0",
+    "heif": "1.23.5",
+    "highway": "1.4.0",
+    "imagequant": "2.4.1",
+    "lcms": "2.19.1",
+    "mozjpeg": "0826579",
+    "pango": "1.58.2",
+    "pixman": "0.46.4",
+    "png": "1.6.58",
+    "proxy-libintl": "0.5",
+    "rsvg": "2.63.2",
+    "tiff": "4.7.2",
+    "uhdr": "2.0.2",
+    "vips": "8.18.7",
+    "webp": "1.6.0",
+    "xml2": "2.15.4",
+    "zlib-ng": "2.3.3",
+    "sharp": "0.35.5"
+  },
+  "assets": {
+    "mascot-presenting": {
+      "source": "mascot/mascot-presenting.png",
+      "sourceBytes": 1325479,
+      "sourceSha256": "acd845d865158a39e1d97f5d6e87622ef3b30c74392cf3706790cf084b3fff49",
+      "variants": {
+        "480.webp": {
+          "src": "assets/images/optimized/mascot-presenting-480.66adaca42362.webp",
+          "width": 480,
+          "height": 600,
+          "bytes": 52144,
+          "sha256": "66adaca4236291136a0c32011417b179baba5dfb7c0d45a02871905740fd7f08"
+        },
+        "480.avif": {
+          "src": "assets/images/optimized/mascot-presenting-480.9c1a3aec759c.avif",
+          "width": 480,
+          "height": 600,
+          "bytes": 39702,
+          "sha256": "9c1a3aec759c84b0553fd4d25635203e719f25e6e8369759e1e620ea04b803ec"
+        },
+        "960.webp": {
+          "src": "assets/images/optimized/mascot-presenting-960.f69f16cec08e.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 138942,
+          "sha256": "f69f16cec08e9d6b7b72e75e2bad6b8a8c37f0f891f72aec6f141846fa5c4b63"
+        },
+        "960.avif": {
+          "src": "assets/images/optimized/mascot-presenting-960.522071155b9c.avif",
+          "width": 960,
+          "height": 1200,
+          "bytes": 96562,
+          "sha256": "522071155b9cf1fc262f4a67e1bfa17d88405e33c79b7a86abcfb17267f36d73"
+        }
+      },
+      "originalWidth": 1122,
+      "originalHeight": 1402,
+      "avifSaving": 0.3050193605965079
+    },
+    "mascot-companion": {
+      "source": "mascot/mascot-companion.png",
+      "sourceBytes": 1450252,
+      "sourceSha256": "24cb8c0b686280e339a322d9ff1d8fc5d6b402ff2a12b33594473728de2f0231",
+      "variants": {
+        "112.webp": {
+          "src": "assets/images/optimized/mascot-companion-112.34a71f2dea3e.webp",
+          "width": 112,
+          "height": 149,
+          "bytes": 9156,
+          "sha256": "34a71f2dea3e243cd512d255cfb8a2cf3fe1fddf0efeade798e5459a84ce321e"
+        },
+        "224.webp": {
+          "src": "assets/images/optimized/mascot-companion-224.76628cf2b0ea.webp",
+          "width": 224,
+          "height": 299,
+          "bytes": 20976,
+          "sha256": "76628cf2b0eab5f0de9bc06f4054938a446cabb20d88d326ab69f39d5124d362"
+        }
+      },
+      "originalWidth": 1086,
+      "originalHeight": 1448
+    },
+    "mascot": {
+      "source": "mascot/mascot.png",
+      "sourceBytes": 1468513,
+      "sourceSha256": "715978ab92aefecefe06641155b95a4c4b70bc6656754082c4cf54d3e7160526",
+      "variants": {
+        "128.webp": {
+          "src": "assets/images/optimized/mascot-128.7dd24a7012d7.webp",
+          "width": 128,
+          "height": 128,
+          "bytes": 8796,
+          "sha256": "7dd24a7012d75a21157adcdd5d97ad53e32d481b78300014d8cfeb2a3f4f7cdd"
+        },
+        "256.webp": {
+          "src": "assets/images/optimized/mascot-256.f6b065172d5f.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 21140,
+          "sha256": "f6b065172d5fec3a5ec988c5973e814fbd90fd55b7d980bfd903e411974ad5b1"
+        }
+      },
+      "originalWidth": 1254,
+      "originalHeight": 1254
+    },
+    "mascot-thinking": {
+      "source": "mascot/mascot-thinking.png",
+      "sourceBytes": 1349495,
+      "sourceSha256": "e30392303aee74f8be5b145da9d6d168e6463811a86509bcde63ac5fca920d82",
+      "variants": {
+        "160.webp": {
+          "src": "assets/images/optimized/mascot-thinking-160.3a0050c86aa7.webp",
+          "width": 160,
+          "height": 200,
+          "bytes": 12528,
+          "sha256": "3a0050c86aa7d00bbd36598eecd9c46f2d6fb50fecf57d0f8334b80f985545d2"
+        },
+        "320.webp": {
+          "src": "assets/images/optimized/mascot-thinking-320.e574ed57c849.webp",
+          "width": 320,
+          "height": 400,
+          "bytes": 29768,
+          "sha256": "e574ed57c8495ba9fd950ac3e162289fd404663497279ce6fa570eda88935e65"
+        }
+      },
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    "mascot-pointing": {
+      "source": "mascot/mascot-pointing.png",
+      "sourceBytes": 1305436,
+      "sourceSha256": "6b2c802b9affe77e4c66e26263f812bca9ba817c2f4c478089ebf9919be6a4e8",
+      "variants": {
+        "230.webp": {
+          "src": "assets/images/optimized/mascot-pointing-230.8b1b5b749495.webp",
+          "width": 230,
+          "height": 307,
+          "bytes": 20514,
+          "sha256": "8b1b5b7494958c9997e9559655e60f1e42a111a248f370e496613398f5c52642"
+        },
+        "460.webp": {
+          "src": "assets/images/optimized/mascot-pointing-460.be39cee23139.webp",
+          "width": 460,
+          "height": 613,
+          "bytes": 51648,
+          "sha256": "be39cee231395522890ab2f5f7f6617388ad20993272a925284692411ee2dd76"
+        }
+      },
+      "originalWidth": 1086,
+      "originalHeight": 1448
+    },
+    "mascot-working": {
+      "source": "mascot/mascot-working.png",
+      "sourceBytes": 1466679,
+      "sourceSha256": "d36c388439951355bbddb8b65143b3e989012d6b234c007437a0f96ca76c811c",
+      "variants": {
+        "130.webp": {
+          "src": "assets/images/optimized/mascot-working-130.6235fb1f3f5d.webp",
+          "width": 130,
+          "height": 162,
+          "bytes": 11292,
+          "sha256": "6235fb1f3f5d030f83e28b120211b8e2dbdfbbbeab8dfae3e2f4053f6f4e3f9c"
+        },
+        "260.webp": {
+          "src": "assets/images/optimized/mascot-working-260.92e348dbe1ea.webp",
+          "width": 260,
+          "height": 325,
+          "bytes": 29008,
+          "sha256": "92e348dbe1eade05927ef9492ab6cababb385856353a0f8ed4456326e0db9746"
+        }
+      },
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    "mascot-contact": {
+      "source": "mascot/mascot-contact.png",
+      "sourceBytes": 1326734,
+      "sourceSha256": "881e80db1e037553efba1dee8bf007cd0e1fc91ee7194fe0f65c6993e3acf7b4",
+      "variants": {
+        "160.webp": {
+          "src": "assets/images/optimized/mascot-contact-160.0bb105f83776.webp",
+          "width": 160,
+          "height": 200,
+          "bytes": 12666,
+          "sha256": "0bb105f83776576f86749c39918ab959268179dd817ab4bea69660daef30d999"
+        },
+        "320.webp": {
+          "src": "assets/images/optimized/mascot-contact-320.c3e018ebe0d9.webp",
+          "width": 320,
+          "height": 400,
+          "bytes": 30132,
+          "sha256": "c3e018ebe0d9447678549a06e09bf45832b3a8a27778acc1ca0c28f77846c415"
+        }
+      },
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    "mascot-celebrating": {
+      "source": "mascot/mascot-celebrating.png",
+      "sourceBytes": 1424741,
+      "sourceSha256": "db91598e09cdebe557b6790a0bf30536f243ff64bd5f418737df60e2faa61a95",
+      "variants": {
+        "130.webp": {
+          "src": "assets/images/optimized/mascot-celebrating-130.b144158f4ed7.webp",
+          "width": 130,
+          "height": 162,
+          "bytes": 10414,
+          "sha256": "b144158f4ed711345b3f4cbe935146385158b41f57d62d2773edb0c9993dc33a"
+        },
+        "260.webp": {
+          "src": "assets/images/optimized/mascot-celebrating-260.27490054c293.webp",
+          "width": 260,
+          "height": 325,
+          "bytes": 24262,
+          "sha256": "27490054c293532fbf673579bc61de6c9a791c7231177c47e36d3b077d9f7428"
+        }
+      },
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    "mascot-listening": {
+      "source": "mascot/mascot-listening.png",
+      "sourceBytes": 1650932,
+      "sourceSha256": "386406b2e0bdf62f132f21bc1a01e80cfd49ccd6e73151a433aec85d1beade17",
+      "variants": {
+        "240.webp": {
+          "src": "assets/images/optimized/mascot-listening-240.ccc72be6b8dc.webp",
+          "width": 240,
+          "height": 320,
+          "bytes": 25374,
+          "sha256": "ccc72be6b8dc089e6fe0eb4b05b0d29b9a6f5dce492dfe1327c2b15177d65bb0"
+        },
+        "480.webp": {
+          "src": "assets/images/optimized/mascot-listening-480.cf4560b2db16.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 64342,
+          "sha256": "cf4560b2db169ae8ba5c97f0371eb7f7731d47fd42ee228a0644dd259f8fc07c"
+        }
+      },
+      "originalWidth": 1086,
+      "originalHeight": 1448
+    },
+    "mascot-evaluating": {
+      "source": "mascot/mascot-evaluating.png",
+      "sourceBytes": 2100085,
+      "sourceSha256": "a80eab8de3b698f2ce7a416a16e7391c493f89ea8972c56e3ac70b453058d8ed",
+      "variants": {
+        "140.webp": {
+          "src": "assets/images/optimized/mascot-evaluating-140.e3b966d322e0.webp",
+          "width": 140,
+          "height": 210,
+          "bytes": 15056,
+          "sha256": "e3b966d322e0790237f636e576db950c114813c4dcda65be367ddfa9e737a822"
+        },
+        "280.webp": {
+          "src": "assets/images/optimized/mascot-evaluating-280.23b813bd89d6.webp",
+          "width": 280,
+          "height": 420,
+          "bytes": 36740,
+          "sha256": "23b813bd89d659eb5336d5d41200fc8cedcfa37678c696ce39a3d41d619ebd34"
+        }
+      },
+      "originalWidth": 1024,
+      "originalHeight": 1536
+    },
+    "mascot-choosing": {
+      "source": "mascot/mascot-choosing.png",
+      "sourceBytes": 1508872,
+      "sourceSha256": "aac8c8c807c47002fb96d01eb649badd677a7570dc5b231153d8546edfc51292",
+      "variants": {
+        "120.webp": {
+          "src": "assets/images/optimized/mascot-choosing-120.28ed2d1ba7f0.webp",
+          "width": 120,
+          "height": 160,
+          "bytes": 11026,
+          "sha256": "28ed2d1ba7f0d128758c7b754c077b04335255b82b355cc9d67247b78b825ef0"
+        },
+        "240.webp": {
+          "src": "assets/images/optimized/mascot-choosing-240.749622456326.webp",
+          "width": 240,
+          "height": 320,
+          "bytes": 27628,
+          "sha256": "7496224563261651fe806519bff5d340e46951dcb149ae015713b10fca48e917"
+        }
+      },
+      "originalWidth": 1086,
+      "originalHeight": 1448
+    },
+    "mascot-pilot": {
+      "source": "mascot/mascot-pilot.png",
+      "sourceBytes": 1606649,
+      "sourceSha256": "ef7f21f455f57a0d566a5ecff5722b4cc87732d1edc35948881e31c4f96dbb31",
+      "variants": {
+        "120.webp": {
+          "src": "assets/images/optimized/mascot-pilot-120.6fa830aed4aa.webp",
+          "width": 120,
+          "height": 160,
+          "bytes": 11274,
+          "sha256": "6fa830aed4aab4be19778b74be417096e491c5c711471bc22a1cd75ca61a8a68"
+        },
+        "240.webp": {
+          "src": "assets/images/optimized/mascot-pilot-240.193591aa83f6.webp",
+          "width": 240,
+          "height": 320,
+          "bytes": 27804,
+          "sha256": "193591aa83f6c661b56d8b2fa3cbb4b23636cca58654f205cc21506db73fafd5"
+        }
+      },
+      "originalWidth": 1086,
+      "originalHeight": 1448
+    },
+    "logo": {
+      "source": "neticware-logo.png",
+      "sourceBytes": 1437807,
+      "sourceSha256": "3bf1f3fbc50fe6dcea84f4b57fb6f94f52a0d0e24d1e7dc4b876735ad0df879e",
+      "variants": {
+        "96.webp": {
+          "src": "assets/images/optimized/logo-96.4c5ada2866fc.webp",
+          "width": 96,
+          "height": 96,
+          "bytes": 2544,
+          "sha256": "4c5ada2866fcef38c95deafc9a340e00da755cba1e3a4b498267b1fbf162a8c9"
+        },
+        "192.webp": {
+          "src": "assets/images/optimized/logo-192.72092382153e.webp",
+          "width": 192,
+          "height": 192,
+          "bytes": 6288,
+          "sha256": "72092382153eaeaa9891afc7400c44d3751d127fc32e9be634ca01a7950713eb"
+        },
+        "260.webp": {
+          "src": "assets/images/optimized/logo-260.8eecb1fcc253.webp",
+          "width": 260,
+          "height": 260,
+          "bytes": 8630,
+          "sha256": "8eecb1fcc253db9b887bf06c0aed7df285d9f72d1c700474d5f6af5851eeec4d"
+        },
+        "520.webp": {
+          "src": "assets/images/optimized/logo-520.1705c591010f.webp",
+          "width": 520,
+          "height": 520,
+          "bytes": 26808,
+          "sha256": "1705c591010ff1900538e65c6cafa45c143ca80c814a4a3b7c3ca560c7e30a3e"
+        }
+      },
+      "originalWidth": 1024,
+      "originalHeight": 1024
+    },
+    "favicon": {
+      "source": "neticware-logo.png",
+      "sourceBytes": 1437807,
+      "sourceSha256": "3bf1f3fbc50fe6dcea84f4b57fb6f94f52a0d0e24d1e7dc4b876735ad0df879e",
+      "variants": {
+        "16.png": {
+          "src": "assets/images/optimized/favicon-16.bb1ba2e048fe.png",
+          "width": 16,
+          "height": 16,
+          "bytes": 620,
+          "sha256": "bb1ba2e048fea5073e9734c9bcbf46212e7765bcb1ea67baac26518cf5bf12bf"
+        },
+        "32.png": {
+          "src": "assets/images/optimized/favicon-32.9f7475b663f7.png",
+          "width": 32,
+          "height": 32,
+          "bytes": 1559,
+          "sha256": "9f7475b663f7efdeca8b15f3aad2901d092808e282f3b8bab27b39a548a7169e"
+        },
+        "48.png": {
+          "src": "assets/images/optimized/favicon-48.43f96dbb452b.png",
+          "width": 48,
+          "height": 48,
+          "bytes": 2860,
+          "sha256": "43f96dbb452ba89f9642d9460120dec1b5bc547fa4664ce00f1ae73d60a21e4f"
+        },
+        "original.ico": {
+          "src": "assets/images/optimized/favicon.aa9e88e884c0.ico",
+          "width": null,
+          "height": null,
+          "bytes": 5093,
+          "sha256": "aa9e88e884c078aa0b1b4cf370f9902db0090b9b5a63596dafed26338f07c114"
+        }
+      },
+      "originalWidth": 1024,
+      "originalHeight": 1024
+    },
+    "apple-touch-icon": {
+      "source": "neticware-logo.png",
+      "sourceBytes": 1437807,
+      "sourceSha256": "3bf1f3fbc50fe6dcea84f4b57fb6f94f52a0d0e24d1e7dc4b876735ad0df879e",
+      "variants": {
+        "180.png": {
+          "src": "assets/images/optimized/apple-touch-icon-180.c52c6a8df591.png",
+          "width": 180,
+          "height": 180,
+          "bytes": 20227,
+          "sha256": "c52c6a8df59115fdef12802eaa2f88f0afad6fb3ea9dff94ca5d2f1dec8ec0db"
+        }
+      },
+      "originalWidth": 1024,
+      "originalHeight": 1024
+    },
+    "services-web": {
+      "source": "services-web.avif",
+      "sourceBytes": 49295,
+      "sourceSha256": "3ea182ca4d232ce2847aec71bd0310d9baf39efdbe26c9c9027ebdec42d4ca4e",
+      "variants": {
+        "600.webp": {
+          "src": "assets/images/optimized/services-web-600.0407250335d5.webp",
+          "width": 600,
+          "height": 338,
+          "bytes": 25514,
+          "sha256": "0407250335d58b98c294e3e59bb2a17a2809b012d6e9af7174dd67fad5d00aba"
+        },
+        "1200.webp": {
+          "src": "assets/images/optimized/services-web-1200.a5b5b3ba5e0f.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 59594,
+          "sha256": "a5b5b3ba5e0ffaab798a82c037fd0300f8abb9636aaedc00522f448a7544325a"
+        },
+        "600.avif": {
+          "src": "assets/images/optimized/services-web-600.36e01530475e.avif",
+          "width": 600,
+          "height": 338,
+          "bytes": 15897,
+          "sha256": "36e01530475e1ef31c1528cd30371c07616c5e442fb5e3433755b3c4a23d7295"
+        },
+        "1200.avif": {
+          "src": "assets/images/optimized/services-web-1200.3ea182ca4d23.avif",
+          "width": 1200,
+          "height": 675,
+          "bytes": 49295,
+          "sha256": "3ea182ca4d232ce2847aec71bd0310d9baf39efdbe26c9c9027ebdec42d4ca4e"
+        }
+      },
+      "originalWidth": 1200,
+      "originalHeight": 675
+    },
+    "services-custom-software": {
+      "source": "services-custom-software.avif",
+      "sourceBytes": 83631,
+      "sourceSha256": "3ae13f9ddc12a6a41d8403a1f73f4636f50ab47614c76628283474493049e5e0",
+      "variants": {
+        "600.webp": {
+          "src": "assets/images/optimized/services-custom-software-600.7651811ac188.webp",
+          "width": 600,
+          "height": 338,
+          "bytes": 38804,
+          "sha256": "7651811ac18814fbb631909b5f53c3b73a2b94a05815c513794620b62f5f07ea"
+        },
+        "1200.webp": {
+          "src": "assets/images/optimized/services-custom-software-1200.c37d276f19f9.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 91658,
+          "sha256": "c37d276f19f974dd247827c5ded4a8e8be1321f2e8ffcff91a62c24b5d7e6396"
+        },
+        "600.avif": {
+          "src": "assets/images/optimized/services-custom-software-600.9e230e88e780.avif",
+          "width": 600,
+          "height": 338,
+          "bytes": 24408,
+          "sha256": "9e230e88e7809f76dec2fa5daa4286e0894190fff881882291f57ceba54c56f5"
+        },
+        "1200.avif": {
+          "src": "assets/images/optimized/services-custom-software-1200.3ae13f9ddc12.avif",
+          "width": 1200,
+          "height": 675,
+          "bytes": 83631,
+          "sha256": "3ae13f9ddc12a6a41d8403a1f73f4636f50ab47614c76628283474493049e5e0"
+        }
+      },
+      "originalWidth": 1200,
+      "originalHeight": 675
+    },
+    "services-mobile": {
+      "source": "services-mobile.avif",
+      "sourceBytes": 38488,
+      "sourceSha256": "b7635df5967c78ae2e8339147e70d8c39feedd255fd2f07693b160a365651c5a",
+      "variants": {
+        "600.webp": {
+          "src": "assets/images/optimized/services-mobile-600.2cb02c2e1b8e.webp",
+          "width": 600,
+          "height": 338,
+          "bytes": 21364,
+          "sha256": "2cb02c2e1b8e37f5cb58156065ecef0a24e15ac14d5acef5cc05ebd433d6d367"
+        },
+        "1200.webp": {
+          "src": "assets/images/optimized/services-mobile-1200.215c493eccc4.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 46840,
+          "sha256": "215c493eccc49962c74b1b02c8e6f8576a1b414d57b5d527e8f4931f40456868"
+        },
+        "600.avif": {
+          "src": "assets/images/optimized/services-mobile-600.412e83568e93.avif",
+          "width": 600,
+          "height": 338,
+          "bytes": 14329,
+          "sha256": "412e83568e93be2e826a343bc885d2109f1295f87c60d38e58821b60db94e70c"
+        },
+        "1200.avif": {
+          "src": "assets/images/optimized/services-mobile-1200.b7635df5967c.avif",
+          "width": 1200,
+          "height": 675,
+          "bytes": 38488,
+          "sha256": "b7635df5967c78ae2e8339147e70d8c39feedd255fd2f07693b160a365651c5a"
+        }
+      },
+      "originalWidth": 1200,
+      "originalHeight": 675
+    },
+    "services-lp": {
+      "source": "services-lp.avif",
+      "sourceBytes": 63081,
+      "sourceSha256": "f28b0ffbaa3aa9b5089deced9cb9b23b5a98dcc9f472617bd8b1da7514c9ee3e",
+      "variants": {
+        "600.webp": {
+          "src": "assets/images/optimized/services-lp-600.4cd371ef0996.webp",
+          "width": 600,
+          "height": 338,
+          "bytes": 27070,
+          "sha256": "4cd371ef099690002ee969e01cb727d3844dd2ebe3c353a04d72f2b7699c2724"
+        },
+        "1200.webp": {
+          "src": "assets/images/optimized/services-lp-1200.240e16663bfe.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 66134,
+          "sha256": "240e16663bfe44aca67e4279229106b8d8219b4c84e3df5bd3e46d77984f4631"
+        },
+        "600.avif": {
+          "src": "assets/images/optimized/services-lp-600.394c5fadd487.avif",
+          "width": 600,
+          "height": 338,
+          "bytes": 17973,
+          "sha256": "394c5fadd487a7c9d8ba2705ab6fa9f94870f2ec67965b59cb3887cddd12bca6"
+        },
+        "1200.avif": {
+          "src": "assets/images/optimized/services-lp-1200.f28b0ffbaa3a.avif",
+          "width": 1200,
+          "height": 675,
+          "bytes": 63081,
+          "sha256": "f28b0ffbaa3aa9b5089deced9cb9b23b5a98dcc9f472617bd8b1da7514c9ee3e"
+        }
+      },
+      "originalWidth": 1200,
+      "originalHeight": 675
+    },
+    "services-blog": {
+      "source": "services-blog.avif",
+      "sourceBytes": 44941,
+      "sourceSha256": "db37a814ffb0956ad8729b4dc0a5d98c8427926be9e3192f7c8037c0b7a3ba4b",
+      "variants": {
+        "600.webp": {
+          "src": "assets/images/optimized/services-blog-600.0309441fff97.webp",
+          "width": 600,
+          "height": 338,
+          "bytes": 20682,
+          "sha256": "0309441fff97972e232925af85f061a20993911667c3c78f4c2b251e415f7c9d"
+        },
+        "1200.webp": {
+          "src": "assets/images/optimized/services-blog-1200.34af84c33a45.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 48138,
+          "sha256": "34af84c33a45cf9e9a265787e9c1bf9da25b20dddbc8eca942483922c589b33c"
+        },
+        "600.avif": {
+          "src": "assets/images/optimized/services-blog-600.53cb5870f49e.avif",
+          "width": 600,
+          "height": 338,
+          "bytes": 14918,
+          "sha256": "53cb5870f49e402e85c617f9a8affa00295c4149015bffeb1b8679181e7f0e8a"
+        },
+        "1200.avif": {
+          "src": "assets/images/optimized/services-blog-1200.db37a814ffb0.avif",
+          "width": 1200,
+          "height": 675,
+          "bytes": 44941,
+          "sha256": "db37a814ffb0956ad8729b4dc0a5d98c8427926be9e3192f7c8037c0b7a3ba4b"
+        }
+      },
+      "originalWidth": 1200,
+      "originalHeight": 675
+    },
+    "services-saas": {
+      "source": "services-saas.avif",
+      "sourceBytes": 87260,
+      "sourceSha256": "823b7a83c65aca6d0d5ea452a20ec2cc4cbd72a5b6cfacc04b2355357d1f47a5",
+      "variants": {
+        "600.webp": {
+          "src": "assets/images/optimized/services-saas-600.44ebe06c3884.webp",
+          "width": 600,
+          "height": 338,
+          "bytes": 38278,
+          "sha256": "44ebe06c38846ce952d61c8dbefa64d0669a674a2a0da35c1cda3c46d6110868"
+        },
+        "1200.webp": {
+          "src": "assets/images/optimized/services-saas-1200.9e4722c1ed29.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 89466,
+          "sha256": "9e4722c1ed29edbb04e6b63844f6dc3bee396fd84e489f03293864eff2a75fa2"
+        },
+        "600.avif": {
+          "src": "assets/images/optimized/services-saas-600.ef6e67023fb1.avif",
+          "width": 600,
+          "height": 338,
+          "bytes": 25751,
+          "sha256": "ef6e67023fb1bad57c1dced0a50a16cf64b9eeda414873e909ab615fd86d121b"
+        },
+        "1200.avif": {
+          "src": "assets/images/optimized/services-saas-1200.823b7a83c65a.avif",
+          "width": 1200,
+          "height": 675,
+          "bytes": 87260,
+          "sha256": "823b7a83c65aca6d0d5ea452a20ec2cc4cbd72a5b6cfacc04b2355357d1f47a5"
+        }
+      },
+      "originalWidth": 1200,
+      "originalHeight": 675
+    },
+    "panel-metal": {
+      "source": "panel-metal.webp",
+      "sourceBytes": 413274,
+      "sourceSha256": "50b5fdf6332a608004455f332fa55b86a9489035abdf10283e0aaee5d82b6f81",
+      "variants": {
+        "768.webp": {
+          "src": "assets/images/optimized/panel-metal-768.91b8b0401d2f.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 73476,
+          "sha256": "91b8b0401d2f512d7488a717d43adf5b8354f32537537762e8a085c81a6f2acc"
+        },
+        "1536.webp": {
+          "src": "assets/images/optimized/panel-metal-1536.4df95e511cc2.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 408654,
+          "sha256": "4df95e511cc2b4684bf5a1e6564b8333dd7a4be2f415e9600f9446563b856dd0"
+        }
+      },
+      "originalWidth": 1536,
+      "originalHeight": 1024
+    },
+    "hero-network": {
+      "source": "hero-network.avif",
+      "sourceBytes": 7992,
+      "variants": {
+        "1080.avif": {
+          "src": "assets/images/optimized/hero-network-1080.201f54c997ad.avif",
+          "width": 1080,
+          "height": 1080,
+          "bytes": 7992,
+          "sha256": "201f54c997ad9d857569a042c490f328a85f745ccec414a360f7fa3474da6def"
+        },
+        "1080.webp": {
+          "src": "assets/images/optimized/hero-network-1080.89786acae3a6.webp",
+          "width": 1080,
+          "height": 1080,
+          "bytes": 18054,
+          "sha256": "89786acae3a638bf380e367a4ed35ffab8ce0fcc0bccbb658db2097a1d5e96fe"
+        },
+        "1080.jpg": {
+          "src": "assets/images/optimized/hero-network-1080.34f7e72ab16b.jpg",
+          "width": 1080,
+          "height": 1080,
+          "bytes": 52817,
+          "sha256": "34f7e72ab16b6bf92649a817a28082df93c1b83b766dec55330686387d315e12"
+        }
+      }
+    },
+    "hero-modern": {
+      "source": "hero-modern.webp",
+      "sourceBytes": 93860,
+      "variants": {
+        "1024.webp": {
+          "src": "assets/images/optimized/hero-modern-1024.d87e77495098.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 93860,
+          "sha256": "d87e774950987a28097e10d9c89d705029370de5750bc2284d6f72d58b5ddba0"
+        }
+      }
+    },
+    "about-us": {
+      "source": "about-us.webp",
+      "sourceBytes": 67900,
+      "variants": {
+        "1024.webp": {
+          "src": "assets/images/optimized/about-us-1024.adef986f04a5.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 67900,
+          "sha256": "adef986f04a55b8d2330f5e764276d66df2ccbbf09c78f640f4b3ea48cb669bd"
+        }
+      }
+    },
+    "og-cover-neticware-1200x630": {
+      "source": "og-cover-neticware-1200x630.jpg",
+      "sourceBytes": 81246,
+      "variants": {
+        "1200.jpg": {
+          "src": "assets/images/optimized/og-cover-neticware-1200x630-1200.159beee0c306.jpg",
+          "width": 1200,
+          "height": 630,
+          "bytes": 81246,
+          "sha256": "159beee0c306543e07b06d5538e03760912486c65b98e6342454b33773d0e708"
+        }
+      }
+    },
+    "i-android": {
+      "source": "icons/i-android.svg",
+      "sourceBytes": 1096,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-android.598ac05f45c4.svg",
+          "width": null,
+          "height": null,
+          "bytes": 392,
+          "sha256": "598ac05f45c4a98701cf73eac7b8bf1b6f6c3ab32cc53f9d03acfdd839ab49a1"
+        }
+      }
+    },
+    "i-aws": {
+      "source": "icons/i-aws.svg",
+      "sourceBytes": 96141,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-aws.c691447a65d0.svg",
+          "width": null,
+          "height": null,
+          "bytes": 22569,
+          "sha256": "c691447a65d093048872523af8105c7e6acfdac5e460a64898f764860abc0889"
+        }
+      }
+    },
+    "i-css": {
+      "source": "icons/i-css.svg",
+      "sourceBytes": 332483,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-css.27e21a004d96.svg",
+          "width": null,
+          "height": null,
+          "bytes": 66087,
+          "sha256": "27e21a004d96ea50301526f9416635d23babd82c9565cb191c966bfa427683f6"
+        }
+      }
+    },
+    "i-docker": {
+      "source": "icons/i-docker.svg",
+      "sourceBytes": 1777,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-docker.7351e7299b16.svg",
+          "width": null,
+          "height": null,
+          "bytes": 738,
+          "sha256": "7351e7299b16b4131d695a4ac8dcc1f29c14447be085ef46f3f7f60eff810c7b"
+        }
+      }
+    },
+    "i-git": {
+      "source": "icons/i-git.svg",
+      "sourceBytes": 714,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-git.492e41905965.svg",
+          "width": null,
+          "height": null,
+          "bytes": 351,
+          "sha256": "492e419059657cabc4045cae4029b721b3fa846716b2e523be5e92ff83f56f8d"
+        }
+      }
+    },
+    "i-html5": {
+      "source": "icons/i-html5.svg",
+      "sourceBytes": 339,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-html5.26ce51142e67.svg",
+          "width": null,
+          "height": null,
+          "bytes": 236,
+          "sha256": "26ce51142e670367864340581b1daaaa483171a049d8f424080a385eea66fbe6"
+        }
+      }
+    },
+    "i-java": {
+      "source": "icons/i-java.svg",
+      "sourceBytes": 42175,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-java.0e7667c03d21.svg",
+          "width": null,
+          "height": null,
+          "bytes": 7957,
+          "sha256": "0e7667c03d219a265d49de03adbf88f440d75b344d2cf3218ffbbb7a2840fc20"
+        }
+      }
+    },
+    "i-javascript": {
+      "source": "icons/i-javascript.svg",
+      "sourceBytes": 986,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-javascript.5c77a7996f91.svg",
+          "width": null,
+          "height": null,
+          "bytes": 455,
+          "sha256": "5c77a7996f915a3a1cdced7aaae998231d47a4140f59266148ed60710e36dc47"
+        }
+      }
+    },
+    "i-mysql": {
+      "source": "icons/i-mysql.svg",
+      "sourceBytes": 3637,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-mysql.0ff7bc41afaa.svg",
+          "width": null,
+          "height": null,
+          "bytes": 1193,
+          "sha256": "0ff7bc41afaa775a71eb4c5f6972e8bc0dd52fe3c054e7cb3be9ec1b17527238"
+        }
+      }
+    },
+    "i-postgresql": {
+      "source": "icons/i-postgresql.svg",
+      "sourceBytes": 5217,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-postgresql.d7e08156b836.svg",
+          "width": null,
+          "height": null,
+          "bytes": 1528,
+          "sha256": "d7e08156b836dad67191b398ee16e60c151133b61191d4b6a1c4b63e2a1c3836"
+        }
+      }
+    },
+    "i-react": {
+      "source": "icons/i-react.svg",
+      "sourceBytes": 2938,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-react.003ae81fbc4d.svg",
+          "width": null,
+          "height": null,
+          "bytes": 973,
+          "sha256": "003ae81fbc4d17c10ec8c12c17793a36e11bc0daae36ae60dd56545393bf21ac"
+        }
+      }
+    },
+    "i-springboot": {
+      "source": "icons/i-springboot.svg",
+      "sourceBytes": 998,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-springboot.0603396dd43b.svg",
+          "width": null,
+          "height": null,
+          "bytes": 436,
+          "sha256": "0603396dd43b875be1b3a7f94ed1c131328783f36781c68bb865fe00e1654c8e"
+        }
+      }
+    },
+    "i-vaadin": {
+      "source": "icons/i-vaadin.svg",
+      "sourceBytes": 862,
+      "variants": {
+        "original.svg": {
+          "src": "assets/images/optimized/i-vaadin.d9d5372c1ba3.svg",
+          "width": null,
+          "height": null,
+          "bytes": 479,
+          "sha256": "d9d5372c1ba371dce388b83324ece07562f2f648e19c8fc8b88db557c0f86cf6"
+        }
+      }
+    }
+  },
+  "poses": {
+    "presenting": {
+      "src": "assets/images/optimized/mascot-presenting-480.66adaca42362.webp",
+      "srcset": "assets/images/optimized/mascot-presenting-480.66adaca42362.webp 480w, assets/images/optimized/mascot-presenting-960.f69f16cec08e.webp 960w",
+      "sizes": "(max-width: 640px) 275px, 480px",
+      "width": 1122,
+      "height": 1402,
+      "avif": "assets/images/optimized/mascot-presenting-480.9c1a3aec759c.avif 480w, assets/images/optimized/mascot-presenting-960.522071155b9c.avif 960w"
+    },
+    "companion": {
+      "src": "assets/images/optimized/mascot-companion-112.34a71f2dea3e.webp",
+      "srcset": "assets/images/optimized/mascot-companion-112.34a71f2dea3e.webp 112w, assets/images/optimized/mascot-companion-224.76628cf2b0ea.webp 224w",
+      "sizes": "(max-width: 640px) 78px, 112px",
+      "width": 1086,
+      "height": 1448
+    },
+    "services-intro": {
+      "src": "assets/images/optimized/mascot-128.7dd24a7012d7.webp",
+      "srcset": "assets/images/optimized/mascot-128.7dd24a7012d7.webp 128w, assets/images/optimized/mascot-256.f6b065172d5f.webp 256w",
+      "sizes": "(max-width: 640px) 96px, 128px",
+      "width": 1254,
+      "height": 1254
+    },
+    "thinking": {
+      "src": "assets/images/optimized/mascot-thinking-160.3a0050c86aa7.webp",
+      "srcset": "assets/images/optimized/mascot-thinking-160.3a0050c86aa7.webp 160w, assets/images/optimized/mascot-thinking-320.e574ed57c849.webp 320w",
+      "sizes": "(max-width: 640px) 88px, 130px",
+      "width": 1122,
+      "height": 1402
+    },
+    "pointing": {
+      "src": "assets/images/optimized/mascot-pointing-230.8b1b5b749495.webp",
+      "srcset": "assets/images/optimized/mascot-pointing-230.8b1b5b749495.webp 230w, assets/images/optimized/mascot-pointing-460.be39cee23139.webp 460w",
+      "sizes": "(max-width: 640px) 150px, 230px",
+      "width": 1086,
+      "height": 1448
+    },
+    "working": {
+      "src": "assets/images/optimized/mascot-working-130.6235fb1f3f5d.webp",
+      "srcset": "assets/images/optimized/mascot-working-130.6235fb1f3f5d.webp 130w, assets/images/optimized/mascot-working-260.92e348dbe1ea.webp 260w",
+      "sizes": "(max-width: 640px) 88px, 130px",
+      "width": 1122,
+      "height": 1402
+    },
+    "contact": {
+      "src": "assets/images/optimized/mascot-contact-160.0bb105f83776.webp",
+      "srcset": "assets/images/optimized/mascot-contact-160.0bb105f83776.webp 160w, assets/images/optimized/mascot-contact-320.c3e018ebe0d9.webp 320w",
+      "sizes": "(max-width: 640px) 88px, 130px",
+      "width": 1122,
+      "height": 1402
+    },
+    "celebrating": {
+      "src": "assets/images/optimized/mascot-celebrating-130.b144158f4ed7.webp",
+      "srcset": "assets/images/optimized/mascot-celebrating-130.b144158f4ed7.webp 130w, assets/images/optimized/mascot-celebrating-260.27490054c293.webp 260w",
+      "sizes": "(max-width: 640px) 88px, 130px",
+      "width": 1122,
+      "height": 1402
+    },
+    "listening": {
+      "src": "assets/images/optimized/mascot-listening-240.ccc72be6b8dc.webp",
+      "srcset": "assets/images/optimized/mascot-listening-240.ccc72be6b8dc.webp 240w, assets/images/optimized/mascot-listening-480.cf4560b2db16.webp 480w",
+      "sizes": "225px",
+      "width": 1086,
+      "height": 1448
+    },
+    "evaluating": {
+      "src": "assets/images/optimized/mascot-evaluating-140.e3b966d322e0.webp",
+      "srcset": "assets/images/optimized/mascot-evaluating-140.e3b966d322e0.webp 140w, assets/images/optimized/mascot-evaluating-280.23b813bd89d6.webp 280w",
+      "sizes": "130px",
+      "width": 1024,
+      "height": 1536
+    },
+    "choosing": {
+      "src": "assets/images/optimized/mascot-choosing-120.28ed2d1ba7f0.webp",
+      "srcset": "assets/images/optimized/mascot-choosing-120.28ed2d1ba7f0.webp 120w, assets/images/optimized/mascot-choosing-240.749622456326.webp 240w",
+      "sizes": "105px",
+      "width": 1086,
+      "height": 1448
+    },
+    "pilot": {
+      "src": "assets/images/optimized/mascot-pilot-120.6fa830aed4aa.webp",
+      "srcset": "assets/images/optimized/mascot-pilot-120.6fa830aed4aa.webp 120w, assets/images/optimized/mascot-pilot-240.193591aa83f6.webp 240w",
+      "sizes": "105px",
+      "width": 1086,
+      "height": 1448
+    }
+  }
+}
