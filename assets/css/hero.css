@@ -1,6 +1,8 @@
 /* === Hero Section (decoración extendida) === */
 .hero {
   padding: clamp(2rem, 4vw, 4rem);
+  /* Keep the title below the sticky header when Inicio scrolls to this section. */
+  scroll-margin-top: var(--navbar-height);
 }
 
 .hero__layout {
