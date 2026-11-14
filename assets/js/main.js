@@ -67,6 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (form) {
     const REQUEST_TIMEOUT_MS = 20000;
+    const reasonLabels = {
+      'software-development': 'Desarrollo de software',
+      'ai-adoption': 'Adopción de IA',
+      training: 'Capacitación',
+      other: 'Otro'
+    };
     let submitting = false;
     const submitButton = form.querySelector('button[type="submit"]');
 
@@ -92,12 +98,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const reasonValue = form.reason.value;
+      if (!Object.hasOwn(reasonLabels, reasonValue)) {
+        alert('Seleccioná un motivo válido.');
+        return;
+      }
+      const reasonLabel = reasonLabels[reasonValue];
       const data = {
         name: form.name.value.trim(),
         email: emailValue,
         phone: phoneValue,
         message: form.message.value.trim(),
-        reason: form.reason.value,
+        motivo: reasonLabel,
+        _subject: `Nueva consulta (${reasonLabel}) — neticware.com.ar`,
+        _captcha: 'false',
+        _template: 'box',
         _honey: form.elements.namedItem('_honey').value
       };
 
@@ -114,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, REQUEST_TIMEOUT_MS);
 
       try {
-        const response = await fetch("/api/contact", {
+        const response = await fetch("https://formsubmit.co/ajax/ef7d59049898d7f53426aae769f74ea4", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -129,13 +144,14 @@ document.addEventListener('DOMContentLoaded', () => {
           if (controller.signal.aborted) throw error;
           return null;
         });
-        if (response.ok && result?.success === true) {
+        if (response.ok && (result?.success === true || result?.success === 'true')) {
           form.reset();
           form.style.display = "none";
           thankYou.style.display = "block";
           document.dispatchEvent(new Event('neticware:contact-success'));
         } else {
-          alert(result?.message || "No pudimos confirmar el envío. Tus datos siguen en el formulario; podés contactarnos por correo.");
+          alert((typeof result?.message === 'string' && result.message.trim()) ||
+            "No pudimos confirmar el envío. Tus datos siguen en el formulario; podés contactarnos por correo.");
         }
       } catch (error) {
         alert(timedOut
